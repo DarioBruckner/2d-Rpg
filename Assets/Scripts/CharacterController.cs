@@ -34,6 +34,7 @@ public class CharacterController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        /*
         running = false;
         if (Input.GetKey(KeyCode.LeftArrow))
         {
@@ -53,6 +54,8 @@ public class CharacterController : MonoBehaviour
         {
             runFactor = 0.0f;
         }
+        */
+        m_Rigidbody.velocity = new Vector2(moveSpeed * Input.GetAxis("Horizontal"), m_Rigidbody.velocity.y);
     }
 
     private bool IsGrounded()
