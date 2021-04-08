@@ -14,7 +14,7 @@ public class CharacterController : MonoBehaviour
     float runFactor = 0.0f;
     bool running = false;
     [Range(0.0f, 0.99f)]
-    public float dampening;
+    public float dampening; //I've Added A comment möp - Dario pls no kick ty - Aleks
 
     // Start is called before the first frame update
     void Start()
