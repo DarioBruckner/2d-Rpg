@@ -5,16 +5,13 @@ using UnityEngine;
 public class CharacterController : MonoBehaviour
 {
     [Range(5.0f, 15.0f)]
-    public float moveSpeed;
+    public float f_MoveSpeed;
     Rigidbody2D m_Rigidbody;
     [Range(5.0f, 15.0f)]
     public float m_Thrust;
     CapsuleCollider2D capsuleCollider;
     public LayerMask layerMask;
-    float runFactor = 0.0f;
-    bool running = false;
-    [Range(0.0f, 0.99f)]
-    public float dampening; //I've Added A comment möp - Dario pls no kick ty - Aleks
+    float f_LastAxis = 0.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -34,28 +31,12 @@ public class CharacterController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        /*
-        running = false;
-        if (Input.GetKey(KeyCode.LeftArrow))
+        m_Rigidbody.velocity = new Vector2(f_MoveSpeed * Input.GetAxis("Horizontal"), m_Rigidbody.velocity.y);
+        if (Mathf.Sign(Input.GetAxis("Horizontal")) != Mathf.Sign(f_LastAxis) && IsGrounded())
         {
-            running = true;
-            m_Rigidbody.velocity = new Vector2( - moveSpeed * runFactor, m_Rigidbody.velocity.y);
+            m_Rigidbody.velocity = new Vector2(m_Rigidbody.velocity.x, -1);
         }
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            running = true;
-            m_Rigidbody.velocity = new Vector2(moveSpeed * runFactor, m_Rigidbody.velocity.y);
-        }
-        if (running)
-        {
-            runFactor += 1.0f - dampening;
-            runFactor = runFactor >= 1.0f ? 1.0f : runFactor;
-        } else
-        {
-            runFactor = 0.0f;
-        }
-        */
-        m_Rigidbody.velocity = new Vector2(moveSpeed * Input.GetAxis("Horizontal"), m_Rigidbody.velocity.y);
+        f_LastAxis = Input.GetAxis("Horizontal");
     }
 
     private bool IsGrounded()
