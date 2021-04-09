@@ -9,7 +9,7 @@ public class CharacterController : MonoBehaviour
     Rigidbody2D m_Rigidbody;
     [Range(5.0f, 15.0f)]
     public float m_Thrust;
-    CapsuleCollider2D capsuleCollider;
+    CapsuleCollider2D m_BodyCollider;
     public LayerMask layerMask;
     float f_LastAxis = 0.0f;
 
@@ -17,7 +17,14 @@ public class CharacterController : MonoBehaviour
     void Start()
     {
         m_Rigidbody = GetComponent<Rigidbody2D>();
-        capsuleCollider = GetComponent<CapsuleCollider2D>();
+        CapsuleCollider2D[] m_BodyColliders = GetComponents<CapsuleCollider2D>();
+        foreach (CapsuleCollider2D col in m_BodyColliders)
+        {
+            if (col.sharedMaterial.name == "CharacterBody")
+            {
+                m_BodyCollider = col;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -41,8 +48,8 @@ public class CharacterController : MonoBehaviour
 
     private bool IsGrounded()
     {
-        RaycastHit2D hit = Physics2D.BoxCast(transform.position + new Vector3(0, -capsuleCollider.size.y/2, 0), 
-                                new Vector2(capsuleCollider.size.x - 0.1f, 0.1f), 0, Vector2.down, 0.1f, layerMask);
+        RaycastHit2D hit = Physics2D.BoxCast(transform.position + new Vector3(0, -m_BodyCollider.size.y/2 + 0.1f, 0), 
+                                new Vector2(m_BodyCollider.size.x - 0.1f, 0.1f), 0, Vector2.down, 0.2f, layerMask);
         return hit.collider != null;
     }
 }
