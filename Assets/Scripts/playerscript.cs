@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class playerscript : MonoBehaviour
 {
 
@@ -11,6 +12,11 @@ public class playerscript : MonoBehaviour
     public HealthBar healthBarChar1;
     public HealthBar healthBarChar2;
     public HealthBar healthBarChar3;
+    public HealthBar healthBarChar4;
+
+ 
+
+
     //public HealthBar healthBarChar4;
 
     // Start is called before the first frame update
@@ -20,6 +26,7 @@ public class playerscript : MonoBehaviour
         healthBarChar1.SetMaxHealth(maxHealth);
         healthBarChar2.SetMaxHealth(maxHealth);
         healthBarChar3.SetMaxHealth(maxHealth);
+        healthBarChar4.SetMaxHealth(maxHealth);
     }
 
     // Update is called once per frame
@@ -36,6 +43,6 @@ public class playerscript : MonoBehaviour
         healthBarChar1.SetHealth(currentHealth);
         healthBarChar2.SetHealth(currentHealth -10);
         healthBarChar3.SetHealth(currentHealth -20);
-        //healthBarChar4.SetHealth(currentHealth + 30);
+        healthBarChar4.SetHealth(currentHealth -30);
     }
 }
