@@ -38,6 +38,27 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Invisible
+    uniqueID: 4824079
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 125867487
+    locked: 0
+  - name: BackMountains
+    uniqueID: 3684951387
+    locked: 0
+  - name: Montains2
+    uniqueID: 427893005
+    locked: 0
+  - name: Mountains4
+    uniqueID: 3512717141
+    locked: 0
+  - name: Character
+    uniqueID: 1957022791
+    locked: 0
+  - name: First
+    uniqueID: 367532171
     locked: 0
