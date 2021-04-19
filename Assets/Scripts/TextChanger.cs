@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class TextChanger : MonoBehaviour
 {
 
+
+
     public Text battlelog;
 
     // Start is called before the first frame update
