@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class Mage : magicUser
 {
+    
     public Mage() : base()
     {
-
+        this.Charname = "The Mage";
     }
 }

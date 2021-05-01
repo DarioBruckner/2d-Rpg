@@ -22,6 +22,7 @@ public class CharacterClass : MonoBehaviour
     public int vitality;
     public int magicalMight;
     public int magicalResistance;
+    public string Charname;
 
     public void resetStats()
     {

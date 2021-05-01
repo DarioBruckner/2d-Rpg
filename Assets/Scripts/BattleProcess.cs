@@ -4,18 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public enum BattleState { START, PLAYERTURN, ENEMYTURN, BATTLEPHASE, WON, LOST }
+public enum BattleState { START, PLAYERTURN,ENEMYTURN, BATTLEPHASE, WON, LOST }
 public enum PlayerStates { };
 
 public class BattleProcess : MonoBehaviour {
 
-    int playerActions = 0;
-    int maxplayers = 4;
+    
 
-    public GameObject char1PreFab;
-    public GameObject char2PreFab;
-    public GameObject char3PreFab;
-    public GameObject char4PreFab;
+    public GameObject charMagePrefab;
+    public GameObject charWarriorPrefab;
+    public GameObject charPriestPrefab;
+    public GameObject charThiefPrefab;
 
     public GameObject enemyPrefab;
 
@@ -26,20 +25,22 @@ public class BattleProcess : MonoBehaviour {
 
     public Transform enemyBattleStation;
 
-    Unit char1Unit;
-    Unit char2Unit;
-    Unit char3Unit;
-    Unit char4Unit;
+    List<CharacterClass> characters;
+
+    Mage charMage;
+    Warrior charWarrior;
+    Priest charPriest;
+    Thief charThief;
 
     Unit EnemyUnit;
 
-    List<Unit> character = new List<Unit>();
-    List<Unit> enemys = new List<Unit>();
+    Queue<CharacterClass> playTurns;
 
-    public TextMeshProUGUI char1Name;
-    public TextMeshProUGUI char2Name;
-    public TextMeshProUGUI char3Name;
-    public TextMeshProUGUI char4Name;
+
+    public TextMeshProUGUI charMageName;
+    public TextMeshProUGUI charWarriorName;
+    public TextMeshProUGUI charPriestName;
+    public TextMeshProUGUI charThiefName;
 
     public TextMeshProUGUI EnemyName;
 
@@ -57,16 +58,16 @@ public class BattleProcess : MonoBehaviour {
 
     IEnumerator SetupBattle() {
 
-        GameObject char1GO = Instantiate(char1PreFab, playerBattleStationChar1);
-        GameObject char2GO = Instantiate(char2PreFab, playerBattleStationChar2);
-        GameObject char3GO = Instantiate(char3PreFab, playerBattleStationChar3);
-        GameObject char4GO = Instantiate(char4PreFab, playerBattleStationChar4);
+        GameObject charMageGO = Instantiate(charMagePrefab, playerBattleStationChar1);
+        GameObject charWarriorGO = Instantiate(charWarriorPrefab, playerBattleStationChar2);
+        GameObject charPriestGO = Instantiate(charPriestPrefab, playerBattleStationChar3);
+        GameObject charThiefGO = Instantiate(charThiefPrefab, playerBattleStationChar4);
 
 
-        char1Unit = char1GO.GetComponent<Unit>();
-        char2Unit = char2GO.GetComponent<Unit>();
-        char3Unit = char3GO.GetComponent<Unit>();
-        char4Unit = char4GO.GetComponent<Unit>();
+        charMage = charMageGO.GetComponent<Mage>();
+        charWarrior= charWarriorGO.GetComponent<Warrior>();
+        charPriest = charPriestGO.GetComponent<Priest>();
+        charThief = charThiefGO.GetComponent<Thief>();
 
 
 
@@ -74,55 +75,82 @@ public class BattleProcess : MonoBehaviour {
 
         EnemyUnit = enemyGO.GetComponent<Unit>();
 
-        character.Add(char1Unit);
-        character.Add(char2Unit);
-        character.Add(char3Unit);
-        character.Add(char4Unit);
-
-        enemys.Add(EnemyUnit);
-
-        foreach (Unit charaters in character) {
-            
-        }
-
-        maxplayers = character.Count;
-
-        char1Name.SetText(char1Unit.unitName);
-        char2Name.SetText(char2Unit.unitName);
-        char3Name.SetText(char3Unit.unitName);
-        char4Name.SetText(char4Unit.unitName);
+        
+        charMageName.SetText(charMage.Charname);
+        charWarriorName.SetText(charWarrior.Charname);
+        charPriestName.SetText(charPriest.Charname);
+        charThiefName.SetText(charThief.Charname);
 
         EnemyName.SetText(EnemyUnit.unitName);
 
-        textchanger.startupHealth(char1Unit.maxHealth, char2Unit.maxHealth, char3Unit.maxHealth, char4Unit.maxHealth, EnemyUnit.maxHealth);
+        textchanger.startupHealth(charMage.maxHP, charWarrior.maxHP, charPriest.maxHP, charThief.maxHP, EnemyUnit.maxHealth);
 
         textchanger.setLog(EnemyUnit.unitName + " approches...");
 
         yield return new WaitForSeconds(2f);
 
         state = BattleState.PLAYERTURN;
+
+        characters = new List<CharacterClass>();
+        characters.Add(charMage);
+        characters.Add(charWarrior);
+        characters.Add(charPriest);
+        characters.Add(charThief);
+
+        playTurns = findFastesCharacters(characters);
         PlayerTurn();
     }
 
-    void PlayerTurn() {
-        
-        textchanger.setLog(char1Unit.unitName + " choose an action: ");
-       
+    public Queue<CharacterClass> findFastesCharacters(List<CharacterClass>charchters) {
+        Queue<CharacterClass> characterQueue = new Queue<CharacterClass>();
+        int size = charchters.Count;
+        for(int i = 0; i< size; i++) {
+            int speed = 0;
+            CharacterClass tempobj = null;
+            foreach (CharacterClass cha in charchters) {
+                if(cha.agility > speed) {
+                    speed = cha.agility;
+                    tempobj = cha;
+                }
+            }
+            characterQueue.Enqueue(tempobj);
+            charchters.Remove(tempobj);
+            speed = 0;
+        }
 
+        return characterQueue;
+    }
+
+
+    void PlayerTurn() {
+        if (playTurns.Count > 0) {
+            textchanger.setLog(playTurns.Peek().Charname + " choose an action: ");
+        } else {
+            
+            state = BattleState.ENEMYTURN;
+            EnemyTurn();
+            characters.Add(charMage);
+            characters.Add(charWarrior);
+            characters.Add(charPriest);
+            characters.Add(charThief);
+            playTurns = findFastesCharacters(characters);
+            state = BattleState.PLAYERTURN;
+            PlayerTurn();
+        }
     }
 
     
     void EnemyTurn() {
         
-        EnemyUnit.action = 1;
 
-        state = BattleState.BATTLEPHASE;        
+        state = BattleState.BATTLEPHASE;
+        StartCoroutine(BattlePhase());
         
     }
 
     IEnumerator BattlePhase() {
 
-
+        Debug.Log("Enemy hits (insert random name)");
 
 
 
@@ -130,33 +158,22 @@ public class BattleProcess : MonoBehaviour {
     }
 
     public void OnAttackButton() {
-        if (playerActions > maxplayers) {
-            state = BattleState.ENEMYTURN;
-            return;
-        }
-            
-
-        if (state != BattleState.PLAYERTURN) {
-            return;
-        } else {
-            character[playerActions].action = 1;
-            playerActions++;       
+        if(state == BattleState.PLAYERTURN) {
+            Debug.Log(playTurns.Peek().strength);
+            playTurns.Dequeue();
+            PlayerTurn();
         }
     }
 
     public void OnHealButton() {
         
-        if (playerActions > maxplayers) {
-            state = BattleState.ENEMYTURN;
-            return;
-        }
-
-
-        if (state != BattleState.PLAYERTURN) {
+        if (state == BattleState.PLAYERTURN && playTurns.Peek().Charname.Equals("The Priest")) {
+            Debug.Log(playTurns.Peek().maxHP);
+            playTurns.Dequeue();
+            PlayerTurn();
             return;
         } else {
-            character[playerActions].action = 1;
-            playerActions++;
+            Debug.Log("This Char cant heat");
         }
     }
 
