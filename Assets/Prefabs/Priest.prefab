@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8657954090997856823
+--- !u!1 &8525031743535552320
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,23 +8,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8657954090997856817}
-  - component: {fileID: 8657954090997856822}
-  - component: {fileID: 6840220357705222688}
+  - component: {fileID: 8525031743535552322}
+  - component: {fileID: 8525031743535552321}
+  - component: {fileID: -5864379141395700064}
   m_Layer: 0
-  m_Name: Archer
+  m_Name: Priest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8657954090997856817
+--- !u!4 &8525031743535552322
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8657954090997856823}
+  m_GameObject: {fileID: 8525031743535552320}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
@@ -32,13 +32,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &8657954090997856822
+--- !u!212 &8525031743535552321
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8657954090997856823}
+  m_GameObject: {fileID: 8525031743535552320}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -84,20 +84,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6840220357705222688
+--- !u!114 &-5864379141395700064
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8657954090997856823}
+  m_GameObject: {fileID: 8525031743535552320}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ab7cdcd6fc5a484aaf4c6136af38d18, type: 3}
+  m_Script: {fileID: 11500000, guid: 7085066b42f5fa042b209fee210593bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: Archer
-  Damage: 150
-  Speed: 150
-  maxHealth: 80
-  currentHealth: 80
+  lvl: 1
+  exp: 0
+  expReq: 100
+  maxHP: 16
+  maxMP: 15
+  stdStrength: 8
+  stdAgility: 10
+  stdVitality: 8
+  stdMagicalMight: 30
+  stdMagicalResistance: 12
+  HP: 16
+  MP: 15
+  strength: 8
+  agility: 10
+  vitality: 8
+  magicalMight: 30
+  magicalResistance: 12

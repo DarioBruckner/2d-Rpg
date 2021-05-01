@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5725701592398756803}
   - component: {fileID: 5725701592398756802}
-  - component: {fileID: 8597477570930075320}
+  - component: {fileID: -4440259799573087659}
   m_Layer: 0
   m_Name: Warrior
   m_TagString: Untagged
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8597477570930075320
+--- !u!114 &-4440259799573087659
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,11 +93,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 5725701592398756805}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ab7cdcd6fc5a484aaf4c6136af38d18, type: 3}
+  m_Script: {fileID: 11500000, guid: f9b87a1fe87b1ec4bad3274e2dc507e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: Warrior
-  Damage: 200
-  Speed: 40
-  maxHealth: 200
-  currentHealth: 200
+  lvl: 1
+  exp: 0
+  expReq: 100
+  maxHP: 24
+  maxMP: 4
+  stdStrength: 16
+  stdAgility: 4
+  stdVitality: 16
+  stdMagicalMight: 0
+  stdMagicalResistance: 6
+  HP: 24
+  MP: 4
+  strength: 16
+  agility: 4
+  vitality: 16
+  magicalMight: 0
+  magicalResistance: 6

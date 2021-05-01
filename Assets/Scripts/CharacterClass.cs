@@ -5,23 +5,23 @@ using UnityEngine;
 
 public class CharacterClass : MonoBehaviour
 {
-    protected int lvl;
-    protected int exp;
-    protected int expReq;
-    protected int maxHP;
-    protected int maxMP;
-    protected int stdStrength;
-    protected int stdAgility;
-    protected int stdVitality;
-    protected int stdMagicalMight;
-    protected int stdMagicalResistance;
-    protected int HP;
-    protected int MP;
-    protected int strength;
-    protected int agility;
-    protected int vitality;
-    protected int magicalMight;
-    protected int magicalResistance;
+    public int lvl;
+    public int exp;
+    public int expReq;
+    public int maxHP;
+    public int maxMP;
+    public int stdStrength;
+    public int stdAgility;
+    public int stdVitality;
+    public int stdMagicalMight;
+    public int stdMagicalResistance;
+    public int HP;
+    public int MP;
+    public int strength;
+    public int agility;
+    public int vitality;
+    public int magicalMight;
+    public int magicalResistance;
 
     public void resetStats()
     {

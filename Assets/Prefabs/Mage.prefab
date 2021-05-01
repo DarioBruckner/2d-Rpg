@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6346178360790300758}
   - component: {fileID: 6346178360790300753}
-  - component: {fileID: 1740769977631557331}
+  - component: {fileID: -2704478255937894689}
   m_Layer: 0
   m_Name: Mage
   m_TagString: Untagged
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1740769977631557331
+--- !u!114 &-2704478255937894689
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,11 +93,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 6346178360790300752}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ab7cdcd6fc5a484aaf4c6136af38d18, type: 3}
+  m_Script: {fileID: 11500000, guid: dbba9c93151b41445a4d8b1e0461c410, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: Mage
-  Damage: 300
-  Speed: 50
-  maxHealth: 80
-  currentHealth: 80
+  lvl: 1
+  exp: 0
+  expReq: 100
+  maxHP: 16
+  maxMP: 15
+  stdStrength: 8
+  stdAgility: 10
+  stdVitality: 8
+  stdMagicalMight: 30
+  stdMagicalResistance: 12
+  HP: 16
+  MP: 15
+  strength: 8
+  agility: 10
+  vitality: 8
+  magicalMight: 30
+  magicalResistance: 12
