@@ -15,6 +15,6 @@ public class Priest : magicUser
     public void heal(ref PlayerClass target)
     {
         target.getHealed((int)Math.Ceiling((double)(target.maxHP * 0.25)));
-        MP -= 5;
+        this.MP -= 5;
     }
 }

@@ -7,9 +7,10 @@ public class Wolf : MonsterClass
 {
     public Wolf(int lvlUP) : base(lvlUP)
     {
-        maxHP = (int)Math.Ceiling((double)(maxHP * 2));
-        stdStrength = (int)Math.Ceiling((double)(stdStrength * 0.5));
-        resetStats();
+        this.Charname = "Wolf";
+        this.maxHP = (int)Math.Ceiling((double)(maxHP * 2));
+        this.stdStrength = (int)Math.Ceiling((double)(stdStrength * 0.5));
+        this.resetStats();
     }
 
 

@@ -26,59 +26,59 @@ public class CharacterClass : MonoBehaviour
 
     public void resetStats()
     {
-        HP = maxHP;
-        MP = maxMP;
-        strength = stdStrength;
-        agility = stdAgility;
-        vitality = stdVitality;
-        magicalMight = stdMagicalMight;
-        magicalResistance = stdMagicalResistance;
+        this.HP = this.maxHP;
+        this.MP = this.maxMP;
+        this.strength = this.stdStrength;
+        this.agility = this.stdAgility;
+        this.vitality = this.stdVitality;
+        this.magicalMight = this.stdMagicalMight;
+        this.magicalResistance = this.stdMagicalResistance;
     }
 
     public CharacterClass() {
-        lvl = 1;
-        exp = 0;
-        expReq = 100;
-        maxHP = 20;
-        maxMP = 10;
-        stdStrength = 10;
-        stdAgility = 10;
-        stdVitality = 10;
-        stdMagicalMight = 10;
-        stdMagicalResistance = 10;
-        resetStats();
+        this.lvl = 1;
+        this.exp = 0;
+        this.expReq = 100;
+        this.maxHP = 20;
+        this.maxMP = 10;
+        this.stdStrength = 10;
+        this.stdAgility = 10;
+        this.stdVitality = 10;
+        this.stdMagicalMight = 10;
+        this.stdMagicalResistance = 10;
+        this.resetStats();
     }
     public void levelUP()
     {
-        maxHP = (int)Math.Ceiling((double)(maxHP * 1.2));
-        maxMP = (int)Math.Ceiling((double)(maxMP * 1.2));
-        stdStrength = (int)Math.Ceiling((double)(stdStrength * 1.2));
-        stdAgility = (int)Math.Ceiling((double)(stdAgility * 1.2));
-        stdVitality = (int)Math.Ceiling((double)(stdVitality * 1.2));
-        stdMagicalMight = (int)Math.Ceiling((double)(stdMagicalMight * 1.2));
-        stdMagicalResistance = (int)Math.Ceiling((double)(stdMagicalResistance * 1.2));
-        resetStats();
-        expReq += (int)Math.Ceiling((double)(expReq * 1.2));
-        lvl++;
+        this.maxHP = (int)Math.Ceiling((double)(this.maxHP * 1.2));
+        this.maxMP = (int)Math.Ceiling((double)(this.maxMP * 1.2));
+        this.stdStrength = (int)Math.Ceiling((double)(this.stdStrength * 1.2));
+        this.stdAgility = (int)Math.Ceiling((double)(this.stdAgility * 1.2));
+        this.stdVitality = (int)Math.Ceiling((double)(this.stdVitality * 1.2));
+        this.stdMagicalMight = (int)Math.Ceiling((double)(this.stdMagicalMight * 1.2));
+        this.stdMagicalResistance = (int)Math.Ceiling((double)(this.stdMagicalResistance * 1.2));
+        this.resetStats();
+        this.expReq += (int)Math.Ceiling((double)(this.expReq * 1.2));
+        this.lvl++;
         
     }
     public void takePhysDamage(int atkStrength)
     {
-        HP -= (atkStrength / 2);
+        this.HP -= (atkStrength / 2);
     }
     public void takeMagicDamage(int atkMM)
     {
-        HP -= (atkMM / 2);
+        this.HP -= (atkMM / 2);
     }
 
     public void getHealed(int heal)
     {
-        if ((heal + HP) > maxHP)
+        if ((heal + this.HP) > this.maxHP)
         {
-            HP = maxHP;
+            this.HP = this.maxHP;
         }
         else
-            HP += heal;
+            this.HP += heal;
 
     }
 

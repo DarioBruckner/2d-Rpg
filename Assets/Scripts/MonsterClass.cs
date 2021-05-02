@@ -8,7 +8,7 @@ public class MonsterClass : CharacterClass
     {
         for(int i = 1; i < lvlUP; i++)
         {
-            levelUP();
+            this.levelUP();
         }
     }
 
