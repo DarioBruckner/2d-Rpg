@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class magicUser : CharacterClass
+public class magicUser : PlayerClass
 {
     public magicUser() : base()
     {

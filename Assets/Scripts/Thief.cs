@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Thief : CharacterClass
+public class Thief : PlayerClass
 {
     public Thief() : base()
     {

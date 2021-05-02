@@ -61,14 +61,26 @@ public class CharacterClass : MonoBehaviour
         lvl++;
         
     }
-    public void takePhysDamage()
+    public void takePhysDamage(int atkStrength)
     {
+        HP -= (atkStrength / 2);
+    }
+    public void takeMagicDamage(int atkMM)
+    {
+        HP -= (atkMM / 2);
+    }
+
+    public void getHealed(int heal)
+    {
+        if ((heal + HP) > maxHP)
+        {
+            HP = maxHP;
+        }
+        else
+            HP += heal;
 
     }
-    public void takeMagicDamage()
-    {
 
-    }
     // Start is called before the first frame update
     void Start()
     {
