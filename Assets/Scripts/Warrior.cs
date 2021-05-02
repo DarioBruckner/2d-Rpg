@@ -3,20 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Warrior : CharacterClass
+public class Warrior : PlayerClass
 {
 
     
     public Warrior():base()
     {
         this.Charname = "The Warrior";
-        maxHP = (int)Math.Ceiling((double)(maxHP * 1.2));
-        maxMP = (int)Math.Ceiling((double)(maxMP * 0.4));
-        stdStrength = (int)Math.Ceiling((double)(stdStrength * 1.6));
-        stdAgility = (int)Math.Ceiling((double)(stdAgility * 0.4));
-        stdVitality = (int)Math.Ceiling((double)(stdVitality * 1.6));
-        stdMagicalMight = (int)Math.Ceiling((double)(stdMagicalMight * 0));
-        stdMagicalResistance = (int)Math.Ceiling((double)(stdMagicalResistance * 0.6));
-        resetStats();
+        this.maxHP = (int)Math.Ceiling((double)(this.maxHP * 1.2));
+        this.maxMP = (int)Math.Ceiling((double)(this.maxMP * 0.4));
+        this.stdStrength = (int)Math.Ceiling((double)(this.stdStrength * 1.6));
+        this.stdAgility = (int)Math.Ceiling((double)(this.stdAgility * 0.4));
+        this.stdVitality = (int)Math.Ceiling((double)(this.stdVitality * 1.6));
+        this.stdMagicalMight = (int)Math.Ceiling((double)(this.stdMagicalMight * 0));
+        this.stdMagicalResistance = (int)Math.Ceiling((double)(this.stdMagicalResistance * 0.6));
+        this.resetStats();
     }
 }

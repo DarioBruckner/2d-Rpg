@@ -3,17 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class magicUser : CharacterClass
+public class magicUser : PlayerClass
 {
     public magicUser() : base()
     {
-        maxHP = (int)Math.Ceiling((double)(maxHP * 0.8));
-        maxMP = (int)Math.Ceiling((double)(maxMP * 1.5));
-        stdStrength = (int)Math.Ceiling((double)(stdStrength * 0.8));
-        stdAgility = (int)Math.Ceiling((double)(stdAgility * 1));
-        stdVitality = (int)Math.Ceiling((double)(stdVitality * 0.8));
-        stdMagicalMight = (int)Math.Ceiling((double)(stdMagicalMight * 3));
-        stdMagicalResistance = (int)Math.Ceiling((double)(stdMagicalResistance * 1.2));
-        resetStats();
+        this.maxHP = (int)Math.Ceiling((double)(this.maxHP * 0.8));
+        this.maxMP = (int)Math.Ceiling((double)(this.maxMP * 1.5));
+        this.stdStrength = (int)Math.Ceiling((double)(this.stdStrength * 0.8));
+        this.stdAgility = (int)Math.Ceiling((double)(this.stdAgility * 1));
+        this.stdVitality = (int)Math.Ceiling((double)(this.stdVitality * 0.8));
+        this.stdMagicalMight = (int)Math.Ceiling((double)(this.stdMagicalMight * 3));
+        this.stdMagicalResistance = (int)Math.Ceiling((double)(this.stdMagicalResistance * 1.2));
+        this.resetStats();
     }
 }
