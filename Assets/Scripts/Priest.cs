@@ -5,9 +5,11 @@ using UnityEngine;
 
 public class Priest : magicUser
 {
+
+    
     public Priest() : base()
     {
-        
+        this.Charname = "The Priest";
     }
 
     public void heal(ref PlayerClass target)

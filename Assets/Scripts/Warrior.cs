@@ -5,8 +5,11 @@ using UnityEngine;
 
 public class Warrior : PlayerClass
 {
+
+    
     public Warrior():base()
     {
+        this.Charname = "The Warrior";
         maxHP = (int)Math.Ceiling((double)(maxHP * 1.2));
         maxMP = (int)Math.Ceiling((double)(maxMP * 0.4));
         stdStrength = (int)Math.Ceiling((double)(stdStrength * 1.6));

@@ -5,8 +5,11 @@ using UnityEngine;
 
 public class Thief : PlayerClass
 {
+
+   
     public Thief() : base()
     {
+        this.Charname = "The Thief";
         maxHP = (int)Math.Ceiling((double)(maxHP * 1));
         maxMP = (int)Math.Ceiling((double)(maxMP * 0.6));
         stdStrength = (int)Math.Ceiling((double)(stdStrength * 1.2));

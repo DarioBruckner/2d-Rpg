@@ -157,8 +157,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000000089407, y: 0.07}
-  m_SizeDelta: {x: 2.1237, y: 0.6143}
+  m_AnchoredPosition: {x: -0.00000020862, y: -0.000000059605}
+  m_SizeDelta: {x: 2.5823, y: 0.6143}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &31558375
 MonoBehaviour:
@@ -565,8 +565,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000000089407, y: 0.07}
-  m_SizeDelta: {x: 2.1237, y: 0.6143}
+  m_AnchoredPosition: {x: 0.000000059605, y: 0.000000059605}
+  m_SizeDelta: {x: 3.0027, y: 0.6143}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &92061621
 MonoBehaviour:
@@ -1665,8 +1665,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000000089407, y: 0.07}
-  m_SizeDelta: {x: 2.1237, y: 0.6143}
+  m_AnchoredPosition: {x: 0.00000008940697, y: 0}
+  m_SizeDelta: {x: 3.0218, y: 0.6143}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &589248174
 MonoBehaviour:
@@ -2116,7 +2116,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -6.96, y: 0.87}
+  m_AnchoredPosition: {x: -7.05, y: 0.85}
   m_SizeDelta: {x: 2.5727, y: 1.2285}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &772927321
@@ -2382,20 +2382,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5b2c706848a9a84eb8bf05c1460abb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  char1PreFab: {fileID: 8525031743535552320, guid: 2130bcf93af3e674c8dfaf683de53236, type: 3}
-  char2PreFab: {fileID: 5725701592398756805, guid: fc05e478762c9c9469995cddf92befeb, type: 3}
-  char3PreFab: {fileID: 6346178360790300752, guid: 9d103be37215017469215a9cb2cd3730, type: 3}
-  char4PreFab: {fileID: 8657954090997856823, guid: b8da8488e56fa3f4d941dbe7665b065d, type: 3}
+  charMagePrefab: {fileID: 6346178360790300752, guid: 9d103be37215017469215a9cb2cd3730, type: 3}
+  charWarriorPrefab: {fileID: 5725701592398756805, guid: fc05e478762c9c9469995cddf92befeb, type: 3}
+  charPriestPrefab: {fileID: 8525031743535552320, guid: 2130bcf93af3e674c8dfaf683de53236, type: 3}
+  charThiefPrefab: {fileID: 8657954090997856823, guid: b8da8488e56fa3f4d941dbe7665b065d, type: 3}
   enemyPrefab: {fileID: 612619630646590486, guid: 1c0148b14223cdc4abf65908d336e151, type: 3}
   playerBattleStationChar1: {fileID: 1577131955}
   playerBattleStationChar2: {fileID: 1637968569}
   playerBattleStationChar3: {fileID: 920481573}
   playerBattleStationChar4: {fileID: 1730843204}
   enemyBattleStation: {fileID: 698901770}
-  char1Name: {fileID: 31558375}
-  char2Name: {fileID: 92061621}
-  char3Name: {fileID: 589248174}
-  char4Name: {fileID: 961311167}
+  charMageName: {fileID: 31558375}
+  charWarriorName: {fileID: 92061621}
+  charPriestName: {fileID: 589248174}
+  charThiefName: {fileID: 961311167}
   EnemyName: {fileID: 1295393769}
   textchanger: {fileID: 1271211158}
   state: 0
@@ -3600,8 +3600,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -5.88, y: -0.74}
-  m_SizeDelta: {x: 2.5727, y: 1.2285}
+  m_AnchoredPosition: {x: -5.95, y: -0.65}
+  m_SizeDelta: {x: 3.7574, y: 1.2285}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1353986752
 GameObject:
@@ -3700,8 +3700,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -5.48, y: 1.57}
-  m_SizeDelta: {x: 2.5727, y: 1.2285}
+  m_AnchoredPosition: {x: -5.55, y: 1.57}
+  m_SizeDelta: {x: 3.4135, y: 1.2285}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1532484468
 GameObject:
@@ -3953,8 +3953,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -6.63, y: 2.85}
-  m_SizeDelta: {x: 2.5727, y: 1.2285}
+  m_AnchoredPosition: {x: -6.6999, y: 2.85}
+  m_SizeDelta: {x: 3.7192, y: 1.2285}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1574056024
 GameObject:
@@ -4038,7 +4038,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1574056027}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 887392420}
+        m_TargetAssemblyTypeName: BattleProcess, Assembly-CSharp
+        m_MethodName: OnHealButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1574056027
 MonoBehaviour:
   m_ObjectHideFlags: 0
