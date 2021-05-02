@@ -71,6 +71,10 @@ public class CharacterController : MonoBehaviour
                 b_Jump = false;
             }
         }
+        if (m_Rigidbody.velocity.y > 15)
+        {
+            m_Rigidbody.velocity = new Vector2(m_Rigidbody.velocity.x, 15);
+        }
     }
 
     private void FixedUpdate()
