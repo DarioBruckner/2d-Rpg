@@ -23,6 +23,7 @@ public class CharacterClass : MonoBehaviour
     public int magicalMight;
     public int magicalResistance;
     public string Charname;
+    public bool isAlive;
 
     public void resetStats()
     {
@@ -46,6 +47,7 @@ public class CharacterClass : MonoBehaviour
         this.stdVitality = 10;
         this.stdMagicalMight = 10;
         this.stdMagicalResistance = 10;
+        this.isAlive = true;
         this.resetStats();
     }
     public void levelUP()
@@ -65,10 +67,18 @@ public class CharacterClass : MonoBehaviour
     public void takePhysDamage(int atkStrength)
     {
         this.HP -= (atkStrength / 2);
+        if(this.HP <= 0)
+        {
+            this.isAlive = false;
+        }
     }
     public void takeMagicDamage(int atkMM)
     {
         this.HP -= (atkMM / 2);
+        if (this.HP <= 0)
+        {
+            this.isAlive = false;
+        }
     }
 
     public void getHealed(int heal)
