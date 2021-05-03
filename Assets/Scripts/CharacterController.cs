@@ -15,6 +15,8 @@ public class CharacterController : MonoBehaviour
     Animator m_Animator;
     private bool b_Jump = false;
     private float f_JumpTime = 0.0f;
+    [Range(5f, 20f)]
+    public float f_MaxJumpImpulse;
 
     public AudioSource JumpSound;
 
@@ -74,9 +76,9 @@ public class CharacterController : MonoBehaviour
                 b_Jump = false;
             }
         }
-        if (m_Rigidbody.velocity.y > 15)
+        if (m_Rigidbody.velocity.y > f_MaxJumpImpulse)
         {
-            m_Rigidbody.velocity = new Vector2(m_Rigidbody.velocity.x, 15);
+            m_Rigidbody.velocity = new Vector2(m_Rigidbody.velocity.x, f_MaxJumpImpulse);
         }
     }
 
