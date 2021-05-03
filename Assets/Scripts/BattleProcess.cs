@@ -131,11 +131,35 @@ public class BattleProcess : MonoBehaviour {
         return characterQueue;
     }
 
+    CharacterClass findLowestChar(List<CharacterClass> characters) {
+        int size = characters.Count;
+        CharacterClass retobj = null;
+        for(int i = 0; i< size; i++) {
+            int hp = 9999;
+            foreach(CharacterClass cha in characters) {
+                if(cha.HP < hp) {
+                    hp = cha.HP;
+                    retobj = cha;
+                }
+            }
+        }
+
+        return retobj;
+    }
+
 
     void PlayerTurn() {
-        if (playTurns.Count > 0 && typeof(PlayerClass).IsInstanceOfType(playTurns.Peek())) {
-            textchanger.setLog(playTurns.Peek().Charname + " choose an action: ");
-        } else if(playTurns.Count > 0 && typeof(MonsterClass).IsInstanceOfType(playTurns.Peek())){
+        if (state == BattleState.WON || state == BattleState.LOST) {
+            endBattle();
+        } else if (playTurns.Count > 0 && typeof(PlayerClass).IsInstanceOfType(playTurns.Peek())) {
+            state = BattleState.PLAYERTURN;
+            if (playTurns.Peek().isAlive) {
+                textchanger.setLog(playTurns.Peek().Charname + " choose an action: ");
+            } else {
+                playTurns.Dequeue();
+                PlayerTurn();
+            }
+        } else if (playTurns.Count > 0 && typeof(MonsterClass).IsInstanceOfType(playTurns.Peek())) {
             state = BattleState.ENEMYTURN;
             EnemyTurn();
 
@@ -145,22 +169,43 @@ public class BattleProcess : MonoBehaviour {
 
             addCharstoList();
             playTurns = findFastesCharacters(characters);
-            state = BattleState.PLAYERTURN;
             PlayerTurn();
         }
     }
 
     void addCharstoList() {
-        characters.Add(charMage);
-        characters.Add(charWarrior);
-        characters.Add(charPriest);
-        characters.Add(charThief);
+
+
+        if (charMage.isAlive) {
+            characters.Add(charMage);
+        }
+        if (charWarrior.isAlive) {
+            characters.Add(charWarrior);
+        }
+        if (charPriest.isAlive) {
+            characters.Add(charPriest);
+        }
+        if (charThief.isAlive) {
+            characters.Add(charThief);
+        }
         characters.Add(Enemy);
+        
+
+        if(characters.Count <= 1){
+            state = BattleState.LOST;
+            endBattle();
+        }
     }
 
     void EnemyTurn() {
-        int rng = Random.Range(0, targets.Count);
-        
+        int rng = 0;
+        while (true) {
+            rng = Random.Range(0, targets.Count);
+            if (targets[rng].isAlive) {
+                break;
+            }
+
+        }
 
         if(state == BattleState.ENEMYTURN) {
             
@@ -189,12 +234,13 @@ public class BattleProcess : MonoBehaviour {
     public void OnHealButton() {
         
         if (state == BattleState.PLAYERTURN && playTurns.Peek().Charname.Equals("The Priest")) {
-            Debug.Log(playTurns.Peek().maxHP);
+
+            StartCoroutine(PlayerHeal());
             playTurns.Dequeue();
             PlayerTurn();
             return;
         } else {
-            Debug.Log("This Char cant heal");
+            textchanger.setLog("This Character can not Heal");
         }
     }
 
@@ -205,7 +251,12 @@ public class BattleProcess : MonoBehaviour {
 
         yield return new WaitForSeconds(2f);
         playTurns.Dequeue();
-        PlayerTurn();
+        if (!Enemy.isAlive) {
+            state = BattleState.WON;
+            endBattle();
+        } else {
+            PlayerTurn();
+        }
     }
 
     IEnumerator EnemyAttack(CharacterClass target) {
@@ -223,12 +274,20 @@ public class BattleProcess : MonoBehaviour {
     }
 
     IEnumerator PlayerHeal() {
-
-        
-
+        addCharstoList();
+        CharacterClass t = findLowestChar(characters);
+        Debug.Log(t.Charname);
+        textchanger.setLog(playTurns.Peek().Charname + " heals " + t.Charname);
+        t.getHealed(playTurns.Peek().magicalMight);
+        textchanger.setHealthCharByName(t.Charname, t.HP);
 
         yield return new WaitForSeconds(2f);
+
+        PlayerTurn();
     }
+
+
+    
 
     void endBattle() {
         if(state == BattleState.WON) {

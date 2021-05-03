@@ -114,3 +114,4 @@ MonoBehaviour:
   magicalMight: 0
   magicalResistance: 0
   Charname: Wolf
+  isAlive: 1
