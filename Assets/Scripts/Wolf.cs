@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Wolf : MonsterClass
 {
+
+
+
     public Wolf(int lvlUP) : base(lvlUP)
     {
         this.Charname = "Wolf";
@@ -19,7 +22,9 @@ public class Wolf : MonsterClass
     // Start is called before the first frame update
     void Start()
     {
-        
+        this.maxHP = 200;
+        this.HP = 200;
+        this.Charname = "Wolf";
     }
 
     // Update is called once per frame

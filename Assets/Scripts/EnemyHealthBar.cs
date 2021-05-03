@@ -26,6 +26,10 @@ public class EnemyHealthBar : MonoBehaviour
 
     public void SetHealth(int health)
     {
+        if(health < 0) {
+            health = 0;
+        }
+
         slider.value = health;
         currentHealth.SetText(Convert.ToString(health));
     }
