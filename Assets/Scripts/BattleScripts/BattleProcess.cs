@@ -276,7 +276,7 @@ public class BattleProcess : MonoBehaviour {
     IEnumerator PlayerHeal() {
         addCharstoList();
         CharacterClass t = findLowestChar(characters);
-        Debug.Log(t.Charname);
+       
         textchanger.setLog(playTurns.Peek().Charname + " heals " + t.Charname);
         t.getHealed(playTurns.Peek().magicalMight);
         textchanger.setHealthCharByName(t.Charname, t.HP);
