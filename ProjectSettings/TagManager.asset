@@ -56,6 +56,9 @@ TagManager:
   - name: Mountains4
     uniqueID: 3512717141
     locked: 0
+  - name: Items
+    uniqueID: 902646329
+    locked: 0
   - name: Character
     uniqueID: 1957022791
     locked: 0
