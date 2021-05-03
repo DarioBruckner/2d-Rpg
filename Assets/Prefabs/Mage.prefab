@@ -113,3 +113,5 @@ MonoBehaviour:
   vitality: 8
   magicalMight: 30
   magicalResistance: 12
+  Charname: The Mage
+  isAlive: 1

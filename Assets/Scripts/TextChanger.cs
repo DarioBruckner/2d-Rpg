@@ -49,6 +49,24 @@ public class TextChanger : MonoBehaviour {
                 break;
         }
     }
+
+    public void setHealthCharByName(string name, int health) {
+        switch (name) {
+            case "The Mage":
+                healthBarChar1.SetHealth(health);
+                break;
+            case "The Warrior":
+                healthBarChar2.SetHealth(health);
+                break;
+            case "The Priest":
+                healthBarChar3.SetHealth(health);
+                break;
+            case "The Thief":
+                healthBarChar4.SetHealth(health);
+                break;
+        }
+    }
+
     public void setEnemyHealth(int health) {
         enemyHealthbar.SetHealth(health);
     }
