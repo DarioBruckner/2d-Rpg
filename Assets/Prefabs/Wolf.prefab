@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 612619630646590484}
   - component: {fileID: 612619630646590485}
-  - component: {fileID: 4287698668002495343}
+  - component: {fileID: 8604988612021598143}
   m_Layer: 0
-  m_Name: EnemyLarge
+  m_Name: Wolf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4287698668002495343
+--- !u!114 &8604988612021598143
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,11 +93,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 612619630646590486}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ab7cdcd6fc5a484aaf4c6136af38d18, type: 3}
+  m_Script: {fileID: 11500000, guid: de987f383f8c67f47ae810113f87ffe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: TheBoss
-  Damage: 65
-  Speed: 50
-  maxHealth: 2000
-  currentHealth: 2000
+  lvl: 0
+  exp: 0
+  expReq: 0
+  maxHP: 200
+  maxMP: 0
+  stdStrength: 0
+  stdAgility: 0
+  stdVitality: 0
+  stdMagicalMight: 0
+  stdMagicalResistance: 0
+  HP: 200
+  MP: 0
+  strength: 5
+  agility: 10
+  vitality: 0
+  magicalMight: 0
+  magicalResistance: 0
+  Charname: Wolf

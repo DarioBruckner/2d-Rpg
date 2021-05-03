@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+
 public enum BattleState { START, PLAYERTURN,ENEMYTURN, BATTLEPHASE, WON, LOST }
 public enum PlayerStates { };
 
@@ -26,13 +27,14 @@ public class BattleProcess : MonoBehaviour {
     public Transform enemyBattleStation;
 
     List<CharacterClass> characters;
+    List<CharacterClass> targets;
 
     Mage charMage;
     Warrior charWarrior;
     Priest charPriest;
     Thief charThief;
 
-    Unit EnemyUnit;
+    Wolf Enemy;
 
     Queue<CharacterClass> playTurns;
 
@@ -73,7 +75,7 @@ public class BattleProcess : MonoBehaviour {
 
         GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleStation);
 
-        EnemyUnit = enemyGO.GetComponent<Unit>();
+        Enemy = enemyGO.GetComponent<Wolf>();
 
         
         charMageName.SetText(charMage.Charname);
@@ -81,11 +83,11 @@ public class BattleProcess : MonoBehaviour {
         charPriestName.SetText(charPriest.Charname);
         charThiefName.SetText(charThief.Charname);
 
-        EnemyName.SetText(EnemyUnit.unitName);
+        EnemyName.SetText(Enemy.Charname);
 
-        textchanger.startupHealth(charMage.maxHP, charWarrior.maxHP, charPriest.maxHP, charThief.maxHP, EnemyUnit.maxHealth);
+        textchanger.startupHealth(charMage.maxHP, charWarrior.maxHP, charPriest.maxHP, charThief.maxHP, Enemy.maxHP);
 
-        textchanger.setLog(EnemyUnit.unitName + " approches...");
+        textchanger.setLog(Enemy.Charname + " approches...");
 
         yield return new WaitForSeconds(2f);
 
@@ -96,6 +98,14 @@ public class BattleProcess : MonoBehaviour {
         characters.Add(charWarrior);
         characters.Add(charPriest);
         characters.Add(charThief);
+        characters.Add(Enemy);
+
+        targets = new List<CharacterClass>();
+
+        targets.Add(charMage);
+        targets.Add(charWarrior);
+        targets.Add(charPriest);
+        targets.Add(charThief);
 
         playTurns = findFastesCharacters(characters);
         PlayerTurn();
@@ -123,45 +133,56 @@ public class BattleProcess : MonoBehaviour {
 
 
     void PlayerTurn() {
-        if (playTurns.Count > 0) {
+        if (playTurns.Count > 0 && typeof(PlayerClass).IsInstanceOfType(playTurns.Peek())) {
             textchanger.setLog(playTurns.Peek().Charname + " choose an action: ");
-        } else {
-            
+        } else if(playTurns.Count > 0 && typeof(MonsterClass).IsInstanceOfType(playTurns.Peek())){
             state = BattleState.ENEMYTURN;
             EnemyTurn();
-            characters.Add(charMage);
-            characters.Add(charWarrior);
-            characters.Add(charPriest);
-            characters.Add(charThief);
+
+        } else {
+
+
+
+            addCharstoList();
             playTurns = findFastesCharacters(characters);
             state = BattleState.PLAYERTURN;
             PlayerTurn();
         }
     }
 
-    
-    void EnemyTurn() {
-        
-
-        state = BattleState.BATTLEPHASE;
-        StartCoroutine(BattlePhase());
-        
+    void addCharstoList() {
+        characters.Add(charMage);
+        characters.Add(charWarrior);
+        characters.Add(charPriest);
+        characters.Add(charThief);
+        characters.Add(Enemy);
     }
 
-    IEnumerator BattlePhase() {
+    void EnemyTurn() {
+        int rng = Random.Range(0, targets.Count);
+        
 
-        Debug.Log("Enemy hits (insert random name)");
+        if(state == BattleState.ENEMYTURN) {
+            
+            targets[rng].takePhysDamage(playTurns.Peek().strength);
+            textchanger.setHealthChar(rng + 1, targets[rng].HP);
+            StartCoroutine(EnemyAttack(targets[rng]));
+            
 
+        }
 
-
-        yield return new WaitForSeconds(1);
+       
+        
     }
 
     public void OnAttackButton() {
         if(state == BattleState.PLAYERTURN) {
-            Debug.Log(playTurns.Peek().strength);
-            playTurns.Dequeue();
-            PlayerTurn();
+            Enemy.takePhysDamage(playTurns.Peek().strength);
+
+            
+            textchanger.setEnemyHealth(Enemy.HP);
+            StartCoroutine(PlayerAttack(playTurns.Peek()));
+            
         }
     }
 
@@ -173,24 +194,32 @@ public class BattleProcess : MonoBehaviour {
             PlayerTurn();
             return;
         } else {
-            Debug.Log("This Char cant heat");
+            Debug.Log("This Char cant heal");
         }
     }
 
-    IEnumerator PlayerAttack(Unit attackingUnit) {
+    IEnumerator PlayerAttack(CharacterClass attackingUnit) {
 
-        bool isDead = EnemyUnit.takeDamage(attackingUnit.Damage);
-        textchanger.setEnemyHealth(EnemyUnit.currentHealth);
-
-        textchanger.setLog(attackingUnit.unitName + " sucessfully hit");
-
-
-        if (isDead) {
-            state = BattleState.WON;
-        }
-
+        
+        textchanger.setLog(attackingUnit.Charname + " attacks " + Enemy.Charname);
 
         yield return new WaitForSeconds(2f);
+        playTurns.Dequeue();
+        PlayerTurn();
+    }
+
+    IEnumerator EnemyAttack(CharacterClass target) {
+
+        textchanger.setLog(Enemy.Charname + " attacks " + target.Charname);
+
+        yield return new WaitForSeconds(2f);
+
+        
+
+        playTurns.Dequeue();
+
+        state = BattleState.PLAYERTURN;
+        PlayerTurn();
     }
 
     IEnumerator PlayerHeal() {
