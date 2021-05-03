@@ -16,6 +16,8 @@ public class CharacterController : MonoBehaviour
     private bool b_Jump = false;
     private float f_JumpTime = 0.0f;
 
+    public AudioSource JumpSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,6 +60,7 @@ public class CharacterController : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
             {
+                JumpSound.Play();
                 m_Animator.SetInteger("animNr", 2);
                 m_Rigidbody.AddForce(transform.up * m_Thrust, ForceMode2D.Impulse);
                 b_Jump = true;
