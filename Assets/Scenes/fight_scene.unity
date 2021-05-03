@@ -2382,6 +2382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5b2c706848a9a84eb8bf05c1460abb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loader: {fileID: 983036874}
   charMagePrefab: {fileID: 6346178360790300752, guid: 9d103be37215017469215a9cb2cd3730, type: 3}
   charWarriorPrefab: {fileID: 5725701592398756805, guid: fc05e478762c9c9469995cddf92befeb, type: 3}
   charPriestPrefab: {fileID: 8525031743535552320, guid: 2130bcf93af3e674c8dfaf683de53236, type: 3}
@@ -2896,6 +2897,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00427600c87addf4ebc592c3fc16f138, type: 3}
+--- !u!114 &983036874 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4102939021039393016, guid: 00427600c87addf4ebc592c3fc16f138, type: 3}
+  m_PrefabInstance: {fileID: 983036873}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f87e442074c61048828a83684e43a83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1185347295
 GameObject:
   m_ObjectHideFlags: 0

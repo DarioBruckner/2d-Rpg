@@ -10,6 +10,7 @@ public enum PlayerStates { };
 
 public class BattleProcess : MonoBehaviour {
 
+    public LevelLoader loader;
     
 
     public GameObject charMagePrefab;
@@ -292,12 +293,18 @@ public class BattleProcess : MonoBehaviour {
     void endBattle() {
         if(state == BattleState.WON) {
             textchanger.setLog("You won, well done");
+            StartCoroutine(changeLevel());
         }else if (state == BattleState.LOST) {
             textchanger.setLog("Oh no you lost, try again!");
+            StartCoroutine(changeLevel());
         }
+        
     }
 
-    void changeState() {
+    IEnumerator changeLevel() {
 
+        yield return new WaitForSeconds(2f);
+
+        loader.LoadWorld();
     }
 }
