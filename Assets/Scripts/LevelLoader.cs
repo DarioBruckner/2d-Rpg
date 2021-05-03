@@ -12,10 +12,10 @@ public class LevelLoader : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.B)) //Bei collision mit einem Player, könnte man hier die Daten speichern des Objektes.
-        {
-            LoadBattle("lol");
-        }
+        //if(Input.GetKeyDown(KeyCode.B)) //Bei collision mit einem Player, könnte man hier die Daten speichern des Objektes.
+        //{
+        //    LoadBattle("lol");
+        //}
         if (Input.GetKeyDown(KeyCode.W)) //Wenn zb Der Gegner besiegt is, trigger Load World. World braucht dann eine Klasse, die das Objekt von einem Array entfernt oder so.
         {
             LoadWorld();
@@ -37,5 +37,11 @@ public class LevelLoader : MonoBehaviour
         transition.SetTrigger("Start");
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(scene);
+    }
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("asdf");
+        LoadBattle("lol");
     }
 }
