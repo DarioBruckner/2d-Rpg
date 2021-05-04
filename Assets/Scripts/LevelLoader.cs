@@ -41,7 +41,9 @@ public class LevelLoader : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("asdf");
-        LoadBattle("lol");
+        if (other.CompareTag("Player")) 
+        { 
+            LoadBattle("lol");
+        }
     }
 }

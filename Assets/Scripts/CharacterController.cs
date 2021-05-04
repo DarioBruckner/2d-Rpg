@@ -17,6 +17,7 @@ public class CharacterController : MonoBehaviour
     private float f_JumpTime = 0.0f;
     [Range(5f, 20f)]
     public float f_MaxJumpImpulse;
+    private bool b_Stop = false;
 
     public AudioSource JumpSound;
 
@@ -40,32 +41,35 @@ public class CharacterController : MonoBehaviour
     {
         if (!b_Jump)
         {
-            if (Input.GetAxis("Horizontal") != 0 && IsGrounded())
+            if (!b_Stop)
             {
-                m_Animator.SetInteger("animNr", 1);
-            }
-            else if (IsGrounded())
-            {
-                m_Animator.SetInteger("animNr", 0);
-            }
-            if (Input.GetAxis("Horizontal") < 0)
-            {
-                transform.localScale = new Vector3(-1, 1, 1);
-            }
-            else if (Input.GetAxis("Horizontal") > 0)
-            {
-                transform.localScale = new Vector3(1, 1, 1);
-            }
-            if (m_Rigidbody.velocity.y < 0 && !IsGrounded())
-            {
-                m_Animator.SetInteger("animNr", 3);
-            }
-            if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
-            {
-                JumpSound.Play();
-                m_Animator.SetInteger("animNr", 2);
-                m_Rigidbody.AddForce(transform.up * m_Thrust, ForceMode2D.Impulse);
-                b_Jump = true;
+                if (Input.GetAxis("Horizontal") != 0 && IsGrounded())
+                {
+                    m_Animator.SetInteger("animNr", 1);
+                }
+                else if (IsGrounded())
+                {
+                    m_Animator.SetInteger("animNr", 0);
+                }
+                if (Input.GetAxis("Horizontal") < 0)
+                {
+                    transform.localScale = new Vector3(-1, 1, 1);
+                }
+                else if (Input.GetAxis("Horizontal") > 0)
+                {
+                    transform.localScale = new Vector3(1, 1, 1);
+                }
+                if (m_Rigidbody.velocity.y < 0 && !IsGrounded())
+                {
+                    m_Animator.SetInteger("animNr", 3);
+                }
+                if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+                {
+                    JumpSound.Play();
+                    m_Animator.SetInteger("animNr", 2);
+                    m_Rigidbody.AddForce(transform.up * m_Thrust, ForceMode2D.Impulse);
+                    b_Jump = true;
+                }
             }
         } else
         {
@@ -84,7 +88,13 @@ public class CharacterController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        m_Rigidbody.velocity = new Vector2(f_MoveSpeed * Input.GetAxis("Horizontal"), m_Rigidbody.velocity.y);
+        if (!b_Stop)
+        {
+            m_Rigidbody.velocity = new Vector2(f_MoveSpeed * Input.GetAxis("Horizontal"), m_Rigidbody.velocity.y);
+        } else
+        {
+            m_Rigidbody.velocity = new Vector2(0, m_Rigidbody.velocity.y);
+        }
         if (Mathf.Sign(Input.GetAxis("Horizontal")) != Mathf.Sign(f_LastAxis) && IsGrounded())
         {
             m_Rigidbody.velocity = new Vector2(m_Rigidbody.velocity.x, -1);
@@ -97,5 +107,14 @@ public class CharacterController : MonoBehaviour
         RaycastHit2D hit = Physics2D.BoxCast(transform.position + new Vector3(0, -m_BodyCollider.size.y/2 + 0.1f, 0), 
                                 new Vector2(m_BodyCollider.size.x - 0.1f, 0.1f), 0, Vector2.down, 0.2f, layerMask);
         return hit.collider != null;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            b_Stop = true;
+            m_Animator.SetInteger("animNr", 0);
+        }
     }
 }
