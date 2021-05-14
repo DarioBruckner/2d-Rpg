@@ -19,4 +19,24 @@ public class Warrior : PlayerClass
         this.stdMagicalResistance = (int)Math.Ceiling((double)(this.stdMagicalResistance * 0.6));
         this.resetStats();
     }
+    public bool heavySmash(ref CharacterClass target)
+    {
+        if (this.drainMP(2))
+        {
+            double rawDamage = (this.strength / (target.vitality / 2)) + 1;
+            System.Random rng = new System.Random();
+            double crit = rng.Next(100) * ((this.agility / 100) + 1);
+            if (crit > 90)
+            {
+                rawDamage *= 2;
+            }
+            int damage = (int)Math.Ceiling(rawDamage);
+            target.takePhysDamage(damage);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }

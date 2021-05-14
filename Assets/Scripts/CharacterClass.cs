@@ -64,20 +64,50 @@ public class CharacterClass : MonoBehaviour
         this.lvl++;
         
     }
+
+    public bool drainMP(int drain)
+    {
+        if(this.MP > drain)
+        {
+            this.MP -= drain;
+            return true;
+        } else
+        {
+            return false;
+        }
+    }
+    public void regenerateMP(int amount)
+    {
+        this.MP += amount;
+        if(this.MP > this.maxMP) 
+        {
+            this.MP = this.maxMP;
+        }
+    }
+
+    public void reanimate(double restore)
+    {
+        isAlive = true;
+        int heal = (int)Math.Ceiling((double)(this.maxHP * restore));
+        this.getHealed(heal);
+    }
+
     public void takePhysDamage(int atkStrength)
     {
-        this.HP -= (atkStrength / 2);
+        this.HP -= atkStrength;
         if(this.HP <= 0)
         {
             this.isAlive = false;
+            this.HP = 0;
         }
     }
     public void takeMagicDamage(int atkMM)
     {
-        this.HP -= (atkMM / 2);
+        this.HP -= atkMM;
         if (this.HP <= 0)
         {
             this.isAlive = false;
+            this.HP = 0;
         }
     }
 
@@ -90,6 +120,19 @@ public class CharacterClass : MonoBehaviour
         else
             this.HP += heal;
 
+    }
+
+    public virtual void attack(ref CharacterClass target)
+    {
+        double rawDamage = (this.strength / target.vitality) + 1;
+        System.Random rng = new System.Random();
+        double crit = rng.Next(100) * ((this.agility / 100) + 1);
+        if(crit > 90)
+        {
+            rawDamage *= 2;
+        }
+        int damage = (int)Math.Ceiling(rawDamage);
+        target.takePhysDamage(damage);
     }
 
     // Start is called before the first frame update
