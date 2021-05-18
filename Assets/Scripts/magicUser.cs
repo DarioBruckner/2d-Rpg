@@ -16,4 +16,22 @@ public class magicUser : PlayerClass
         this.stdMagicalResistance = (int)Math.Ceiling((double)(this.stdMagicalResistance * 1.2));
         this.resetStats();
     }
+
+    public override void attack(ref CharacterClass target)
+    {
+        double rawDamage = (this.strength / target.vitality) + 1;
+        System.Random rng = new System.Random();
+        double crit = rng.Next(100) * ((this.agility / 100) + 1);
+        if (crit > 90)
+        {
+            rawDamage *= 2;
+        }
+        int damage = (int)Math.Ceiling(rawDamage);
+        target.takePhysDamage(damage);
+        int absMP = rng.Next(1, 6);
+        if(target.drainMP(absMP))
+        {
+            this.regenerateMP(absMP);
+        }
+    }
 }

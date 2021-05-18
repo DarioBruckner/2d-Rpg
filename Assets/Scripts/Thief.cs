@@ -19,4 +19,29 @@ public class Thief : PlayerClass
         this.stdMagicalResistance = (int)Math.Ceiling((double)(this.stdMagicalResistance * 1));
         this.resetStats();
     }
+
+    public bool multiSlash(ref CharacterClass target)
+    {
+        if(this.drainMP(3))
+        {
+            System.Random rng = new System.Random();
+            int attacks = rng.Next(1, 6);
+            for (int i = 0; i < attacks; i++)
+            {
+                double rawDamage = ((this.strength * 0.75) / target.vitality) + 1;
+                double crit = rng.Next(100) * ((this.agility / 100) + 1);
+                if (crit > 80)
+                {
+                    rawDamage *= 2;
+                }
+                int damage = (int)Math.Ceiling(rawDamage);
+                target.takePhysDamage(damage);
+            }
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
