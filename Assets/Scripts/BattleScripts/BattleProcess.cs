@@ -12,7 +12,6 @@ public class BattleProcess : MonoBehaviour {
 
     public LevelLoader loader;
     
-
     public GameObject charMagePrefab;
     public GameObject charWarriorPrefab;
     public GameObject charPriestPrefab;
@@ -86,7 +85,7 @@ public class BattleProcess : MonoBehaviour {
 
         EnemyName.SetText(Enemy.Charname);
 
-        textchanger.startupHealth(charMage.maxHP, charWarrior.maxHP, charPriest.maxHP, charThief.maxHP, Enemy.maxHP);
+        textchanger.startupHealth(charMage.maxHP, charWarrior.maxHP, charPriest.maxHP, charThief.maxHP, Enemy.maxHP, charMage.maxMP, charWarrior.maxMP, charPriest.maxMP, charThief.maxMP);
 
         textchanger.setLog(Enemy.Charname + " approches...");
 
@@ -131,23 +130,6 @@ public class BattleProcess : MonoBehaviour {
 
         return characterQueue;
     }
-
-    CharacterClass findLowestChar(List<CharacterClass> characters) {
-        int size = characters.Count;
-        CharacterClass retobj = null;
-        for(int i = 0; i< size; i++) {
-            int hp = 9999;
-            foreach(CharacterClass cha in characters) {
-                if(cha.HP < hp) {
-                    hp = cha.HP;
-                    retobj = cha;
-                }
-            }
-        }
-
-        return retobj;
-    }
-
 
     void PlayerTurn() {
         if (state == BattleState.WON || state == BattleState.LOST) {
@@ -276,7 +258,7 @@ public class BattleProcess : MonoBehaviour {
 
     IEnumerator PlayerHeal() {
         addCharstoList();
-        CharacterClass t = findLowestChar(characters);
+        CharacterClass t = playTurns.Peek();
        
         textchanger.setLog(playTurns.Peek().Charname + " heals " + t.Charname);
         t.getHealed(playTurns.Peek().magicalMight);

@@ -24,13 +24,18 @@ public class TextChanger : MonoBehaviour {
 
 
 
-    public void startupHealth(int healthchar1, int healthchar2, int healthchar3, int healthchar4, int enemyHealth) {
+    public void startupHealth(int healthchar1, int healthchar2, int healthchar3, int healthchar4, int enemyHealth, int manachar1, int manachar2, int manachar3, int manachar4) {
         healthBarChar1.SetMaxHealth(healthchar1);
         healthBarChar2.SetMaxHealth(healthchar2);
         healthBarChar3.SetMaxHealth(healthchar3);
         healthBarChar4.SetMaxHealth(healthchar4);
 
         enemyHealthbar.SetMaxHealth(enemyHealth);
+
+        healthBarChar1.manaBar.SetMaxMana(manachar1);
+        healthBarChar2.manaBar.SetMaxMana(manachar2);
+        healthBarChar3.manaBar.SetMaxMana(manachar3);
+        healthBarChar4.manaBar.SetMaxMana(manachar4);
     }
 
     public void setHealthChar(int barnum, int health) {
@@ -48,6 +53,8 @@ public class TextChanger : MonoBehaviour {
                 healthBarChar4.SetHealth(health);
                 break;
         }
+
+        
     }
 
     public void setHealthCharByName(string name, int health) {
