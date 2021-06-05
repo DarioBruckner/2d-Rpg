@@ -14,6 +14,9 @@ public class HealthBar : MonoBehaviour {
     public TextMeshProUGUI currentHealth;
     public TextMeshProUGUI maxHealth;
 
+    public manaBar manaBar;
+
+
 
     public void SetMaxHealth(int health) {
         slider.maxValue = health;
