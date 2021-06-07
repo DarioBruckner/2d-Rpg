@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 
 
-public enum BattleState { START, PLAYERTURN,ENEMYTURN, BATTLEPHASE, WON, LOST }
+public enum BattleState { START, PLAYERTURN,ENEMYTURN, BATTLEPHASE, WON, LOST , RUN}
 public enum PlayerStates { };
 
 public class BattleProcess : MonoBehaviour {
@@ -85,7 +85,8 @@ public class BattleProcess : MonoBehaviour {
 
         EnemyName.SetText(Enemy.Charname);
 
-        textchanger.startupHealth(charMage.maxHP, charWarrior.maxHP, charPriest.maxHP, charThief.maxHP, Enemy.maxHP, charMage.maxMP, charWarrior.maxMP, charPriest.maxMP, charThief.maxMP);
+        textchanger.startupHealth(charMage.maxHP, charWarrior.maxHP, charPriest.maxHP, charThief.maxHP, Enemy.maxHP, 
+            charMage.maxMP, charWarrior.maxMP, charPriest.maxMP, charThief.maxMP);
 
         textchanger.setLog(Enemy.Charname + " approches...");
 
@@ -214,18 +215,8 @@ public class BattleProcess : MonoBehaviour {
         }
     }
 
-    public void OnHealButton() {
-        
-        if (state == BattleState.PLAYERTURN && playTurns.Peek().Charname.Equals("The Priest")) {
+    
 
-            StartCoroutine(PlayerHeal());
-            playTurns.Dequeue();
-            PlayerTurn();
-            return;
-        } else {
-            textchanger.setLog("This Character can not Heal");
-        }
-    }
 
     IEnumerator PlayerAttack(CharacterClass attackingUnit) {
 
@@ -256,13 +247,20 @@ public class BattleProcess : MonoBehaviour {
         PlayerTurn();
     }
 
-    IEnumerator PlayerHeal() {
-        addCharstoList();
-        CharacterClass t = playTurns.Peek();
-       
-        textchanger.setLog(playTurns.Peek().Charname + " heals " + t.Charname);
-        t.getHealed(playTurns.Peek().magicalMight);
-        textchanger.setHealthCharByName(t.Charname, t.HP);
+
+    IEnumerator SpecialAttack(CharacterClass user, CharacterClass target) {
+
+
+
+        yield return new WaitForSeconds(2f);
+
+    }
+
+
+    IEnumerator PlayerHeal(CharacterClass targetPlayer) { 
+        textchanger.setLog(playTurns.Peek().Charname + " heals " + targetPlayer.Charname);
+        targetPlayer.getHealed(playTurns.Peek().magicalMight);
+        textchanger.setHealthCharByName(targetPlayer.Charname, targetPlayer.HP);
 
         yield return new WaitForSeconds(2f);
 
