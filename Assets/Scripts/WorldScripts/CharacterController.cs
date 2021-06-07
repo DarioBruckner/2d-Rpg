@@ -18,6 +18,7 @@ public class CharacterController : MonoBehaviour
     [Range(5f, 20f)]
     public float f_MaxJumpImpulse;
     private bool b_Stop = false;
+    public Transform textBubblePrefab;
 
     public AudioSource JumpSound;
 

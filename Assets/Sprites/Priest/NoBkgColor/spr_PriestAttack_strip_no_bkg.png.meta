@@ -1,7 +1,121 @@
 fileFormatVersion: 2
 guid: ed606a2bf17a2a548aef5037ccb144e0
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 2878941627121397775
+    second: spr_PriestAttack_strip_no_bkg_0
+  - first:
+      213: 1155226223734194296
+    second: spr_PriestAttack_strip_no_bkg_1
+  - first:
+      213: 4086173163939101181
+    second: spr_PriestAttack_strip_no_bkg_2
+  - first:
+      213: -7103655619593189609
+    second: spr_PriestAttack_strip_no_bkg_3
+  - first:
+      213: 1592923948706964339
+    second: spr_PriestAttack_strip_no_bkg_4
+  - first:
+      213: -6238474316795179107
+    second: spr_PriestAttack_strip_no_bkg_5
+  - first:
+      213: 8131189991892855838
+    second: spr_PriestAttack_strip_no_bkg_6
+  - first:
+      213: 3158802999694811305
+    second: spr_PriestAttack_strip_no_bkg_7
+  - first:
+      213: -3481513894342024556
+    second: spr_PriestAttack_strip_no_bkg_8
+  - first:
+      213: -4812327058988648266
+    second: spr_PriestAttack_strip_no_bkg_9
+  - first:
+      213: -8221261004399737588
+    second: spr_PriestAttack_strip_no_bkg_10
+  - first:
+      213: 5346399362165309861
+    second: spr_PriestAttack_strip_no_bkg_11
+  - first:
+      213: -2480584463160020022
+    second: spr_PriestAttack_strip_no_bkg_12
+  - first:
+      213: -1256507014115039513
+    second: spr_PriestAttack_strip_no_bkg_13
+  - first:
+      213: 1920593993400255992
+    second: spr_PriestAttack_strip_no_bkg_14
+  - first:
+      213: -4404236163522458359
+    second: spr_PriestAttack_strip_no_bkg_15
+  - first:
+      213: 1800767502787522293
+    second: spr_PriestAttack_strip_no_bkg_16
+  - first:
+      213: 6837328849907179703
+    second: spr_PriestAttack_strip_no_bkg_17
+  - first:
+      213: -5008560145586953834
+    second: spr_PriestAttack_strip_no_bkg_18
+  - first:
+      213: -5388273824980134267
+    second: spr_PriestAttack_strip_no_bkg_19
+  - first:
+      213: -54066073220307369
+    second: spr_PriestAttack_strip_no_bkg_20
+  - first:
+      213: -1791868458476876063
+    second: spr_PriestAttack_strip_no_bkg_21
+  - first:
+      213: -5798459882955706488
+    second: spr_PriestAttack_strip_no_bkg_22
+  - first:
+      213: -6657934627954586790
+    second: spr_PriestAttack_strip_no_bkg_23
+  - first:
+      213: 4633628242405489410
+    second: spr_PriestAttack_strip_no_bkg_24
+  - first:
+      213: 1309061840695264073
+    second: spr_PriestAttack_strip_no_bkg_25
+  - first:
+      213: -5978602858694656398
+    second: spr_PriestAttack_strip_no_bkg_26
+  - first:
+      213: -7126121381911176947
+    second: spr_PriestAttack_strip_no_bkg_27
+  - first:
+      213: 484590909689427595
+    second: spr_PriestAttack_strip_no_bkg_28
+  - first:
+      213: -2356538219848882065
+    second: spr_PriestAttack_strip_no_bkg_29
+  - first:
+      213: 3498800752684192782
+    second: spr_PriestAttack_strip_no_bkg_30
+  - first:
+      213: -5296579202062525856
+    second: spr_PriestAttack_strip_no_bkg_31
+  - first:
+      213: 3666165429563916982
+    second: spr_PriestAttack_strip_no_bkg_32
+  - first:
+      213: -1836402241372111063
+    second: spr_PriestAttack_strip_no_bkg_33
+  - first:
+      213: 1895709539337266533
+    second: spr_PriestAttack_strip_no_bkg_34
+  - first:
+      213: 5052666898090081639
+    second: spr_PriestAttack_strip_no_bkg_35
+  - first:
+      213: 1805809471783819865
+    second: spr_PriestAttack_strip_no_bkg_36
+  - first:
+      213: -8574616849236525901
+    second: spr_PriestAttack_strip_no_bkg_37
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -32,7 +146,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -41,12 +155,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 18
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -65,10 +179,22 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -77,7 +203,805 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: spr_PriestAttack_strip_no_bkg_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 52
+        width: 160
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f00f7a5182e04f720800000000000000
+      internalID: 2878941627121397775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PriestAttack_strip_no_bkg_1
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 52
+        width: 160
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87084ec3120380010800000000000000
+      internalID: 1155226223734194296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PriestAttack_strip_no_bkg_2
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 52
+        width: 160
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df9f257d7d005b830800000000000000
+      internalID: 4086173163939101181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PriestAttack_strip_no_bkg_3
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 52
+        width: 160
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 717c07bc9deba6d90800000000000000
+      internalID: -7103655619593189609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PriestAttack_strip_no_bkg_4
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 52
+        width: 160
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37324e444e33b1610800000000000000
+      internalID: 1592923948706964339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PriestAttack_strip_no_bkg_5
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 52
+        width: 160
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9f860769ac7c69a0800000000000000
+      internalID: -6238474316795179107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PriestAttack_strip_no_bkg_6
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 52
+        width: 160
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1c2cfb773ac7d070800000000000000
+      internalID: 8131189991892855838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PriestAttack_strip_no_bkg_7
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 52
+        width: 160
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a06f38979256db20800000000000000
+      internalID: 3158802999694811305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PriestAttack_strip_no_bkg_8
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 52
+        width: 160
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49228271f8d2fafc0800000000000000
+      internalID: -3481513894342024556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PriestAttack_strip_no_bkg_9
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 52
+        width: 160
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b83bf1690e273db0800000000000000
+      internalID: -4812327058988648266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PriestAttack_strip_no_bkg_10
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 52
+        width: 160
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c058bf2bca638ed80800000000000000
+      internalID: -8221261004399737588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PriestAttack_strip_no_bkg_11
+      rect:
+        serializedVersion: 2
+        x: 1760
+        y: 52
+        width: 160
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a10d39b4e9323a40800000000000000
+      internalID: 5346399362165309861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PriestAttack_strip_no_bkg_12
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 52
+        width: 160
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac37efdc291339dd0800000000000000
+      internalID: -2480584463160020022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PriestAttack_strip_no_bkg_13
+      rect:
+        serializedVersion: 2
+        x: 2080
+        y: 52
+        width: 160
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e6e2e5278dff8ee0800000000000000
+      internalID: -1256507014115039513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PriestAttack_strip_no_bkg_14
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 52
+        width: 160
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f50f5eaf0257aa10800000000000000
+      internalID: 1920593993400255992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PriestAttack_strip_no_bkg_15
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 52
+        width: 160
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90d805e3b8201e2c0800000000000000
+      internalID: -4404236163522458359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PriestAttack_strip_no_bkg_16
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 52
+        width: 160
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fea7beb08c9df810800000000000000
+      internalID: 1800767502787522293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PriestAttack_strip_no_bkg_17
+      rect:
+        serializedVersion: 2
+        x: 2720
+        y: 52
+        width: 160
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b06f3ffc5213ee50800000000000000
+      internalID: 6837328849907179703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PriestAttack_strip_no_bkg_18
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 52
+        width: 160
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6916c1685150e7ab0800000000000000
+      internalID: -5008560145586953834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PriestAttack_strip_no_bkg_19
+      rect:
+        serializedVersion: 2
+        x: 3040
+        y: 52
+        width: 160
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 586168521810935b0800000000000000
+      internalID: -5388273824980134267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PriestAttack_strip_no_bkg_20
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 52
+        width: 160
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 756ad4f513bef3ff0800000000000000
+      internalID: -54066073220307369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PriestAttack_strip_no_bkg_21
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 52
+        width: 160
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ee424871210227e0800000000000000
+      internalID: -1791868458476876063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PriestAttack_strip_no_bkg_22
+      rect:
+        serializedVersion: 2
+        x: 3520
+        y: 52
+        width: 160
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88f6210457bb78fa0800000000000000
+      internalID: -5798459882955706488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PriestAttack_strip_no_bkg_23
+      rect:
+        serializedVersion: 2
+        x: 3680
+        y: 52
+        width: 160
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5b8efa2bb34a93a0800000000000000
+      internalID: -6657934627954586790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PriestAttack_strip_no_bkg_24
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 52
+        width: 160
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20bfbc12654fd4040800000000000000
+      internalID: 4633628242405489410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PriestAttack_strip_no_bkg_25
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 52
+        width: 160
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94309a3fec8ba2210800000000000000
+      internalID: 1309061840695264073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PriestAttack_strip_no_bkg_26
+      rect:
+        serializedVersion: 2
+        x: 4160
+        y: 52
+        width: 160
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27ebe52406cb70da0800000000000000
+      internalID: -5978602858694656398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PriestAttack_strip_no_bkg_27
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 52
+        width: 160
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d095ed4eb5eea1d90800000000000000
+      internalID: -7126121381911176947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PriestAttack_strip_no_bkg_28
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 52
+        width: 160
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b86fb696ddc99b600800000000000000
+      internalID: 484590909689427595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PriestAttack_strip_no_bkg_29
+      rect:
+        serializedVersion: 2
+        x: 4640
+        y: 52
+        width: 160
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f68a64a79f4eb4fd0800000000000000
+      internalID: -2356538219848882065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PriestAttack_strip_no_bkg_30
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 52
+        width: 160
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e045c934fbc3e8030800000000000000
+      internalID: 3498800752684192782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PriestAttack_strip_no_bkg_31
+      rect:
+        serializedVersion: 2
+        x: 4960
+        y: 52
+        width: 160
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06a57583745ce76b0800000000000000
+      internalID: -5296579202062525856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PriestAttack_strip_no_bkg_32
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 52
+        width: 160
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b289f4b806d0e230800000000000000
+      internalID: 3666165429563916982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PriestAttack_strip_no_bkg_33
+      rect:
+        serializedVersion: 2
+        x: 5280
+        y: 52
+        width: 160
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92fb84224e9c386e0800000000000000
+      internalID: -1836402241372111063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PriestAttack_strip_no_bkg_34
+      rect:
+        serializedVersion: 2
+        x: 5440
+        y: 52
+        width: 160
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 565648938c9ee4a10800000000000000
+      internalID: 1895709539337266533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PriestAttack_strip_no_bkg_35
+      rect:
+        serializedVersion: 2
+        x: 5600
+        y: 52
+        width: 160
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76db80d06cdae1640800000000000000
+      internalID: 5052666898090081639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PriestAttack_strip_no_bkg_36
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 52
+        width: 160
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95ad5b1a5268f0910800000000000000
+      internalID: 1805809471783819865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PriestAttack_strip_no_bkg_37
+      rect:
+        serializedVersion: 2
+        x: 5920
+        y: 52
+        width: 160
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bc7d28e767d00980800000000000000
+      internalID: -8574616849236525901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
