@@ -3278,10 +3278,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   f_MoveSpeed: 12.42
   m_Thrust: 11.8
+  f_MaxJumpImpulse: 12.3
   layerMask:
     serializedVersion: 2
     m_Bits: 8
-  f_MaxJumpImpulse: 12.3
   textBubblePrefab: {fileID: 7419845985479822273, guid: 415ff979e2fa1a349a787ef6404b747e, type: 3}
   JumpSound: {fileID: 1837837967}
 --- !u!70 &646914779

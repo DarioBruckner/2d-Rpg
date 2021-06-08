@@ -97,25 +97,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de987f383f8c67f47ae810113f87ffe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lvl: 0
-  exp: 0
-  expReq: 0
-  maxHP: 200
-  maxMP: 0
-  stdStrength: 0
-  stdAgility: 0
-  stdVitality: 0
-  stdMagicalMight: 0
-  stdMagicalResistance: 0
-  HP: 200
-  MP: 0
-  strength: 40
-  agility: 10
-  vitality: 0
-  magicalMight: 0
-  magicalResistance: 0
-  Charname: Wolf
-  isAlive: 1
+  n_lvl: 1
+  n_exp: 0
+  n_expReq: 100
+  n_maxHP: 200
+  n_maxMP: 10
+  n_stdStrength: 10
+  n_stdAgility: 10
+  n_stdVitality: 10
+  n_stdMagicalMight: 10
+  n_stdMagicalResistance: 10
+  n_HP: 200
+  n_MP: 10
+  n_strength: 10
+  n_agility: 10
+  n_vitality: 10
+  n_magicalMight: 10
+  n_magicalResistance: 10
+  s_name: '"Wolf"'
+  b_isAlive: 1
 --- !u!95 &5754392127309524606
 Animator:
   serializedVersion: 3
