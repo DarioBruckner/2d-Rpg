@@ -16,12 +16,6 @@ public class TextBubble : MonoBehaviour
         Destroy(textBubble.gameObject, 5f);
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     private void Awake()
     {
         m_BackgroundSpriteRenderer = transform.Find("TextBubble").GetComponent<SpriteRenderer>();

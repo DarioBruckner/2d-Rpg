@@ -76,19 +76,20 @@ public class BattleProcess : MonoBehaviour {
         GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleStation);
 
         Enemy = enemyGO.GetComponent<Wolf>();
-
+        print(Enemy.s_name);
         
-        charMageName.SetText(charMage.Charname);
-        charWarriorName.SetText(charWarrior.Charname);
-        charPriestName.SetText(charPriest.Charname);
-        charThiefName.SetText(charThief.Charname);
+        charMageName.SetText(charMage.s_name);
+        charWarriorName.SetText(charWarrior.s_name);
+        charPriestName.SetText(charPriest.s_name);
+        charThiefName.SetText(charThief.s_name);
 
-        EnemyName.SetText(Enemy.Charname);
+        EnemyName.SetText(Enemy.s_name);
 
-        textchanger.startupHealth(charMage.maxHP, charWarrior.maxHP, charPriest.maxHP, charThief.maxHP, Enemy.maxHP, 
-            charMage.maxMP, charWarrior.maxMP, charPriest.maxMP, charThief.maxMP);
+        textchanger.startupHealth(charMage.n_maxHP, charWarrior.n_maxHP, charPriest.n_maxHP, charThief.n_maxHP, Enemy.n_maxHP, 
+            charMage.n_maxMP, charWarrior.n_maxMP, charPriest.n_maxMP, charThief.n_maxMP);
 
-        textchanger.setLog(Enemy.Charname + " approches...");
+        textchanger.setLog(Enemy.s_name + " approches...");
+        
 
         yield return new WaitForSeconds(2f);
 
@@ -119,8 +120,8 @@ public class BattleProcess : MonoBehaviour {
             int speed = 0;
             CharacterClass tempobj = null;
             foreach (CharacterClass cha in charchters) {
-                if(cha.agility > speed) {
-                    speed = cha.agility;
+                if(cha.n_agility > speed) {
+                    speed = cha.n_agility;
                     tempobj = cha;
                 }
             }
@@ -137,8 +138,8 @@ public class BattleProcess : MonoBehaviour {
             endBattle();
         } else if (playTurns.Count > 0 && typeof(PlayerClass).IsInstanceOfType(playTurns.Peek())) {
             state = BattleState.PLAYERTURN;
-            if (playTurns.Peek().isAlive) {
-                textchanger.setLog(playTurns.Peek().Charname + " choose an action: ");
+            if (playTurns.Peek().b_isAlive) {
+                textchanger.setLog(playTurns.Peek().s_name + " choose an action: ");
             } else {
                 playTurns.Dequeue();
                 PlayerTurn();
@@ -160,16 +161,16 @@ public class BattleProcess : MonoBehaviour {
     void addCharstoList() {
 
 
-        if (charMage.isAlive) {
+        if (charMage.b_isAlive) {
             characters.Add(charMage);
         }
-        if (charWarrior.isAlive) {
+        if (charWarrior.b_isAlive) {
             characters.Add(charWarrior);
         }
-        if (charPriest.isAlive) {
+        if (charPriest.b_isAlive) {
             characters.Add(charPriest);
         }
-        if (charThief.isAlive) {
+        if (charThief.b_isAlive) {
             characters.Add(charThief);
         }
         characters.Add(Enemy);
@@ -185,7 +186,7 @@ public class BattleProcess : MonoBehaviour {
         int rng = 0;
         while (true) {
             rng = Random.Range(0, targets.Count);
-            if (targets[rng].isAlive) {
+            if (targets[rng].b_isAlive) {
                 break;
             }
 
@@ -193,8 +194,8 @@ public class BattleProcess : MonoBehaviour {
 
         if(state == BattleState.ENEMYTURN) {
             
-            targets[rng].takePhysDamage(playTurns.Peek().strength);
-            textchanger.setHealthChar(rng + 1, targets[rng].HP);
+            targets[rng].takePhysDamage(playTurns.Peek().n_strength);
+            textchanger.setHealthChar(rng + 1, targets[rng].n_HP);
             StartCoroutine(EnemyAttack(targets[rng]));
             
 
@@ -206,10 +207,10 @@ public class BattleProcess : MonoBehaviour {
 
     public void OnAttackButton() {
         if(state == BattleState.PLAYERTURN) {
-            Enemy.takePhysDamage(playTurns.Peek().strength);
+            Enemy.takePhysDamage(playTurns.Peek().n_strength);
 
             
-            textchanger.setEnemyHealth(Enemy.HP);
+            textchanger.setEnemyHealth(Enemy.n_HP);
             StartCoroutine(PlayerAttack(playTurns.Peek()));
             
         }
@@ -221,11 +222,11 @@ public class BattleProcess : MonoBehaviour {
     IEnumerator PlayerAttack(CharacterClass attackingUnit) {
 
         
-        textchanger.setLog(attackingUnit.Charname + " attacks " + Enemy.Charname);
+        textchanger.setLog(attackingUnit.s_name + " attacks " + Enemy.s_name);
 
         yield return new WaitForSeconds(2f);
         playTurns.Dequeue();
-        if (!Enemy.isAlive) {
+        if (!Enemy.b_isAlive) {
             state = BattleState.WON;
             endBattle();
         } else {
@@ -235,7 +236,7 @@ public class BattleProcess : MonoBehaviour {
 
     IEnumerator EnemyAttack(CharacterClass target) {
 
-        textchanger.setLog(Enemy.Charname + " attacks " + target.Charname);
+        textchanger.setLog(Enemy.s_name + " attacks " + target.s_name);
 
         yield return new WaitForSeconds(2f);
 
@@ -258,9 +259,9 @@ public class BattleProcess : MonoBehaviour {
 
 
     IEnumerator PlayerHeal(CharacterClass targetPlayer) { 
-        textchanger.setLog(playTurns.Peek().Charname + " heals " + targetPlayer.Charname);
-        targetPlayer.getHealed(playTurns.Peek().magicalMight);
-        textchanger.setHealthCharByName(targetPlayer.Charname, targetPlayer.HP);
+        textchanger.setLog(playTurns.Peek().s_name + " heals " + targetPlayer.s_name);
+        targetPlayer.getHealed(playTurns.Peek().n_magicalMight);
+        textchanger.setHealthCharByName(targetPlayer.s_name, targetPlayer.n_HP);
 
         yield return new WaitForSeconds(2f);
 

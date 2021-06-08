@@ -1,18 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class PlayerClass : CharacterClass
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    //Inheritance Structure: Priest/Mage->MagicUser->PlayerClass->CharacterClass
+    //Playerclass is empty for now but will store some Items or other features such as the Partylist as well as some stats of the party
+    //Will be important for the transition between Battles and the world
+    //I know it's in english. Should be in german cuz consistency
 }

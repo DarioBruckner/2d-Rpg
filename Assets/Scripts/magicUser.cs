@@ -3,25 +3,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class magicUser : PlayerClass
-{
-    public magicUser() : base()
+public class MagicUser : PlayerClass 
+{               
+                
+    public MagicUser() : base()
     {
-        this.maxHP = (int)Math.Ceiling((double)(this.maxHP * 0.8));
-        this.maxMP = (int)Math.Ceiling((double)(this.maxMP * 1.5));
-        this.stdStrength = (int)Math.Ceiling((double)(this.stdStrength * 0.8));
-        this.stdAgility = (int)Math.Ceiling((double)(this.stdAgility * 1));
-        this.stdVitality = (int)Math.Ceiling((double)(this.stdVitality * 0.8));
-        this.stdMagicalMight = (int)Math.Ceiling((double)(this.stdMagicalMight * 3));
-        this.stdMagicalResistance = (int)Math.Ceiling((double)(this.stdMagicalResistance * 1.2));
+        this.n_maxHP = (int)Math.Ceiling((double)(this.n_maxHP * 0.8));
+        this.n_maxMP = (int)Math.Ceiling((double)(this.n_maxMP * 1.5));
+        this.n_stdStrength = (int)Math.Ceiling((double)(this.n_stdStrength * 0.8));
+        this.n_stdAgility = (int)Math.Ceiling((double)(this.n_stdAgility * 1));
+        this.n_stdVitality = (int)Math.Ceiling((double)(this.n_stdVitality * 0.8));
+        this.n_stdMagicalMight = (int)Math.Ceiling((double)(this.n_stdMagicalMight * 3));
+        this.n_stdMagicalResistance = (int)Math.Ceiling((double)(this.n_stdMagicalResistance * 1.2));
         this.resetStats();
     }
 
     public override void attack(ref CharacterClass target)
     {
-        double rawDamage = (this.strength / target.vitality) + 1;
+        double rawDamage = (this.n_strength / target.n_vitality) + 1;
         System.Random rng = new System.Random();
-        double crit = rng.Next(100) * ((this.agility / 100) + 1);
+        double crit = rng.Next(100) * ((this.n_agility / 100) + 1);
         if (crit > 90)
         {
             rawDamage *= 2;
