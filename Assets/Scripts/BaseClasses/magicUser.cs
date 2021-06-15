@@ -17,6 +17,10 @@ public class MagicUser : PlayerClass
         this.n_stdMagicalResistance = (int)Math.Ceiling((double)(this.n_stdMagicalResistance * 1.2));
         this.resetStats();
     }
+    public override void levelUp()
+    {
+        base.levelUp();
+    }
 
     public override void attack(ref CharacterClass target)
     {

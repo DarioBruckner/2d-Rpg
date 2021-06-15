@@ -24,6 +24,7 @@ public class CharacterClass : MonoBehaviour
     public int n_magicalResistance;
     public string s_name;
     public bool b_isAlive;
+    public List<AbilityClass> abilities;
 
     public void resetStats()
     {
@@ -50,8 +51,9 @@ public class CharacterClass : MonoBehaviour
         this.n_stdMagicalResistance = 10;
         this.b_isAlive = true;
         this.resetStats();
+        this.abilities = new List<AbilityClass>();
     }
-    public void levelUp()
+    public virtual void levelUp()
     {
         this.n_maxHP = (int)Math.Ceiling((double)(this.n_maxHP * 1.2));
         this.n_maxMP = (int)Math.Ceiling((double)(this.n_maxMP * 1.2));
@@ -63,7 +65,6 @@ public class CharacterClass : MonoBehaviour
         this.resetStats();
         this.n_expReq += (int)Math.Ceiling((double)(this.n_expReq * 1.2));
         this.n_lvl++;
-
     }
 
     public bool drainMP(int drain)

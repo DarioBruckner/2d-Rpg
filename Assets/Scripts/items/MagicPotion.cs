@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MagicPotion : item
+public class MagicPotion : ItemClass
 {
     public MagicPotion()
     {
-        this.itemName = "Magic Potion";
-        this.description = "Restores a little ammount of Magicpoints";
+        this.s_itemName = "Magic Potion";
+        this.s_description = "Restores a little ammount of Magicpoints";
     }
     public override bool action(ref CharacterClass target)
     {
