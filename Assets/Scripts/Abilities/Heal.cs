@@ -11,6 +11,7 @@ public class Heal : AbilityClass
         this.n_lvlReq = 1;
         this.s_name = "Heal";
         this.s_description = "";
+        this.n_uses = 0; //Check after combat if this is a multiple of 5
     }
     public override bool action(ref CharacterClass user, ref CharacterClass target)
     {
@@ -18,7 +19,8 @@ public class Heal : AbilityClass
         {
             if (user.drainMP(5))
             {
-                target.getHealed((int)Math.Ceiling((double)(target.n_maxHP * 0.25)));
+                target.getHealed((int)Math.Ceiling((double)(target.n_maxHP * 0.25 + ((this.n_lvl * 0.1) - 0.1))));
+                this.n_uses++;
                 return true;
             } else
             {

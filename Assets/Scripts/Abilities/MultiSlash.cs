@@ -11,6 +11,7 @@ public class MultiSlash : AbilityClass
         this.n_lvlReq = 2;
         this.s_name = "Multi Slash";
         this.s_description = "";
+        this.n_uses = 0; //Check after combat if this is a multiple of 5
     }
     public override bool action(ref CharacterClass user, ref CharacterClass target)
     {
@@ -26,9 +27,10 @@ public class MultiSlash : AbilityClass
                 if (crit > 80)
                     rawDamage *= 2;
 
-                int damage = (int)Math.Ceiling(rawDamage);
+                int damage = (int)Math.Ceiling(rawDamage + ((this.n_lvl * 0.1) + 0.9));
                 target.takePhysDamage(damage);
             }
+            this.n_uses++;
             return true; //Attack was successful
         }
         else

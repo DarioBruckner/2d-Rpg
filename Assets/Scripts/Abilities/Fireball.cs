@@ -11,6 +11,7 @@ public class Fireball : AbilityClass
         this.n_lvlReq = 1;
         this.s_name = "Fireball";
         this.s_description = "";
+        this.n_uses = 0; //Check after combat if this is a multiple of 5
     }
     public override bool action(ref CharacterClass user, ref CharacterClass target)
     {
@@ -23,8 +24,9 @@ public class Fireball : AbilityClass
             if (crit > 90)
                 rawDamage *= 2;
 
-            int damage = (int)Math.Ceiling(rawDamage);
+            int damage = (int)Math.Ceiling(rawDamage + ((this.n_lvl * 0.1) + 0.9));
             target.takeMagicDamage(damage);
+            this.n_uses++;
             return true; // Attacke Feuerball erfolgreich ausgeführt
         }
         else
