@@ -46,4 +46,9 @@ public class LevelLoader : MonoBehaviour
             LoadBattle("lol");
         }
     }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }
