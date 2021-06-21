@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealingPotion : item
+public class HealingPotion : ItemClass
 {
     public HealingPotion()
     {
-        this.itemName = "Healing Potion";
-        this.description = "Restores a little ammount of health";
+        this.s_itemName = "Healing Potion";
+        this.s_description = "Restores a little ammount of health";
     }
     public override bool action(ref CharacterClass target)
     {

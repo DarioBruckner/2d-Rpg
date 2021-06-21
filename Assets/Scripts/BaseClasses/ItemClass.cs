@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class item : MonoBehaviour
+public abstract class ItemClass : MonoBehaviour
 {
-    public string itemName;
-    public string description;
+    public string s_itemName;
+    public string s_description;
     public abstract bool action(ref CharacterClass target);
     
 
