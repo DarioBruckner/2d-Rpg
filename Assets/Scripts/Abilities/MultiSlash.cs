@@ -37,7 +37,7 @@ public class MultiSlash : AbilityClass
             return false; //Error: Not enough Magic Power
     }
 
-
+    
     // Start is called before the first frame update
     void Start()
     {
