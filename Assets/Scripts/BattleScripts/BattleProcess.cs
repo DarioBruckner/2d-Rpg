@@ -26,6 +26,16 @@ public class BattleProcess : MonoBehaviour {
 
     public Transform enemyBattleStation;
 
+
+    public GameObject buttonPrefab;
+
+    public Button buttonOne;
+    public Button buttonTwo;
+    public Button buttonThree;
+    public Button buttonFour;
+
+
+
     List<CharacterClass> characters;
     List<CharacterClass> targets;
 
@@ -75,8 +85,11 @@ public class BattleProcess : MonoBehaviour {
 
         GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleStation);
 
+
+        createDefaultButtons();
+
         Enemy = enemyGO.GetComponent<Wolf>();
-        print(Enemy.s_name);
+        
         
         charMageName.SetText(charMage.s_name);
         charWarriorName.SetText(charWarrior.s_name);
@@ -111,6 +124,28 @@ public class BattleProcess : MonoBehaviour {
 
         playTurns = findFastesCharacters(characters);
         PlayerTurn();
+    }
+
+
+    public void createDefaultButtons() {
+        buttonOne.gameObject.SetActive(true);
+        buttonTwo.gameObject.SetActive(true);
+        buttonThree.gameObject.SetActive(true);
+        buttonFour.gameObject.SetActive(true);
+
+
+        buttonOne.GetComponentInChildren<TextMeshProUGUI>().SetText("Basic Attack");
+        buttonTwo.GetComponentInChildren<TextMeshProUGUI>().SetText("Special Attack");
+        buttonThree.GetComponentInChildren<TextMeshProUGUI>().SetText("Items");
+        buttonFour.GetComponentInChildren<TextMeshProUGUI>().SetText("Run");
+
+
+        buttonOne.onClick.AddListener(OnAttackButton);
+        buttonTwo.onClick.AddListener(displaySpecialMoves);
+        buttonThree.onClick.AddListener(displayItems);
+        buttonFour.onClick.AddListener(runFromBattle);
+
+
     }
 
     public Queue<CharacterClass> findFastesCharacters(List<CharacterClass>charchters) {
@@ -217,6 +252,50 @@ public class BattleProcess : MonoBehaviour {
     }
 
     
+    public void displaySpecialMoves() {
+        CharacterClass currentPlayer = playTurns.Peek();
+        List<AbilityClass> abilities = currentPlayer.abilities;
+        buttonThree.gameObject.SetActive(false);
+    
+
+        if(currentPlayer.abilities.Count < 10) {
+            buttonTwo.gameObject.SetActive(false);
+
+            buttonOne.onClick.RemoveAllListeners();
+            buttonTwo.onClick.RemoveAllListeners();
+            //buttonOne.GetComponentInChildren<TextMeshProUGUI>().SetText(abilities[0].s_name);
+            buttonOne.GetComponentInChildren<TextMeshProUGUI>().SetText("Test Ability Name 1");
+            buttonFour.GetComponentInChildren<TextMeshProUGUI>().SetText("Back");
+            buttonFour.onClick.RemoveAllListeners();
+            buttonFour.onClick.AddListener(createDefaultButtons);
+
+
+        } else {
+            buttonOne.GetComponentInChildren<TextMeshProUGUI>().SetText(abilities[0].s_name);
+            buttonTwo.GetComponentInChildren<TextMeshProUGUI>().SetText(abilities[1].s_name);
+            buttonFour.GetComponentInChildren<TextMeshProUGUI>().SetText("Back");
+        }
+        
+    }
+
+
+    public void displayItems() {
+        CharacterClass currentPlayer = playTurns.Peek();
+
+        buttonOne.onClick.RemoveAllListeners();
+        buttonTwo.onClick.RemoveAllListeners();
+        buttonThree.gameObject.SetActive(false);
+        //buttonOne.GetComponentInChildren<TextMeshProUGUI>().SetText(abilities[0].s_name);
+        buttonOne.GetComponentInChildren<TextMeshProUGUI>().SetText("Test Item Name 1");
+        buttonTwo.GetComponentInChildren<TextMeshProUGUI>().SetText("Test Item Name 2");
+        buttonFour.GetComponentInChildren<TextMeshProUGUI>().SetText("Back");
+        buttonFour.onClick.RemoveAllListeners();
+        buttonFour.onClick.AddListener(createDefaultButtons);
+
+
+        
+
+    }
 
 
     IEnumerator PlayerAttack(CharacterClass attackingUnit) {
@@ -268,7 +347,32 @@ public class BattleProcess : MonoBehaviour {
         PlayerTurn();
     }
 
+    void runFromBattle() {
+        int rng = Random.Range(0, 100);
+        StartCoroutine(runAttempt(rng));
+       
+    }
 
+    IEnumerator runAttempt(int rng) {
+
+        if (rng < 50) {
+            textchanger.setLog("The way was blocked by the enemy");
+            playTurns.Dequeue();
+            
+        } else {
+            textchanger.setLog("You Successfuly escaped");
+            state = BattleState.RUN; 
+        }
+
+
+        
+        yield return new WaitForSeconds(2f);
+        if (state == BattleState.RUN) {
+            StartCoroutine(changeLevel());
+        } else {
+            PlayerTurn();
+        }
+    }
     
 
     void endBattle() {
@@ -279,7 +383,6 @@ public class BattleProcess : MonoBehaviour {
             textchanger.setLog("Oh no you lost, try again!");
             StartCoroutine(changeLevel());
         }
-        
     }
 
     IEnumerator changeLevel() {

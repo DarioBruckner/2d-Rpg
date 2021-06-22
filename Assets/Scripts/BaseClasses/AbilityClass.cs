@@ -17,6 +17,11 @@ public abstract class AbilityClass
             this.n_lvl++;
     }
     // Start is called before the first frame update
+
+    public string getName() {
+        return this.s_name;
+    }
+
     void Start()
     {
         

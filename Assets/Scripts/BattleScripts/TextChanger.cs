@@ -15,6 +15,7 @@ public class TextChanger : MonoBehaviour {
     public HealthBar healthBarChar4;
 
 
+
     public EnemyHealthBar enemyHealthbar;
 
 
