@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 838724122250626925}
   - component: {fileID: 838724122250626924}
   m_Layer: 0
-  m_Name: Enemy0
+  m_Name: Wolf
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -210,6 +210,7 @@ MonoBehaviour:
   m_pointLeft: {fileID: 838724121994976439}
   m_pointRight: {fileID: 838724122990243904}
   f_moveSpeed: 5.1
+  textBubble: {fileID: 7419845985479822273, guid: 415ff979e2fa1a349a787ef6404b747e, type: 3}
 --- !u!95 &838724122250626924
 Animator:
   serializedVersion: 3
@@ -282,7 +283,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 838724123313840256}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 90.36, y: -0.55, z: 76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

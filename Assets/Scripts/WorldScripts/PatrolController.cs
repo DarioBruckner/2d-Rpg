@@ -14,6 +14,7 @@ public class PatrolController : MonoBehaviour
     private bool moving = true;
     private Rigidbody2D m_RigidBody;
     private Animator m_Animator;
+    public Transform textBubble;
 
     // Start is called before the first frame update
     void Start()
@@ -58,6 +59,11 @@ public class PatrolController : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             moving = false;
+            if (transform.name == "Wolf")
+            {
+                TextBubble.Create(textBubble, transform, new Vector3(0.5f, 2.1f, -76.3f),
+                "WAAAAAHRRGARRBL!");
+            }
         }
     }
 }
