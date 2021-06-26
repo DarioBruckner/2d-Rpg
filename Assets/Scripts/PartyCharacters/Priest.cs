@@ -10,6 +10,12 @@ public class Priest : MagicUser
         this.s_name = "The Priest";
         abilities.Add(new Heal());
     }
+    public override void initialize()
+    {
+        base.initialize();
+        this.s_name = "The Priest";
+        abilities.Add(new Heal());
+    }
     public override void levelUp()
     {
         base.levelUp();

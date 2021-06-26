@@ -20,15 +20,20 @@ public class Wolf : MonsterClass
         this.resetStats();
     }
 
-
+    public override void initialize(int lvl)
+    {
+        base.initialize(lvl);
+        this.s_name = "Wolf";
+        this.n_maxHP = (int)Math.Ceiling((double)(n_maxHP * 2));
+        this.n_stdStrength = (int)Math.Ceiling((double)(n_stdStrength * 0.5));
+        this.resetStats();
+    }
 
 
     // Start is called before the first frame update
     void Start()
     {
-        this.n_maxHP = 200;
-        this.n_HP = 200;
-        this.s_name = "Wolf";
+       
     }
 
     // Update is called once per frame
