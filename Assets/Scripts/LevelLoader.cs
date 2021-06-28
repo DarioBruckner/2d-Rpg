@@ -47,6 +47,11 @@ public class LevelLoader : MonoBehaviour
     {
         StartCoroutine(Loader("level_0"));
     }
+    public void LoadMainMenu()
+    {
+        StartCoroutine(Loader("main menu"));
+        Time.timeScale = 1f;
+    }
     IEnumerator Loader(string scene)
     {
         transition.SetTrigger("Start");

@@ -98,6 +98,13 @@ public class BattleProcess : MonoBehaviour {
 
         EnemyName.SetText(Enemy.s_name);
 
+
+        charMage.initialize();
+        charWarrior.initialize();
+        charPriest.initialize();
+        charThief.initialize();
+
+
         textchanger.startupHealth(charMage.n_maxHP, charWarrior.n_maxHP, charPriest.n_maxHP, charThief.n_maxHP, Enemy.n_maxHP, 
             charMage.n_maxMP, charWarrior.n_maxMP, charPriest.n_maxMP, charThief.n_maxMP);
 
@@ -128,6 +135,12 @@ public class BattleProcess : MonoBehaviour {
 
 
     public void createDefaultButtons() {
+        buttonOne.onClick.RemoveAllListeners();
+        buttonTwo.onClick.RemoveAllListeners();
+        buttonThree.onClick.RemoveAllListeners();
+        buttonFour.onClick.RemoveAllListeners();
+
+
         buttonOne.gameObject.SetActive(true);
         buttonTwo.gameObject.SetActive(true);
         buttonThree.gameObject.SetActive(true);
@@ -145,6 +158,45 @@ public class BattleProcess : MonoBehaviour {
         buttonThree.onClick.AddListener(displayItems);
         buttonFour.onClick.AddListener(runFromBattle);
 
+
+    }
+
+    public void displaySpecialMoves() {
+        CharacterClass currentPlayer = playTurns.Peek();
+        MonsterClass currentEnemy = Enemy;
+        List<AbilityClass> abilities = currentPlayer.abilities;
+        buttonThree.gameObject.SetActive(false);
+
+
+
+
+
+        if (currentPlayer.abilities.Count == 1) {
+            buttonTwo.gameObject.SetActive(false);
+
+            buttonOne.onClick.RemoveAllListeners();
+            buttonTwo.onClick.RemoveAllListeners();
+            buttonOne.GetComponentInChildren<TextMeshProUGUI>().SetText(abilities[0].s_name);
+            buttonOne.onClick.AddListener(delegate { useAbility(abilities[0], currentPlayer, currentEnemy); });
+            buttonFour.GetComponentInChildren<TextMeshProUGUI>().SetText("Back");
+            buttonFour.onClick.RemoveAllListeners();
+            buttonFour.onClick.AddListener(createDefaultButtons);
+
+
+        } else if (currentPlayer.abilities.Count == 0) {
+            buttonOne.gameObject.SetActive(false);
+            buttonTwo.gameObject.SetActive(false);
+            buttonFour.GetComponentInChildren<TextMeshProUGUI>().SetText("Back");
+            buttonFour.onClick.RemoveAllListeners();
+            buttonFour.onClick.AddListener(createDefaultButtons);
+        } else {
+            buttonOne.GetComponentInChildren<TextMeshProUGUI>().SetText(abilities[0].s_name);
+            buttonOne.GetComponentInChildren<TextMeshProUGUI>().SetText(abilities[1].s_name);
+            buttonFour.GetComponentInChildren<TextMeshProUGUI>().SetText("Back");
+            buttonFour.onClick.RemoveAllListeners();
+            buttonFour.onClick.AddListener(createDefaultButtons);
+
+        }
 
     }
 
@@ -184,8 +236,6 @@ public class BattleProcess : MonoBehaviour {
             EnemyTurn();
 
         } else {
-
-
 
             addCharstoList();
             playTurns = findFastesCharacters(characters);
@@ -252,32 +302,22 @@ public class BattleProcess : MonoBehaviour {
     }
 
     
-    public void displaySpecialMoves() {
-        CharacterClass currentPlayer = playTurns.Peek();
-        List<AbilityClass> abilities = currentPlayer.abilities;
-        buttonThree.gameObject.SetActive(false);
+   
     
-
-        if(currentPlayer.abilities.Count < 10) {
-            buttonTwo.gameObject.SetActive(false);
-
-            buttonOne.onClick.RemoveAllListeners();
-            buttonTwo.onClick.RemoveAllListeners();
-            //buttonOne.GetComponentInChildren<TextMeshProUGUI>().SetText(abilities[0].s_name);
-            buttonOne.GetComponentInChildren<TextMeshProUGUI>().SetText("Test Ability Name 1");
-            buttonFour.GetComponentInChildren<TextMeshProUGUI>().SetText("Back");
-            buttonFour.onClick.RemoveAllListeners();
-            buttonFour.onClick.AddListener(createDefaultButtons);
-
+    public void useAbility(AbilityClass ability, CharacterClass User, MonsterClass target) {
+        
+        
+        if(ability.action(ref User, ref target)) {
+            textchanger.setEnemyHealth(Enemy.n_HP);
+            textchanger.setManaByName(User.s_name, User.n_MP);
+            StartCoroutine(SpecialAttack(ability.s_name, User.s_name, target.s_name, true));
 
         } else {
-            buttonOne.GetComponentInChildren<TextMeshProUGUI>().SetText(abilities[0].s_name);
-            buttonTwo.GetComponentInChildren<TextMeshProUGUI>().SetText(abilities[1].s_name);
-            buttonFour.GetComponentInChildren<TextMeshProUGUI>().SetText("Back");
+            StartCoroutine(SpecialAttack(ability.s_name, User.s_name, target.s_name, false));
         }
+        createDefaultButtons();
         
     }
-
 
     public void displayItems() {
         CharacterClass currentPlayer = playTurns.Peek();
@@ -285,7 +325,6 @@ public class BattleProcess : MonoBehaviour {
         buttonOne.onClick.RemoveAllListeners();
         buttonTwo.onClick.RemoveAllListeners();
         buttonThree.gameObject.SetActive(false);
-        //buttonOne.GetComponentInChildren<TextMeshProUGUI>().SetText(abilities[0].s_name);
         buttonOne.GetComponentInChildren<TextMeshProUGUI>().SetText("Test Item Name 1");
         buttonTwo.GetComponentInChildren<TextMeshProUGUI>().SetText("Test Item Name 2");
         buttonFour.GetComponentInChildren<TextMeshProUGUI>().SetText("Back");
@@ -328,12 +367,23 @@ public class BattleProcess : MonoBehaviour {
     }
 
 
-    IEnumerator SpecialAttack(CharacterClass user, CharacterClass target) {
-
+    IEnumerator SpecialAttack(string abilityname, string username, string targetname, bool mana) {
+        if (mana) {
+            textchanger.setLog(username + " used " + abilityname + " on " + targetname);
+            playTurns.Dequeue();
+        } else {
+            textchanger.setLog("You dont have enough mana for " + abilityname);
+        }
 
 
         yield return new WaitForSeconds(2f);
 
+        if (!Enemy.b_isAlive) {
+            state = BattleState.WON;
+            endBattle();
+        } else {
+            PlayerTurn();
+        }
     }
 
 

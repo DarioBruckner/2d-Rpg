@@ -13,7 +13,7 @@ public class MultiSlash : AbilityClass
         this.s_description = "";
         this.n_uses = 0; //Check after combat if this is a multiple of 5
     }
-    public override bool action(ref CharacterClass user, ref CharacterClass target)
+    public override bool action(ref CharacterClass user, ref MonsterClass target)
     {
         if (user.drainMP(3))
         {

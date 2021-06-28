@@ -53,6 +53,22 @@ public class CharacterClass : MonoBehaviour
         this.resetStats();
         this.abilities = new List<AbilityClass>();
     }
+    public virtual void initialize()
+    {
+        this.n_lvl = 1;
+        this.n_exp = 0;
+        this.n_expReq = 100;
+        this.n_maxHP = 20;
+        this.n_maxMP = 10;
+        this.n_stdStrength = 10;
+        this.n_stdAgility = 10;
+        this.n_stdVitality = 10;
+        this.n_stdMagicalMight = 10;
+        this.n_stdMagicalResistance = 10;
+        this.b_isAlive = true;
+        this.resetStats();
+        this.abilities = new List<AbilityClass>();
+    }
     public virtual void levelUp()
     {
         this.n_maxHP = (int)Math.Ceiling((double)(this.n_maxHP * 1.2));

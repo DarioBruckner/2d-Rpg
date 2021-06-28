@@ -11,6 +11,12 @@ public class Mage : MagicUser
         this.s_name = "The Mage";
         this.abilities.Add(new Fireball());
     }
+    public override void initialize()
+    {
+        base.initialize();
+        this.s_name = "The Mage";
+        this.abilities.Add(new Fireball());
+    }
     public override void levelUp()
     {
         base.levelUp();

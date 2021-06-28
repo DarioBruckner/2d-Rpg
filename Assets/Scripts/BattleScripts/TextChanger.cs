@@ -75,6 +75,23 @@ public class TextChanger : MonoBehaviour {
         }
     }
 
+    public void setManaByName(string name, int mana) {
+        switch (name) {
+            case "The Mage":
+                healthBarChar1.manaBar.SetMana(mana);
+                break;
+            case "The Warrior":
+                healthBarChar2.manaBar.SetMana(mana);
+                break;
+            case "The Priest":
+                healthBarChar3.manaBar.SetMana(mana);
+                break;
+            case "The Thief":
+                healthBarChar4.manaBar.SetMana(mana);
+                break;
+        }
+    }
+
     public void setEnemyHealth(int health) {
         enemyHealthbar.SetHealth(health);
     }

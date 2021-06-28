@@ -5,6 +5,16 @@ public class MonsterClass : CharacterClass
         for(int i = 1; i < level; i++)
             this.levelUp();
     }
-    
+    public override void initialize()
+    {
+        base.initialize();
+    }
+    public virtual void initialize(int level)
+    {
+        base.initialize();
+        for (int i = 1; i < level; i++)
+            this.levelUp();
+    }
+
 
 }

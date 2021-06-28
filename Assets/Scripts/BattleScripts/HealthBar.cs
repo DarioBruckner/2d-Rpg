@@ -38,6 +38,14 @@ public class HealthBar : MonoBehaviour {
     }
 
 
+    public void setMana(int mana) {
+        if(mana < 0) {
+            mana = 0;
+        }
+
+        
+    }
+
 
 
 }
