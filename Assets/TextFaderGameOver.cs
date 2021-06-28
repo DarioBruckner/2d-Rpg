@@ -8,7 +8,6 @@ public class TextFaderGameOver : MonoBehaviour
 {
     private float f_elapsedTime = 0f;
     private float f_fadeTime = 4f;
-    private bool finished = false;
     private TextMeshProUGUI textMesh;
     bool b_reverse = false;
 
