@@ -146,5 +146,19 @@ public class CharacterClass : MonoBehaviour
         int damage = (int)Math.Ceiling(rawDamage);
         target.takePhysDamage(damage);
     }
+    public bool gainExp(int gain)
+    {
+        bool leveled = false;
+        if (gain > 0)
+        {
+            this.n_exp += gain;
+        }
+        while (this.n_exp >= this.n_expReq)
+        {
+            this.levelUp();
+            leveled = true;
+        }
+        return leveled;
+    }
 
 }

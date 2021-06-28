@@ -10,7 +10,8 @@ public abstract class AbilityClass
     public int n_lvl;
     public int n_lvlReq;
     public int n_uses;
-    public abstract bool action(ref CharacterClass user, ref MonsterClass target);
+    public abstract bool enemyAction(ref CharacterClass user, ref MonsterClass target);
+    public abstract bool allyAction(ref CharacterClass user, ref PlayerClass target);
     public void levelUp()
     {
         if(this.n_lvl < 5)
