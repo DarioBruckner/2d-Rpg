@@ -10,6 +10,7 @@ public abstract class AbilityClass
     public int n_lvl;
     public int n_lvlReq;
     public int n_uses;
+    public bool b_targetEnemy;
     public abstract bool enemyAction(ref CharacterClass user, ref MonsterClass target);
     public abstract bool allyAction(ref CharacterClass user, ref PlayerClass target);
     public void levelUp()

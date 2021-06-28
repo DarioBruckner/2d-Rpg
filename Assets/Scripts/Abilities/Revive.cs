@@ -12,6 +12,7 @@ public class Revive : AbilityClass
         this.s_name = "Revive";
         this.s_description = "";
         this.n_uses = 0; //Check after combat if this is a multiple of 5
+        this.b_targetEnemy = false;
     }
     public override bool allyAction(ref CharacterClass user, ref PlayerClass target)
     {
