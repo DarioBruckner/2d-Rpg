@@ -12,6 +12,7 @@ public class MultiSlash : AbilityClass
         this.s_name = "Multi Slash";
         this.s_description = "";
         this.n_uses = 0; //Check after combat if this is a multiple of 5
+        this.b_targetEnemy = true;
     }
     public override bool enemyAction(ref CharacterClass user, ref MonsterClass target)
     {
