@@ -14,6 +14,11 @@ public class WorldComponents : MonoBehaviour
     static bool b_firstLoad = true;
     public static string s_playerobjectname="Character";
     public string objectID;
+    public static Mage mage = new Mage();
+    public static Priest priest = new Priest();
+    public static Warrior warrior = new Warrior();
+    public static Thief thief = new Thief();
+    public static List<ItemClass> items = new List<ItemClass>();
     void Start()
     {
         if (b_firstLoad)
@@ -22,6 +27,7 @@ public class WorldComponents : MonoBehaviour
                 m_playerposition = GameObject.Find("Character").transform.position;
             b_firstLoad = false;
             DontDestroyOnLoad(gameObject);
+           
         }
         else
         {
