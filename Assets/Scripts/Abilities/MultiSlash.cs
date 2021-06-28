@@ -12,8 +12,9 @@ public class MultiSlash : AbilityClass
         this.s_name = "Multi Slash";
         this.s_description = "";
         this.n_uses = 0; //Check after combat if this is a multiple of 5
+        this.b_targetEnemy = true;
     }
-    public override bool action(ref CharacterClass user, ref MonsterClass target)
+    public override bool enemyAction(ref CharacterClass user, ref MonsterClass target)
     {
         if (user.drainMP(3))
         {
@@ -31,13 +32,20 @@ public class MultiSlash : AbilityClass
                 target.takePhysDamage(damage);
             }
             this.n_uses++;
+            if (this.n_uses % 5 == 0)
+            {
+                this.levelUp();
+            }
             return true; //Attack was successful
         }
         else
             return false; //Error: Not enough Magic Power
     }
+    public override bool allyAction(ref CharacterClass user, ref PlayerClass target)
+    {
+        return false;
+    }
 
-    
     // Start is called before the first frame update
     void Start()
     {

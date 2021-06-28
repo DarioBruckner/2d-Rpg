@@ -12,8 +12,9 @@ public class HeavySmash : AbilityClass
         this.s_name = "Heavy Smash";
         this.s_description = "";
         this.n_uses = 0; //Check after combat if this is a multiple of 5
+        this.b_targetEnemy = true;
     }
-    public override bool action(ref CharacterClass user, ref MonsterClass target)
+    public override bool enemyAction(ref CharacterClass user, ref MonsterClass target)
     {
         if (user.drainMP(2))
         {
@@ -26,12 +27,19 @@ public class HeavySmash : AbilityClass
             int damage = (int)Math.Ceiling(rawDamage + ((this.n_lvl * 0.1) + 0.9));
             target.takePhysDamage(damage);
             this.n_uses++;
+            if (this.n_uses % 5 == 0)
+            {
+                this.levelUp();
+            }
             return true;
         }
         else
             return false;
     }
-
+    public override bool allyAction(ref CharacterClass user, ref PlayerClass target)
+    {
+        return false;
+    }
     // Start is called before the first frame update
     void Start()
     {
