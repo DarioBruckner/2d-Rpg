@@ -13,7 +13,7 @@ public class Fireball : AbilityClass
         this.s_description = "";
         this.n_uses = 0; //Check after combat if this is a multiple of 5
     }
-    public override bool action(ref CharacterClass user, ref CharacterClass target)
+    public override bool enemyAction(ref CharacterClass user, ref MonsterClass target)
     {
         if (user.drainMP(5))
         {
@@ -35,6 +35,10 @@ public class Fireball : AbilityClass
         }
         else
             return false; // Error: nicht genug MagieKraft
+    }
+    public override bool allyAction(ref CharacterClass user, ref PlayerClass target)
+    {
+        return false;
     }
     // Start is called before the first frame update
     void Start()

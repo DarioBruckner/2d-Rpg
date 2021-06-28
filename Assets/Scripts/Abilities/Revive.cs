@@ -13,7 +13,7 @@ public class Revive : AbilityClass
         this.s_description = "";
         this.n_uses = 0; //Check after combat if this is a multiple of 5
     }
-    public override bool action(ref CharacterClass user, ref CharacterClass target)
+    public override bool allyAction(ref CharacterClass user, ref PlayerClass target)
     {
         if (user.drainMP(10))
         {
@@ -29,6 +29,10 @@ public class Revive : AbilityClass
             return false;
         }
             
+    }
+    public override bool enemyAction(ref CharacterClass user, ref MonsterClass target)
+    {
+        return false;
     }
     // Start is called before the first frame update
     void Start()
