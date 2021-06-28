@@ -6,9 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
-    public object enemy;
+    public GameObject enemy;
     public Animator transition;
     private float transitionTime = 1f;
+    private bool b_loaded = true;
     // Update is called once per frame
     void Update()
     {
@@ -22,9 +23,23 @@ public class LevelLoader : MonoBehaviour
         }
     }
 
-    public void LoadBattle(object other) 
-    { 
-        enemy = other; //Other is the object the player collided with which is stored in enemy. Can be used to construct the fight_scene
+    public void LoadBattle(GameObject other) 
+    {
+        if(b_loaded)
+        {
+            WorldComponents.m_playerposition = other.transform.position;
+            WorldComponents.m_enemies.Add(this.transform.parent.name);
+            b_loaded = false;
+        }
+        
+        //WorldComponents.Destroy(this);
+        /*
+        foreach(Transform child in WorldComponents.m_enemies.transform.get
+        {
+            if (this.transform.name == child.name)
+                child.parent = null;
+        }*/
+        //enemy = other; //Other is the object the player collided with which is stored in enemy. Can be used to construct the fight_scene
         StartCoroutine(Loader("fight_scene"));
     }
 
@@ -48,7 +63,7 @@ public class LevelLoader : MonoBehaviour
     {
         if (other.CompareTag("Player")) 
         { 
-            LoadBattle("lol");
+            LoadBattle(other.gameObject);
         }
     }
 
