@@ -31,6 +31,10 @@ public class MultiSlash : AbilityClass
                 target.takePhysDamage(damage);
             }
             this.n_uses++;
+            if (this.n_uses % 5 == 0)
+            {
+                this.levelUp();
+            }
             return true; //Attack was successful
         }
         else

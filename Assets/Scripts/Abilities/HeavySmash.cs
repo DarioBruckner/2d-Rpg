@@ -26,6 +26,10 @@ public class HeavySmash : AbilityClass
             int damage = (int)Math.Ceiling(rawDamage + ((this.n_lvl * 0.1) + 0.9));
             target.takePhysDamage(damage);
             this.n_uses++;
+            if (this.n_uses % 5 == 0)
+            {
+                this.levelUp();
+            }
             return true;
         }
         else

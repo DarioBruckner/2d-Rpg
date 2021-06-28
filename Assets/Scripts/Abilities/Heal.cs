@@ -21,6 +21,10 @@ public class Heal : AbilityClass
             {
                 target.getHealed((int)Math.Ceiling((double)(target.n_maxHP * 0.25 + ((this.n_lvl * 0.1) - 0.1))));
                 this.n_uses++;
+                if (this.n_uses % 5 == 0)
+                {
+                    this.levelUp();
+                }
                 return true;
             } else
             {
