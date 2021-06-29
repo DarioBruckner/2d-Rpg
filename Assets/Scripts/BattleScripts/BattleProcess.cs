@@ -147,6 +147,13 @@ public class BattleProcess : MonoBehaviour {
         buttonFour.gameObject.SetActive(true);
     }
 
+    public void deactivateAllButtons() {
+        buttonOne.gameObject.SetActive(false);
+        buttonTwo.gameObject.SetActive(false);
+        buttonThree.gameObject.SetActive(false);
+        buttonFour.gameObject.SetActive(false);
+    }
+
     public void createDefaultButtons() {
 
         removeAllOnClickListeners();
@@ -428,8 +435,11 @@ public class BattleProcess : MonoBehaviour {
 
         
         textchanger.setLog(attackingUnit.s_name + " attacks " + Enemy.s_name);
+        deactivateAllButtons();
 
         yield return new WaitForSeconds(2f);
+
+        
         playTurns.Dequeue();
         if (!Enemy.b_isAlive) {
             state = BattleState.WON;
@@ -437,15 +447,18 @@ public class BattleProcess : MonoBehaviour {
         } else {
             PlayerTurn();
         }
+        activateAllButtons();
     }
 
     IEnumerator EnemyAttack(CharacterClass target) {
 
         textchanger.setLog(Enemy.s_name + " attacks " + target.s_name);
 
+        deactivateAllButtons();
+
         yield return new WaitForSeconds(2f);
 
-        
+        activateAllButtons();
 
         playTurns.Dequeue();
 
@@ -461,9 +474,11 @@ public class BattleProcess : MonoBehaviour {
         } else {
             textchanger.setLog("You dont have enough mana for " + abilityname);
         }
-
+        deactivateAllButtons();
 
         yield return new WaitForSeconds(2f);
+
+        activateAllButtons();
 
         if (!Enemy.b_isAlive) {
             state = BattleState.WON;
@@ -488,9 +503,10 @@ public class BattleProcess : MonoBehaviour {
         } else {
             textchanger.setLog("Not enough mana to cast " + abilityname);
         }
-
+        deactivateAllButtons();
         yield return new WaitForSeconds(2f);
-
+        
+        activateAllButtons();
 
         createDefaultButtons();
         playTurns.Dequeue();
