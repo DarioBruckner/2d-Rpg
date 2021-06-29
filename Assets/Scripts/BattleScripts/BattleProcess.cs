@@ -216,6 +216,20 @@ public class BattleProcess : MonoBehaviour {
 
     }
 
+    public void displayItems() {
+        CharacterClass currentPlayer = playTurns.Peek();
+        removeAllOnClickListeners();
+
+        buttonThree.gameObject.SetActive(false);
+        buttonOne.GetComponentInChildren<TextMeshProUGUI>().SetText("Health Potion");
+        buttonTwo.GetComponentInChildren<TextMeshProUGUI>().SetText("Magic Potion");
+        buttonFour.GetComponentInChildren<TextMeshProUGUI>().SetText("Back");
+        buttonOne.onClick.AddListener(useHealthPotion);
+        buttonTwo.onClick.AddListener(useMagicPotion);
+
+        buttonFour.onClick.AddListener(createDefaultButtons);
+    }
+
     public Queue<CharacterClass> findFastesCharacters(List<CharacterClass>charchters) {
         Queue<CharacterClass> characterQueue = new Queue<CharacterClass>();
         int size = charchters.Count;
@@ -333,9 +347,6 @@ public class BattleProcess : MonoBehaviour {
         }
     }
 
-    
-   
-    
     public void useAbility(AbilityClass ability, CharacterClass User, MonsterClass target) {
 
         if (ability.b_targetEnemy == true) {
@@ -404,6 +415,14 @@ public class BattleProcess : MonoBehaviour {
         }
     }
 
+    public void useHealthPotion() {
+        StartCoroutine(HealthPotion(playTurns.Peek()));
+    }
+
+    public void useMagicPotion() {
+        StartCoroutine(MagicPotion(playTurns.Peek()));
+    }
+
     public void startHeal(AbilityClass ability, PlayerClass target) {
         
 
@@ -413,22 +432,7 @@ public class BattleProcess : MonoBehaviour {
 
     }
 
-    public void displayItems() {
-        CharacterClass currentPlayer = playTurns.Peek();
-
-        buttonOne.onClick.RemoveAllListeners();
-        buttonTwo.onClick.RemoveAllListeners();
-        buttonThree.gameObject.SetActive(false);
-        buttonOne.GetComponentInChildren<TextMeshProUGUI>().SetText("Test Item Name 1");
-        buttonTwo.GetComponentInChildren<TextMeshProUGUI>().SetText("Test Item Name 2");
-        buttonFour.GetComponentInChildren<TextMeshProUGUI>().SetText("Back");
-        buttonFour.onClick.RemoveAllListeners();
-        buttonFour.onClick.AddListener(createDefaultButtons);
-
-
-        
-
-    }
+ 
 
 
     IEnumerator PlayerAttack(CharacterClass attackingUnit) {
@@ -512,6 +516,34 @@ public class BattleProcess : MonoBehaviour {
         playTurns.Dequeue();
         PlayerTurn();
 
+    }
+
+
+    IEnumerator HealthPotion(CharacterClass ItemUser) {
+        
+        deactivateAllButtons();
+
+
+        textchanger.setLog(playTurns.Peek().s_name + " used a Health Potion");
+        yield return new WaitForSeconds(2f);
+        activateAllButtons();
+        playTurns.Dequeue();
+        createDefaultButtons();
+        PlayerTurn();
+
+    }
+
+    
+    IEnumerator MagicPotion(CharacterClass ItemUser) {
+
+
+        deactivateAllButtons();
+        textchanger.setLog(playTurns.Peek().s_name + " used a Magic Potion");
+        yield return new WaitForSeconds(2f);
+        activateAllButtons();
+        playTurns.Dequeue();
+        createDefaultButtons();
+        PlayerTurn();
     }
 
     void runFromBattle() {
