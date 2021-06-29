@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class Heal : AbilityClass
 {
+    
     public Heal()
     {
+        
         this.n_lvl = 1;
         this.n_lvlReq = 1;
         this.s_name = "Heal";
@@ -20,7 +22,11 @@ public class Heal : AbilityClass
         {
             if (user.drainMP(5))
             {
-                target.getHealed((int)Math.Ceiling((double)(target.n_maxHP * 0.25 + ((this.n_lvl * 0.1) - 0.1))));
+                int value = (int)Math.Ceiling((double)(target.n_maxHP * 0.25 + ((this.n_lvl * 0.1) - 0.1)));
+                Console.WriteLine(value);
+                
+                target.getHealed(value);
+                
                 this.n_uses++;
                 if (this.n_uses % 5 == 0)
                 {
@@ -49,6 +55,6 @@ public class Heal : AbilityClass
     // Update is called once per frame
     void Update()
     {
-        
+    
     }
 }

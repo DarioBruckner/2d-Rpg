@@ -37,7 +37,7 @@ public class BattleProcess : MonoBehaviour {
 
 
     List<CharacterClass> characters;
-    List<CharacterClass> targets;
+    List<PlayerClass> targets;
 
     Mage charMage;
     Warrior charWarrior;
@@ -122,7 +122,7 @@ public class BattleProcess : MonoBehaviour {
         characters.Add(charThief);
         characters.Add(Enemy);
 
-        targets = new List<CharacterClass>();
+        targets = new List<PlayerClass>();
 
         targets.Add(charMage);
         targets.Add(charWarrior);
@@ -133,18 +133,25 @@ public class BattleProcess : MonoBehaviour {
         PlayerTurn();
     }
 
-
-    public void createDefaultButtons() {
+    public void removeAllOnClickListeners() {
         buttonOne.onClick.RemoveAllListeners();
         buttonTwo.onClick.RemoveAllListeners();
         buttonThree.onClick.RemoveAllListeners();
         buttonFour.onClick.RemoveAllListeners();
+    }
 
-
+    public void activateAllButtons() {
         buttonOne.gameObject.SetActive(true);
         buttonTwo.gameObject.SetActive(true);
         buttonThree.gameObject.SetActive(true);
         buttonFour.gameObject.SetActive(true);
+    }
+
+    public void createDefaultButtons() {
+
+        removeAllOnClickListeners();
+
+        activateAllButtons();
 
 
         buttonOne.GetComponentInChildren<TextMeshProUGUI>().SetText("Basic Attack");
@@ -160,6 +167,8 @@ public class BattleProcess : MonoBehaviour {
 
 
     }
+
+
 
     public void displaySpecialMoves() {
         CharacterClass currentPlayer = playTurns.Peek();
@@ -267,6 +276,22 @@ public class BattleProcess : MonoBehaviour {
         }
     }
 
+    void addChatstoTargets() {
+        targets.Clear();
+        if (charMage.b_isAlive) {
+            targets.Add(charMage);
+        }
+        if (charWarrior.b_isAlive) {
+            targets.Add(charWarrior);
+        }
+        if (charPriest.b_isAlive) {
+            targets.Add(charPriest);
+        }
+        if (charThief.b_isAlive) {
+            targets.Add(charThief);
+        }
+    }
+
     void EnemyTurn() {
         int rng = 0;
         while (true) {
@@ -305,18 +330,80 @@ public class BattleProcess : MonoBehaviour {
    
     
     public void useAbility(AbilityClass ability, CharacterClass User, MonsterClass target) {
-        
-        
-        if(ability.action(ref User, ref target)) {
-            textchanger.setEnemyHealth(Enemy.n_HP);
-            textchanger.setManaByName(User.s_name, User.n_MP);
-            StartCoroutine(SpecialAttack(ability.s_name, User.s_name, target.s_name, true));
 
+        if (ability.b_targetEnemy == true) {
+            if (ability.enemyAction(ref User, ref target)) {
+                textchanger.setEnemyHealth(Enemy.n_HP);
+                textchanger.setManaByName(User.s_name, User.n_MP);
+                StartCoroutine(SpecialAttack(ability.s_name, User.s_name, target.s_name, true));
+
+            } else {
+                StartCoroutine(SpecialAttack(ability.s_name, User.s_name, target.s_name, false));
+            }
+            createDefaultButtons();
         } else {
-            StartCoroutine(SpecialAttack(ability.s_name, User.s_name, target.s_name, false));
+            if(ability.s_name == "Heal") {
+                removeAllOnClickListeners();
+                activateAllButtons();
+                addChatstoTargets();
+                print(targets.Count);
+                switch (targets.Count) {
+                    case 1:
+                       
+                        buttonTwo.gameObject.SetActive(false);
+                        buttonThree.gameObject.SetActive(false);
+                        buttonFour.gameObject.SetActive(false);
+
+                        buttonOne.GetComponentInChildren<TextMeshProUGUI>().SetText(targets[0].s_name);
+
+                        buttonOne.onClick.AddListener(delegate { startHeal(ability, targets[0]); });
+                        break;
+                    case 2:
+                        buttonThree.gameObject.SetActive(false);
+                        buttonFour.gameObject.SetActive(false);
+
+                        buttonOne.GetComponentInChildren<TextMeshProUGUI>().SetText(targets[0].s_name);
+                        buttonTwo.GetComponentInChildren<TextMeshProUGUI>().SetText(targets[1].s_name);
+
+                        buttonOne.onClick.AddListener(delegate { startHeal(ability, targets[0]); });
+                        buttonTwo.onClick.AddListener(delegate { startHeal(ability, targets[1]); });
+                        break;
+                    case 3:
+                        buttonFour.gameObject.SetActive(false);
+
+                        buttonOne.GetComponentInChildren<TextMeshProUGUI>().SetText(targets[0].s_name);
+                        buttonTwo.GetComponentInChildren<TextMeshProUGUI>().SetText(targets[1].s_name);
+                        buttonThree.GetComponentInChildren<TextMeshProUGUI>().SetText(targets[2].s_name);
+
+                        buttonOne.onClick.AddListener(delegate { startHeal(ability, targets[0]); });
+                        buttonTwo.onClick.AddListener(delegate { startHeal(ability, targets[1]); });
+                        buttonThree.onClick.AddListener(delegate { startHeal(ability, targets[2]); });
+                        break;
+                    case 4:
+                        buttonOne.GetComponentInChildren<TextMeshProUGUI>().SetText(targets[0].s_name);
+                        buttonTwo.GetComponentInChildren<TextMeshProUGUI>().SetText(targets[1].s_name);
+                        buttonThree.GetComponentInChildren<TextMeshProUGUI>().SetText(targets[2].s_name);
+                        buttonFour.GetComponentInChildren<TextMeshProUGUI>().SetText(targets[3].s_name);
+
+                        buttonOne.onClick.AddListener(delegate { startHeal(ability, targets[0]); });
+                        buttonTwo.onClick.AddListener(delegate { startHeal(ability, targets[1]); });
+                        buttonThree.onClick.AddListener(delegate { startHeal(ability, targets[2]); });
+                        buttonFour.onClick.AddListener(delegate { startHeal(ability, targets[3]); });
+                        break;
+                }
+            } else {
+
+            }
         }
-        createDefaultButtons();
+    }
+
+    public void startHeal(AbilityClass ability, PlayerClass target) {
         
+
+        StartCoroutine(PlayerHeal(ability,target));
+
+       
+
     }
 
     public void displayItems() {
@@ -387,14 +474,28 @@ public class BattleProcess : MonoBehaviour {
     }
 
 
-    IEnumerator PlayerHeal(CharacterClass targetPlayer) { 
-        textchanger.setLog(playTurns.Peek().s_name + " heals " + targetPlayer.s_name);
-        targetPlayer.getHealed(playTurns.Peek().n_magicalMight);
-        textchanger.setHealthCharByName(targetPlayer.s_name, targetPlayer.n_HP);
+    IEnumerator PlayerHeal(AbilityClass ability,PlayerClass targetPlayer) {
+        CharacterClass user = playTurns.Peek();
+        string abilityname = ability.s_name;
+        string username = user.s_name;
+        string targetname = targetPlayer.s_name;
+
+       
+        if(ability.allyAction(ref user, ref targetPlayer)) {
+            textchanger.setManaByName(username, user.n_MP);
+            textchanger.setHealthCharByName(targetname, targetPlayer.n_HP);
+            textchanger.setLog(username + " healed " + targetname);
+        } else {
+            textchanger.setLog("Not enough mana to cast " + abilityname);
+        }
 
         yield return new WaitForSeconds(2f);
 
+
+        createDefaultButtons();
+        playTurns.Dequeue();
         PlayerTurn();
+
     }
 
     void runFromBattle() {

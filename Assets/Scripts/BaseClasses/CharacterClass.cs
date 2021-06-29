@@ -85,7 +85,7 @@ public class CharacterClass : MonoBehaviour
 
     public bool drainMP(int drain)
     {
-        if (this.n_MP > drain)
+        if (this.n_MP >= drain)
         {
             this.n_MP -= drain;
             return true;
