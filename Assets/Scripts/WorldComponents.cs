@@ -14,6 +14,8 @@ public class WorldComponents : MonoBehaviour
     static bool b_firstLoad = true;
     public static string s_playerobjectname="Character";
     public string objectID;
+
+    
     public static Mage mage = new Mage();
     public static Priest priest = new Priest();
     public static Warrior warrior = new Warrior();
@@ -21,6 +23,8 @@ public class WorldComponents : MonoBehaviour
     public static List<ItemClass> items = new List<ItemClass>();
     void Start()
     {
+        items.Add(new HealingPotion());
+        
         if (b_firstLoad)
         {
             if (GameObject.Find("Character"))
