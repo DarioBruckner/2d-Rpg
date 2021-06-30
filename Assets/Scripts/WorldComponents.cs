@@ -16,7 +16,6 @@ public class WorldComponents : MonoBehaviour
     public static string s_playerobjectname="Character";
 
     public string s_objectID;
-main
     public static Mage mage = new Mage();
     public static Priest priest = new Priest();
     public static Warrior warrior = new Warrior();
