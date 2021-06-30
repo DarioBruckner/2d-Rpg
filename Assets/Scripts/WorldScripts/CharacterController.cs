@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterController : MonoBehaviour //Name CharacterControlleris already taken by UnityEngine -> MyCharacterController? + Reconnecting with other assets in editor
 {
     
-    [Range(5.0f, 15.0f)] //Note what the best value is and set it in the code. Similar thing can happen here too like in the wolf 
+    [Range(5.0f, 15.0f)] 
     public float f_MoveSpeed;
     [Range(5.0f, 15.0f)]
     public float m_Thrust;
@@ -107,6 +107,26 @@ public class CharacterController : MonoBehaviour //Name CharacterControlleris al
         {
             b_Stop = true;
             m_Animator.SetInteger("animNr", 0);
+        }
+
+        if(collision.CompareTag("Item"))
+        {
+            string message = "Mmmh. a " + collision.name;
+            string obj = (collision.name.Substring(0, collision.name.Length - 3)).TrimEnd();
+            message = message.Substring(0, message.Length - 3).TrimEnd();
+            print(obj);
+            if(obj !="ring")
+            {
+                TextBubble.Create(textBubblePrefab, this.transform, new Vector3(0.5f, 2.1f, -76.3f),message);
+                WorldComponents.m_items.Add(collision.name);
+            }
+            else
+            {
+                TextBubble.Create(textBubblePrefab, this.transform, new Vector3(0.5f, 2.1f, -76.3f), "Holy bananas I found it!\nNow I gotta give it back to him.. ");
+                WorldComponents.m_items.Add(collision.name);
+                WorldComponents.b_ringquest = true;
+            }
+            Destroy(GameObject.Find(collision.name));
         }
     }
 }

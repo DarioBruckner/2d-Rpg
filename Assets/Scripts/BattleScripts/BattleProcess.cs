@@ -39,10 +39,10 @@ public class BattleProcess : MonoBehaviour {
     List<CharacterClass> characters;
     List<PlayerClass> targets;
 
-    Mage charMage;
-    Warrior charWarrior;
-    Priest charPriest;
-    Thief charThief;
+    PlayerClass charMage;
+    PlayerClass charWarrior;
+    PlayerClass charPriest;
+    PlayerClass charThief;
 
     Wolf Enemy;
 
@@ -76,12 +76,15 @@ public class BattleProcess : MonoBehaviour {
         GameObject charThiefGO = Instantiate(charThiefPrefab, playerBattleStationChar4);
 
 
-        charMage = charMageGO.GetComponent<Mage>();
-        charWarrior= charWarriorGO.GetComponent<Warrior>();
-        charPriest = charPriestGO.GetComponent<Priest>();
-        charThief = charThiefGO.GetComponent<Thief>();
-
-
+        charMage = WorldComponents.mage;
+        charPriest = WorldComponents.priest;
+        charWarrior = WorldComponents.warrior;
+        charThief =  WorldComponents.thief; 
+        //charMage = charMageGO.GetComponent<Mage>();
+        //charPriest = charPriestGO.GetComponent<Priest>();
+        //charWarrior = charWarriorGO.GetComponent<Warrior>();
+        //charThief =  charThiefGO.GetComponent<Thief>();
+        
 
         GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleStation);
 
@@ -105,8 +108,8 @@ public class BattleProcess : MonoBehaviour {
         charThief.initialize();
 
 
-        textchanger.startupHealth(charMage.n_maxHP, charWarrior.n_maxHP, charPriest.n_maxHP, charThief.n_maxHP, Enemy.n_maxHP, 
-            charMage.n_maxMP, charWarrior.n_maxMP, charPriest.n_maxMP, charThief.n_maxMP);
+        textchanger.startupHealth(charMage.n_HP, charWarrior.n_HP, charPriest.n_HP, charThief.n_HP, Enemy.n_HP, 
+            charMage.n_MP, charWarrior.n_MP, charPriest.n_MP, charThief.n_MP);
 
         textchanger.setLog(Enemy.s_name + " approches...");
         
@@ -116,20 +119,28 @@ public class BattleProcess : MonoBehaviour {
         state = BattleState.PLAYERTURN;
 
         characters = new List<CharacterClass>();
-        characters.Add(charMage);
-        characters.Add(charWarrior);
-        characters.Add(charPriest);
         characters.Add(charThief);
+        characters.Add(charMage);
+        characters.Add(charPriest);
+        characters.Add(charWarrior);
+        
+        
         characters.Add(Enemy);
 
         targets = new List<PlayerClass>();
-
         targets.Add(charMage);
-        targets.Add(charWarrior);
         targets.Add(charPriest);
+        targets.Add(charWarrior);
         targets.Add(charThief);
+        
 
+        
         playTurns = findFastesCharacters(characters);
+
+        foreach(CharacterClass p in playTurns) {
+            print(p.s_name);
+        }
+
         PlayerTurn();
     }
 
@@ -218,16 +229,52 @@ public class BattleProcess : MonoBehaviour {
 
     public void displayItems() {
         CharacterClass currentPlayer = playTurns.Peek();
+        List<ItemClass> items = WorldComponents.items;
+
+
         removeAllOnClickListeners();
 
-        buttonThree.gameObject.SetActive(false);
-        buttonOne.GetComponentInChildren<TextMeshProUGUI>().SetText("Health Potion");
-        buttonTwo.GetComponentInChildren<TextMeshProUGUI>().SetText("Magic Potion");
-        buttonFour.GetComponentInChildren<TextMeshProUGUI>().SetText("Back");
-        buttonOne.onClick.AddListener(useHealthPotion);
-        buttonTwo.onClick.AddListener(useMagicPotion);
+        if(items.Count == 1) {
+            buttonThree.gameObject.SetActive(false);
+            buttonTwo.gameObject.SetActive(false);
+            buttonOne.GetComponentInChildren<TextMeshProUGUI>().SetText(items[0].s_itemName);
+            if(items[0].s_itemName == "Healing Potion") {
+                buttonOne.onClick.AddListener(delegate { useHealthPotion(items[0]); });
+            } else {
+                buttonOne.onClick.AddListener(delegate { useMagicPotion(items[0]); });
+            }
+            
+        } else if(items.Count == 2) {
+            buttonOne.GetComponentInChildren<TextMeshProUGUI>().SetText(items[0].s_itemName);
+            if (items[0].s_itemName == "Healing Potion") {
+                buttonOne.onClick.AddListener(delegate { useHealthPotion(items[1]); });
+            } else {
+                buttonOne.onClick.AddListener(delegate { useMagicPotion(items[1]); });
+            }
 
+            buttonOne.GetComponentInChildren<TextMeshProUGUI>().SetText(items[1].s_itemName);
+
+            if (items[1].s_itemName == "Healing Potion") {
+                buttonTwo.onClick.AddListener(delegate { useHealthPotion(items[1]); });
+            } else {
+                buttonTwo.onClick.AddListener(delegate { useMagicPotion(items[1]); });
+            }
+
+        } else {
+            buttonThree.gameObject.SetActive(false);
+            buttonTwo.gameObject.SetActive(false);
+            buttonOne.gameObject.SetActive(false);
+        }
+
+
+
+       
+        
+        buttonFour.GetComponentInChildren<TextMeshProUGUI>().SetText("Back");
         buttonFour.onClick.AddListener(createDefaultButtons);
+        //buttonTwo.onClick.AddListener(delegate { useMagicPotion(items[0]); });
+
+
     }
 
     public Queue<CharacterClass> findFastesCharacters(List<CharacterClass>charchters) {
@@ -237,6 +284,7 @@ public class BattleProcess : MonoBehaviour {
             int speed = 0;
             CharacterClass tempobj = null;
             foreach (CharacterClass cha in charchters) {
+                //print(cha.s_name);
                 if(cha.n_agility > speed) {
                     speed = cha.n_agility;
                     tempobj = cha;
@@ -244,6 +292,7 @@ public class BattleProcess : MonoBehaviour {
             }
             characterQueue.Enqueue(tempobj);
             charchters.Remove(tempobj);
+            //print(characterQueue.Peek().s_name);
             speed = 0;
         }
 
@@ -275,19 +324,20 @@ public class BattleProcess : MonoBehaviour {
 
     void addCharstoList() {
 
-
+        if (charThief.b_isAlive) {
+            characters.Add(charThief);
+        }
         if (charMage.b_isAlive) {
             characters.Add(charMage);
-        }
-        if (charWarrior.b_isAlive) {
-            characters.Add(charWarrior);
         }
         if (charPriest.b_isAlive) {
             characters.Add(charPriest);
         }
-        if (charThief.b_isAlive) {
-            characters.Add(charThief);
+        if (charWarrior.b_isAlive) {
+            characters.Add(charWarrior);
         }
+        
+        
         characters.Add(Enemy);
         
 
@@ -326,7 +376,7 @@ public class BattleProcess : MonoBehaviour {
         if(state == BattleState.ENEMYTURN) {
             
             targets[rng].takePhysDamage(playTurns.Peek().n_strength);
-            textchanger.setHealthChar(rng + 1, targets[rng].n_HP);
+            textchanger.setHealthCharByName(targets[rng].s_name, targets[rng].n_HP);
             StartCoroutine(EnemyAttack(targets[rng]));
             
 
@@ -415,12 +465,12 @@ public class BattleProcess : MonoBehaviour {
         }
     }
 
-    public void useHealthPotion() {
-        StartCoroutine(HealthPotion(playTurns.Peek()));
+    public void useHealthPotion(ItemClass item) {
+        StartCoroutine(HealthPotion(playTurns.Peek(), item));
     }
 
-    public void useMagicPotion() {
-        StartCoroutine(MagicPotion(playTurns.Peek()));
+    public void useMagicPotion(ItemClass item) {
+        StartCoroutine(MagicPotion(playTurns.Peek(), item));
     }
 
     public void startHeal(AbilityClass ability, PlayerClass target) {
@@ -519,12 +569,16 @@ public class BattleProcess : MonoBehaviour {
     }
 
 
-    IEnumerator HealthPotion(CharacterClass ItemUser) {
+    IEnumerator HealthPotion(CharacterClass ItemUser, ItemClass item) {
         
         deactivateAllButtons();
 
-
+        item.action(ref ItemUser);
+        textchanger.setHealthCharByName(ItemUser.s_name, ItemUser.n_HP);
         textchanger.setLog(playTurns.Peek().s_name + " used a Health Potion");
+
+        WorldComponents.items.Remove(item);
+
         yield return new WaitForSeconds(2f);
         activateAllButtons();
         playTurns.Dequeue();
@@ -534,7 +588,7 @@ public class BattleProcess : MonoBehaviour {
     }
 
     
-    IEnumerator MagicPotion(CharacterClass ItemUser) {
+    IEnumerator MagicPotion(CharacterClass ItemUser, ItemClass item) {
 
 
         deactivateAllButtons();

@@ -58,6 +58,13 @@ public class LevelLoader : MonoBehaviour
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(scene);
     }
+    IEnumerator Loader_end(string scene)
+    {
+        yield return new WaitForSeconds(2f);
+        transition.SetTrigger("Start");
+        yield return new WaitForSeconds(transitionTime);
+        SceneManager.LoadScene(scene);
+    }
 
     public void OnTriggerEnter2D(Collider2D other)
     {
@@ -70,5 +77,10 @@ public class LevelLoader : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
+    }
+    public void LoadEndscreen()
+    {
+
+        StartCoroutine(Loader_end("credits"));
     }
 }
