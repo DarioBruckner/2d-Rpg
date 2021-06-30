@@ -50,25 +50,4 @@ public class WorldComponents : MonoBehaviour
         }
        
     }
-
-    public CharacterClass GetCharacter(string name)
-    {
-        switch (name)
-        {
-            case "The Warrior":
-                return warrior;
-                break;
-            case "The Thief":
-                return thief;
-                break;
-            case "The Priest":
-                return priest;
-                break;
-            case "The Mage":
-                return mage;
-                break;
-            default:
-                return null;
-        }
-    }
 }

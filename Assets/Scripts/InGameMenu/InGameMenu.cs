@@ -55,33 +55,17 @@ public class InGameMenu : MonoBehaviour
     {
         m_partyMenu.SetActive(true);
         UnloadItemMenu();
-        float maxHP = m_worldComponents.GetComponent<WorldComponents>().GetCharacter("The Warrior").n_maxHP;
-        float maxMP = m_worldComponents.GetComponent<WorldComponents>().GetCharacter("The Warrior").n_maxMP;
-        float HP = m_worldComponents.GetComponent<WorldComponents>().GetCharacter("The Warrior").n_HP;
-        float MP = m_worldComponents.GetComponent<WorldComponents>().GetCharacter("The Warrior").n_MP;
-        warriorHP.text = "HP: " + HP + "/" + maxHP;
-        warriorMP.text = "MP: " + MP + "/" + maxMP;
+        warriorHP.text = "HP: " + WorldComponents.warrior.n_HP + "/" + WorldComponents.warrior.n_maxHP;
+        warriorMP.text = "MP: " + WorldComponents.warrior.n_MP + "/" + WorldComponents.warrior.n_maxMP;
 
-        maxHP = m_worldComponents.GetComponent<WorldComponents>().GetCharacter("The Thief").n_maxHP;
-        maxMP = m_worldComponents.GetComponent<WorldComponents>().GetCharacter("The Thief").n_maxMP;
-        HP = m_worldComponents.GetComponent<WorldComponents>().GetCharacter("The Thief").n_HP;
-        MP = m_worldComponents.GetComponent<WorldComponents>().GetCharacter("The Thief").n_MP;
-        thiefHP.text = "HP: " + HP + "/" + maxHP;
-        thiefMP.text = "MP: " + MP + "/" + maxMP;
+        thiefHP.text = "HP: " + WorldComponents.thief.n_HP + "/" + WorldComponents.thief.n_maxHP;
+        thiefMP.text = "MP: " + WorldComponents.thief.n_MP + "/" + WorldComponents.thief.n_maxMP;
 
-        maxHP = m_worldComponents.GetComponent<WorldComponents>().GetCharacter("The Priest").n_maxHP;
-        maxMP = m_worldComponents.GetComponent<WorldComponents>().GetCharacter("The Priest").n_maxMP;
-        HP = m_worldComponents.GetComponent<WorldComponents>().GetCharacter("The Priest").n_HP;
-        MP = m_worldComponents.GetComponent<WorldComponents>().GetCharacter("The Priest").n_MP;
-        priestHP.text = "HP: " + HP + "/" + maxHP;
-        priestMP.text = "MP: " + MP + "/" + maxMP;
+        priestHP.text = "HP: " + WorldComponents.priest.n_HP + "/" + WorldComponents.priest.n_maxHP;
+        priestMP.text = "MP: " + WorldComponents.priest.n_MP + "/" + WorldComponents.priest.n_maxMP;
 
-        maxHP = m_worldComponents.GetComponent<WorldComponents>().GetCharacter("The Mage").n_maxHP;
-        maxMP = m_worldComponents.GetComponent<WorldComponents>().GetCharacter("The Mage").n_maxMP;
-        HP = m_worldComponents.GetComponent<WorldComponents>().GetCharacter("The Mage").n_HP;
-        MP = m_worldComponents.GetComponent<WorldComponents>().GetCharacter("The Mage").n_MP;
-        mageHP.text = "HP: " + HP + "/" + maxHP;
-        mageMP.text = "MP: " + MP + "/" + maxMP;
+        mageHP.text = "HP: " + WorldComponents.mage.n_HP + "/" + WorldComponents.mage.n_maxHP;
+        mageMP.text = "MP: " + WorldComponents.mage.n_MP + "/" + WorldComponents.mage.n_maxMP;
     }
 
     public void UnloadPartyMenu()
