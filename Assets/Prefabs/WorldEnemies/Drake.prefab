@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f87e442074c61048828a83684e43a83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
   transition: {fileID: 0}
 --- !u!50 &6031497843308721115
 Rigidbody2D:
@@ -180,6 +181,7 @@ MonoBehaviour:
   m_pointLeft: {fileID: 6031497843522430980}
   m_pointRight: {fileID: 6031497844448150771}
   f_moveSpeed: 5.1
+  textBubble: {fileID: 0}
 --- !u!95 &142517876506117687
 Animator:
   serializedVersion: 3
