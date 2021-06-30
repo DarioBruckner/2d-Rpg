@@ -5,8 +5,8 @@ using UnityEngine;
 public class WorldComponents : MonoBehaviour
 {
     //Construct world mit Relics/Gegnern/...
-    //Speichere Gegner, die gestorben sind/Quests die erfüllt sind um sie nicht zu spawnen
-    //Bei Spielerkollision mit Gegner, können mithilfe von Tags/ids die Daten der Gegner gefunden werden und so bei der Transitiontobattle übertragen werden
+    //Speichere Gegner, die gestorben sind/Quests die erfÃ¼llt sind um sie nicht zu spawnen
+    //Bei Spielerkollision mit Gegner, kÃ¶nnen mithilfe von Tags/ids die Daten der Gegner gefunden werden und so bei der Transitiontobattle Ã¼bertragen werden
     //Oder bei der Transition werden jeweils die Daten gespeichert und dann beim constructen der Welt so gesetzt, wie man sie vorgefunden hat. 
     public static ArrayList m_enemies = new ArrayList();
     public static ArrayList m_itemsAndArtifacts = new ArrayList();
@@ -14,7 +14,9 @@ public class WorldComponents : MonoBehaviour
     static bool b_firstLoad = true;
     public static bool b_ringquest = false;
     public static string s_playerobjectname="Character";
+
     public string s_objectID;
+main
     public static Mage mage = new Mage();
     public static Priest priest = new Priest();
     public static Warrior warrior = new Warrior();
@@ -23,6 +25,8 @@ public class WorldComponents : MonoBehaviour
     public static ArrayList m_items = new ArrayList();
     void Start()
     {
+        items.Add(new HealingPotion());
+        
         if (b_firstLoad)
         {
             if (GameObject.Find("Character"))
