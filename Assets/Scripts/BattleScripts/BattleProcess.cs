@@ -227,12 +227,23 @@ public class BattleProcess : MonoBehaviour {
 
     }
 
+    public bool doesContain(ItemClass item, List<ItemClass> items) {
+        bool ret = false;
+        foreach(ItemClass i in items) {
+            if(i.s_itemName == item.s_itemName) {
+                ret = true;
+            }
+        }
+        
+        return ret;
+    }
+
     public void displayItems() {
         CharacterClass currentPlayer = playTurns.Peek();
         List<ItemClass> items = new List<ItemClass>();
 
         foreach(ItemClass item in WorldComponents.items) {
-            if (!items.Contains(item)) {
+            if (!doesContain(item, items)) {
                 items.Add(item);
             }
         }
@@ -585,6 +596,8 @@ public class BattleProcess : MonoBehaviour {
         textchanger.setHealthCharByName(ItemUser.s_name, ItemUser.n_HP);
         textchanger.setLog(playTurns.Peek().s_name + " used a Health Potion");
 
+        Debug.Log(WorldComponents.items.Contains(item));
+        WorldComponents.items.Remove(item);
         WorldComponents.items.Remove(item);
 
         yield return new WaitForSeconds(2f);
@@ -601,6 +614,10 @@ public class BattleProcess : MonoBehaviour {
 
         deactivateAllButtons();
         textchanger.setLog(playTurns.Peek().s_name + " used a Magic Potion");
+        Debug.Log(WorldComponents.items.Contains(item));
+        WorldComponents.items.Remove(item);
+        WorldComponents.items.Remove(item);
+
         yield return new WaitForSeconds(2f);
         activateAllButtons();
         playTurns.Dequeue();
