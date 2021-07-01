@@ -19,6 +19,10 @@ public class InGameMenu : MonoBehaviour
     public TextMeshProUGUI priestMP;
     public TextMeshProUGUI mageHP;
     public TextMeshProUGUI mageMP;
+    public TextMeshProUGUI m_healthPotionButton;
+    public TextMeshProUGUI m_magicPotionButton;
+    public TextMeshProUGUI m_itemReceiveText;
+    private string s_itemInUse = "";
 
     // Update is called once per frame
     void Update()
@@ -71,15 +75,82 @@ public class InGameMenu : MonoBehaviour
     public void UnloadPartyMenu()
     {
         m_partyMenu.SetActive(false);
+        m_itemReceiveText.text = "";
+        s_itemInUse = "";
     }
     public void LoadItemMenu()
     {
         m_itemMenu.SetActive(true);
         UnloadPartyMenu();
+        int healthCount = 0;
+        int magicCount = 0;
+        foreach (ItemClass item in WorldComponents.items)
+        {
+            if (item.s_itemName == "Healing Potion")
+            {
+                healthCount++;
+            } else if (item.s_itemName == "Magic Potion")
+            {
+                magicCount++;
+            }
+        }
+        m_healthPotionButton.text = "Health Potion x" + healthCount / 2;
+        m_magicPotionButton.text = "Magic Potion x" + magicCount / 2;
     }
 
     public void UnloadItemMenu()
     {
         m_itemMenu.SetActive(false);
+    }
+
+    public void useItem(string item)
+    {
+        s_itemInUse = item;
+        if (item == "healthPotion")
+        {
+            m_itemReceiveText.text = "Who will receive the Health Potion?";
+        } else if (item == "magicPotion")
+        {
+            m_itemReceiveText.text = "Who will receive the Magic Potion?";
+        }
+        UnloadItemMenu();
+        LoadPartyMenu();
+    }
+
+    public void giveItemTo(string character)
+    {
+        if (s_itemInUse == "")
+        {
+            return;
+        }
+        ItemClass item;
+        if (s_itemInUse == "healthPotion")
+        {
+            item = new HealingPotion();
+        } else
+        {
+            item = new MagicPotion();
+        }
+        CharacterClass giveTo = new Warrior();
+        switch (character)
+        {
+            case "warrior":
+                giveTo = WorldComponents.warrior;
+                break;
+            case "thief":
+                giveTo = WorldComponents.thief;
+                break;
+            case "mage":
+                giveTo = WorldComponents.mage;
+                break;
+            case "priest":
+                giveTo = WorldComponents.priest;
+                break;
+        }
+        item.action(ref giveTo);
+        WorldComponents.items.Remove(item);
+        WorldComponents.items.Remove(item);
+        UnloadPartyMenu();
+        LoadItemMenu();
     }
 }
