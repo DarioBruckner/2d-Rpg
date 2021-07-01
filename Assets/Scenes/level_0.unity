@@ -587,6 +587,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bat
       objectReference: {fileID: 0}
+    - target: {fileID: 4939032205146364298, guid: b5276b6de9e7a1d43b584e2d6e68b251, type: 3}
+      propertyPath: transition
+      value: 
+      objectReference: {fileID: 1884912991}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5276b6de9e7a1d43b584e2d6e68b251, type: 3}
 --- !u!1 &31490223
@@ -35474,6 +35478,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1384667257}
     m_Modifications:
+    - target: {fileID: 6031497843308721116, guid: f01cbd131ea631e439dc7de7f0b51239, type: 3}
+      propertyPath: transition
+      value: 
+      objectReference: {fileID: 1884912991}
     - target: {fileID: 6031497844351013939, guid: f01cbd131ea631e439dc7de7f0b51239, type: 3}
       propertyPath: m_Name
       value: Drake
@@ -36747,21 +36755,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1384667257}
     m_Modifications:
+    - target: {fileID: 774349689, guid: 459446f2bf08fe44191ccdd01566957d, type: 3}
+      propertyPath: transition
+      value: 
+      objectReference: {fileID: 1884912991}
     - target: {fileID: 3453521343059278680, guid: 459446f2bf08fe44191ccdd01566957d, type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3453521343059278680, guid: 459446f2bf08fe44191ccdd01566957d, type: 3}
-      propertyPath: m_LocalScale.x
-      value: -0.84871
-      objectReference: {fileID: 0}
-    - target: {fileID: 3453521343059278680, guid: 459446f2bf08fe44191ccdd01566957d, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.84871
-      objectReference: {fileID: 0}
-    - target: {fileID: 3453521343059278680, guid: 459446f2bf08fe44191ccdd01566957d, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.84871
       objectReference: {fileID: 0}
     - target: {fileID: 3453521343059278680, guid: 459446f2bf08fe44191ccdd01566957d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -36802,14 +36802,6 @@ PrefabInstance:
     - target: {fileID: 3453521343059278680, guid: 459446f2bf08fe44191ccdd01566957d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3453521343059278683, guid: 459446f2bf08fe44191ccdd01566957d, type: 3}
-      propertyPath: m_SortingLayer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3453521343059278683, guid: 459446f2bf08fe44191ccdd01566957d, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 367532171
       objectReference: {fileID: 0}
     - target: {fileID: 3453521343059278693, guid: 459446f2bf08fe44191ccdd01566957d, type: 3}
       propertyPath: m_Name

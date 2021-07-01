@@ -17,7 +17,10 @@ public class BattleProcess : MonoBehaviour {
     public GameObject charPriestPrefab;
     public GameObject charThiefPrefab;
 
-    public GameObject enemyPrefab;
+    public GameObject wolfPrefab;
+    public GameObject drakePrefab;
+    public GameObject batPrefab;
+    public GameObject golemPrefab;
 
     public Transform playerBattleStationChar1;
     public Transform playerBattleStationChar2;
@@ -44,7 +47,7 @@ public class BattleProcess : MonoBehaviour {
     PlayerClass charPriest;
     PlayerClass charThief;
 
-    Wolf Enemy;
+    MonsterClass Enemy;
 
     Queue<CharacterClass> playTurns;
 
@@ -79,19 +82,36 @@ public class BattleProcess : MonoBehaviour {
         charMage = WorldComponents.mage;
         charPriest = WorldComponents.priest;
         charWarrior = WorldComponents.warrior;
-        charThief =  WorldComponents.thief; 
+        charThief =  WorldComponents.thief;
         //charMage = charMageGO.GetComponent<Mage>();
         //charPriest = charPriestGO.GetComponent<Priest>();
         //charWarrior = charWarriorGO.GetComponent<Warrior>();
         //charThief =  charThiefGO.GetComponent<Thief>();
-        
-
-        GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleStation);
-
-
+        GameObject enemyGO;
+        if(WorldComponents.m_currentEnemy == "Wolf")
+        {
+            enemyGO = Instantiate(wolfPrefab, enemyBattleStation);
+            Enemy = enemyGO.GetComponent<Wolf>();
+        }
+        else if (WorldComponents.m_currentEnemy == "Drake")
+        {
+            enemyGO = Instantiate(drakePrefab, enemyBattleStation);
+            Enemy = enemyGO.GetComponent<Drake>();
+        }
+        else if (WorldComponents.m_currentEnemy == "Bat")
+        {
+            enemyGO = Instantiate(batPrefab, enemyBattleStation);
+            Enemy = enemyGO.GetComponent<Bat>();
+        }
+        else
+        {
+            enemyGO = Instantiate(golemPrefab, enemyBattleStation);
+            Enemy = enemyGO.GetComponent<Golem>();
+        }
+        print(WorldComponents.m_currentEnemy);
         createDefaultButtons();
 
-        Enemy = enemyGO.GetComponent<Wolf>();
+        
         
         
         charMageName.SetText(charMage.s_name);
@@ -227,23 +247,12 @@ public class BattleProcess : MonoBehaviour {
 
     }
 
-    public bool doesContain(ItemClass item, List<ItemClass> items) {
-        bool ret = false;
-        foreach(ItemClass i in items) {
-            if(i.s_itemName == item.s_itemName) {
-                ret = true;
-            }
-        }
-        
-        return ret;
-    }
-
     public void displayItems() {
         CharacterClass currentPlayer = playTurns.Peek();
         List<ItemClass> items = new List<ItemClass>();
 
         foreach(ItemClass item in WorldComponents.items) {
-            if (!doesContain(item, items)) {
+            if (!items.Contains(item)) {
                 items.Add(item);
             }
         }
@@ -596,8 +605,6 @@ public class BattleProcess : MonoBehaviour {
         textchanger.setHealthCharByName(ItemUser.s_name, ItemUser.n_HP);
         textchanger.setLog(playTurns.Peek().s_name + " used a Health Potion");
 
-        Debug.Log(WorldComponents.items.Contains(item));
-        WorldComponents.items.Remove(item);
         WorldComponents.items.Remove(item);
 
         yield return new WaitForSeconds(2f);
@@ -614,10 +621,6 @@ public class BattleProcess : MonoBehaviour {
 
         deactivateAllButtons();
         textchanger.setLog(playTurns.Peek().s_name + " used a Magic Potion");
-        Debug.Log(WorldComponents.items.Contains(item));
-        WorldComponents.items.Remove(item);
-        WorldComponents.items.Remove(item);
-
         yield return new WaitForSeconds(2f);
         activateAllButtons();
         playTurns.Dequeue();
@@ -658,6 +661,7 @@ public class BattleProcess : MonoBehaviour {
     void endBattle() {
         if(state == BattleState.WON) {
             textchanger.setLog("You won, well done");
+            WorldComponents.b_enemyDefeated = true;
             StartCoroutine(changeLevel());
         }else if (state == BattleState.LOST) {
             textchanger.setLog("Oh no you lost, try again!");

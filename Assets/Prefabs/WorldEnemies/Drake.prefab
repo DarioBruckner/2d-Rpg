@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6031497843308721118}
   - component: {fileID: 142517876506117687}
   m_Layer: 0
-  m_Name: Enemy0
+  m_Name: Drake
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
