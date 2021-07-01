@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8657954090997856823
+--- !u!1 &612619630646590486
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8657954090997856817}
-  - component: {fileID: 8657954090997856822}
-  - component: {fileID: 1687222262307901038}
-  - component: {fileID: 8846879005011713029}
+  - component: {fileID: 612619630646590484}
+  - component: {fileID: 612619630646590485}
+  - component: {fileID: 8604988612021598143}
+  - component: {fileID: 5754392127309524606}
   m_Layer: 0
-  m_Name: Thief
+  m_Name: Wolf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8657954090997856817
+--- !u!4 &612619630646590484
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8657954090997856823}
+  m_GameObject: {fileID: 612619630646590486}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.8, y: 6, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 0}
+  m_LocalPosition: {x: -0.014, y: 1.157, z: 0}
+  m_LocalScale: {x: -0.7, y: 0.7, z: 0.7}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &8657954090997856822
+--- !u!212 &612619630646590485
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8657954090997856823}
+  m_GameObject: {fileID: 612619630646590486}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 1957022791
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9065403365654433934, guid: 55cd3348a69ff444a90c5574e87acb66, type: 3}
+  m_Sprite: {fileID: 6882930960691434408, guid: 06e1f05afc9dab345b36709b0c17cbe0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -85,48 +85,48 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1687222262307901038
+--- !u!114 &8604988612021598143
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8657954090997856823}
+  m_GameObject: {fileID: 612619630646590486}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12dd407c588fc94489f1769adaaed243, type: 3}
+  m_Script: {fileID: 11500000, guid: de987f383f8c67f47ae810113f87ffe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   n_lvl: 1
   n_exp: 0
   n_expReq: 100
-  n_maxHP: 20
-  n_maxMP: 6
-  n_stdStrength: 2147483647
-  n_stdAgility: 15
+  n_maxHP: 200
+  n_maxMP: 10
+  n_stdStrength: 10
+  n_stdAgility: 10
   n_stdVitality: 10
-  n_stdMagicalMight: 0
+  n_stdMagicalMight: 10
   n_stdMagicalResistance: 10
-  n_HP: 20
-  n_MP: 6
-  n_strength: 12
-  n_agility: 15
+  n_HP: 200
+  n_MP: 10
+  n_strength: 10
+  n_agility: 10
   n_vitality: 10
-  n_magicalMight: 0
+  n_magicalMight: 10
   n_magicalResistance: 10
-  s_name: The Thief
+  s_name: Wolf
   b_isAlive: 1
---- !u!95 &8846879005011713029
+--- !u!95 &5754392127309524606
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8657954090997856823}
+  m_GameObject: {fileID: 612619630646590486}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d9e9d3da72b51c2428ec27ab08b0f35f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3baba8cab32bbe740ad262fb662b8adf, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

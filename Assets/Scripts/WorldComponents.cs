@@ -15,7 +15,7 @@ public class WorldComponents : MonoBehaviour
     public static bool b_ringquest = false;
     public static string s_playerobjectname="Character";
     
-    public static MonsterClass m_currentEnemy;
+    public static string m_currentEnemy;
     public static bool b_enemyDefeated = false;
     public static Mage mage = new Mage();
     public static Priest priest = new Priest();

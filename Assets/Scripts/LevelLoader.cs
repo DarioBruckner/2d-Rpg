@@ -31,7 +31,10 @@ public class LevelLoader : MonoBehaviour
             WorldComponents.m_enemies.Add(this.transform.parent.name);
             b_loaded = false;
         }
+
+        WorldComponents.m_currentEnemy = this.gameObject.name;
         
+
         //WorldComponents.Destroy(this);
         /*
         foreach(Transform child in WorldComponents.m_enemies.transform.get
@@ -41,6 +44,7 @@ public class LevelLoader : MonoBehaviour
         }*/
         //enemy = other; //Other is the object the player collided with which is stored in enemy. Can be used to construct the fight_scene
         StartCoroutine(Loader("fight_scene"));
+
     }
 
     public void LoadWorld()
