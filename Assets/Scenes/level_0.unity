@@ -1261,7 +1261,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &156856426
 RectTransform:
   m_ObjectHideFlags: 0
@@ -33028,6 +33028,9 @@ MonoBehaviour:
   priestMP: {fileID: 1112737220}
   mageHP: {fileID: 1999109706}
   mageMP: {fileID: 1348997389}
+  m_healthPotionButton: {fileID: 0}
+  m_magicPotionButton: {fileID: 0}
+  m_itemReceiveText: {fileID: 0}
 --- !u!1 &584917906
 GameObject:
   m_ObjectHideFlags: 0
@@ -34464,7 +34467,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &775429327
 RectTransform:
   m_ObjectHideFlags: 0
