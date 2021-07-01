@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 612619630646590484}
   - component: {fileID: 612619630646590485}
-  - component: {fileID: 8604988612021598143}
-  - component: {fileID: 5754392127309524606}
+  - component: {fileID: 5298213057147626432}
+  - component: {fileID: 3255193765376980876}
   m_Layer: 0
-  m_Name: Wolf
+  m_Name: Bat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 1957022791
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 6882930960691434408, guid: 06e1f05afc9dab345b36709b0c17cbe0, type: 3}
+  m_Sprite: {fileID: 3980419562168732608, guid: 7ecf2da39d208574aa7420e4381cd207, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -85,38 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8604988612021598143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 612619630646590486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de987f383f8c67f47ae810113f87ffe5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  n_lvl: 1
-  n_exp: 0
-  n_expReq: 100
-  n_maxHP: 200
-  n_maxMP: 10
-  n_stdStrength: 10
-  n_stdAgility: 10
-  n_stdVitality: 10
-  n_stdMagicalMight: 10
-  n_stdMagicalResistance: 10
-  n_HP: 200
-  n_MP: 10
-  n_strength: 10
-  n_agility: 10
-  n_vitality: 10
-  n_magicalMight: 10
-  n_magicalResistance: 10
-  s_name: '"Wolf"'
-  b_isAlive: 1
---- !u!95 &5754392127309524606
+--- !u!95 &5298213057147626432
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -126,7 +95,7 @@ Animator:
   m_GameObject: {fileID: 612619630646590486}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3baba8cab32bbe740ad262fb662b8adf, type: 2}
+  m_Controller: {fileID: 9100000, guid: 767d9e7e2e215664daaea75949e51593, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -135,3 +104,34 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3255193765376980876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 612619630646590486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 939ae159ffc25df4c9d53f67c3e71bd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  n_lvl: 0
+  n_exp: 0
+  n_expReq: 0
+  n_maxHP: 20
+  n_maxMP: 0
+  n_stdStrength: 0
+  n_stdAgility: 0
+  n_stdVitality: 0
+  n_stdMagicalMight: 0
+  n_stdMagicalResistance: 0
+  n_HP: 10
+  n_MP: 0
+  n_strength: 0
+  n_agility: 0
+  n_vitality: 0
+  n_magicalMight: 0
+  n_magicalResistance: 0
+  s_name: Bat
+  b_isAlive: 0

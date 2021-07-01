@@ -1729,7 +1729,10 @@ MonoBehaviour:
   charWarriorPrefab: {fileID: 5725701592398756805, guid: fc05e478762c9c9469995cddf92befeb, type: 3}
   charPriestPrefab: {fileID: 8525031743535552320, guid: 2130bcf93af3e674c8dfaf683de53236, type: 3}
   charThiefPrefab: {fileID: 8657954090997856823, guid: b8da8488e56fa3f4d941dbe7665b065d, type: 3}
-  enemyPrefab: {fileID: 612619630646590486, guid: 1c0148b14223cdc4abf65908d336e151, type: 3}
+  wolfPrefab: {fileID: 612619630646590486, guid: 1c0148b14223cdc4abf65908d336e151, type: 3}
+  drakePrefab: {fileID: 612619630646590486, guid: cd87890ef9fceb842a179444d1568306, type: 3}
+  batPrefab: {fileID: 612619630646590486, guid: 496a5ff88825fa54cb0840230cfb2a4e, type: 3}
+  golemPrefab: {fileID: 612619630646590486, guid: 216a59b8657dade4a992f61c95f42d11, type: 3}
   playerBattleStationChar1: {fileID: 1577131955}
   playerBattleStationChar2: {fileID: 1178056472}
   playerBattleStationChar3: {fileID: 266841462}
