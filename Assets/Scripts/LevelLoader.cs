@@ -31,7 +31,16 @@ public class LevelLoader : MonoBehaviour
             WorldComponents.m_enemies.Add(this.transform.parent.name);
             b_loaded = false;
         }
-        
+         
+        if(this.gameObject.name == "Wolf")
+            WorldComponents.m_currentEnemy = new Wolf(1);
+        if (this.gameObject.name == "Drake")
+            WorldComponents.m_currentEnemy = new Drake(1);
+        if (this.gameObject.name == "Bat")
+            WorldComponents.m_currentEnemy = new Bat(1);
+        if (this.gameObject.name == "GolemBoss")
+            WorldComponents.m_currentEnemy = new Golem(1);
+
         //WorldComponents.Destroy(this);
         /*
         foreach(Transform child in WorldComponents.m_enemies.transform.get
@@ -41,6 +50,7 @@ public class LevelLoader : MonoBehaviour
         }*/
         //enemy = other; //Other is the object the player collided with which is stored in enemy. Can be used to construct the fight_scene
         StartCoroutine(Loader("fight_scene"));
+
     }
 
     public void LoadWorld()
