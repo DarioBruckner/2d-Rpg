@@ -657,6 +657,11 @@ public class BattleProcess : MonoBehaviour {
 
     void endBattle() {
         if(state == BattleState.WON) {
+            WorldComponents.mage.gainExp(Enemy.n_expDrop);
+            WorldComponents.priest.gainExp(Enemy.n_expDrop);
+            WorldComponents.warrior.gainExp(Enemy.n_expDrop);
+            WorldComponents.thief.gainExp(Enemy.n_expDrop);
+
             textchanger.setLog("You won, well done");
             StartCoroutine(changeLevel());
         }else if (state == BattleState.LOST) {

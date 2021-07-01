@@ -18,4 +18,8 @@ public class PlayerClass : CharacterClass
     {
         base.levelUp();
     }
+    public void fillMP()
+    {
+        this.n_MP = this.n_maxMP;
+    }
 }
