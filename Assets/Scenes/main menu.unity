@@ -668,7 +668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetPosition: {fileID: 1973822807}
-  speed: 0.1
+  speed: 0.07
   Background: {fileID: 290532015}
 --- !u!1 &1499713133
 GameObject:
