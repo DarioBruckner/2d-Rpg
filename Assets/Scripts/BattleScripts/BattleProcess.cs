@@ -64,7 +64,7 @@ public class BattleProcess : MonoBehaviour {
 
     public BattleState state;
 
-    // Start is called before the first frame update
+    
     void Start() {
         state = BattleState.START;
         StartCoroutine(SetupBattle());
@@ -83,10 +83,7 @@ public class BattleProcess : MonoBehaviour {
         charPriest = WorldComponents.priest;
         charWarrior = WorldComponents.warrior;
         charThief =  WorldComponents.thief;
-        //charMage = charMageGO.GetComponent<Mage>();
-        //charPriest = charPriestGO.GetComponent<Priest>();
-        //charWarrior = charWarriorGO.GetComponent<Warrior>();
-        //charThief =  charThiefGO.GetComponent<Thief>();
+        
         GameObject enemyGO;
         if(WorldComponents.m_currentEnemy == "Wolf")
         {
@@ -112,7 +109,7 @@ public class BattleProcess : MonoBehaviour {
             Enemy = enemyGO.GetComponent<Golem>();
             Enemy.initialize(4);
         }
-        print(WorldComponents.m_currentEnemy);
+        
         createDefaultButtons();
 
         
@@ -154,9 +151,6 @@ public class BattleProcess : MonoBehaviour {
         
         playTurns = findFastesCharacters(characters);
 
-        foreach(CharacterClass p in playTurns) {
-            print(p.s_name);
-        }
 
         PlayerTurn();
     }
@@ -309,7 +303,7 @@ public class BattleProcess : MonoBehaviour {
             int speed = 0;
             CharacterClass tempobj = null;
             foreach (CharacterClass cha in charchters) {
-                //print(cha.s_name);
+              
                 if(cha.n_agility > speed) {
                     speed = cha.n_agility;
                     tempobj = cha;
@@ -317,7 +311,7 @@ public class BattleProcess : MonoBehaviour {
             }
             characterQueue.Enqueue(tempobj);
             charchters.Remove(tempobj);
-            //print(characterQueue.Peek().s_name);
+            
             speed = 0;
         }
 
@@ -439,7 +433,7 @@ public class BattleProcess : MonoBehaviour {
                 removeAllOnClickListeners();
                 activateAllButtons();
                 addChatstoTargets();
-                print(targets.Count);
+               
                 switch (targets.Count) {
                     case 1:
                        
