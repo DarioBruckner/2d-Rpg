@@ -18,13 +18,19 @@ public class Revive : AbilityClass
     {
         if (user.drainMP(10))
         {
-            target.revive(this.n_lvl * 0.1);
-            this.n_uses++;
-            if (this.n_uses % 5 == 0)
+            if(target.revive(this.n_lvl * 0.1))
             {
-                this.levelUp();
+                this.n_uses++;
+                if (this.n_uses % 5 == 0)
+                {
+                    this.levelUp();
+                }
+                return true;
+            } else
+            {
+                return false;
             }
-            return true;
+            
         } else
         {
             return false;

@@ -100,11 +100,18 @@ public class CharacterClass : MonoBehaviour
             this.n_MP = this.n_maxMP;
     }
 
-    public void revive(double restore)
+    public bool revive(double restore)
     {
-        b_isAlive = true;
-        int heal = (int)Math.Ceiling((double)(this.n_maxHP * restore));
-        this.getHealed(heal);
+        if(!b_isAlive) {
+            b_isAlive = true;
+            int heal = (int)Math.Ceiling((double)(this.n_maxHP * restore));
+            this.getHealed(heal);
+            return true;
+        } else
+        {
+            return false;
+        }
+        
     }
 
     public void takePhysDamage(int atkStrength)
