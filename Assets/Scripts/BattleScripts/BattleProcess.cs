@@ -626,11 +626,13 @@ public class BattleProcess : MonoBehaviour {
         }
 
 
+        deactivateAllButtons();
+        yield return new WaitForSeconds(1f);
         
-        yield return new WaitForSeconds(2f);
         if (state == BattleState.RUN) {
             StartCoroutine(changeLevel());
         } else {
+            activateAllButtons();
             PlayerTurn();
         }
     }
