@@ -14,14 +14,17 @@ public class WorldComponents : MonoBehaviour
     static bool b_firstLoad = true;
     public static bool b_ringquest = false;
     public static string s_playerobjectname="Character";
-
-    public string s_objectID;
+    
+    public static MonsterClass m_currentEnemy;
+    public static bool b_enemyDefeated = false;
     public static Mage mage = new Mage();
     public static Priest priest = new Priest();
     public static Warrior warrior = new Warrior();
     public static Thief thief = new Thief();
     public static List<ItemClass> items = new List<ItemClass>();
     public static ArrayList m_items = new ArrayList();
+
+
     void Start()
     {
         
@@ -48,6 +51,14 @@ public class WorldComponents : MonoBehaviour
                 GameObject.Find(s_playerobjectname).transform.position = m_playerposition;
 
             //Remove Enemies in the list from the world
+            if (!b_enemyDefeated)
+            { 
+                if (m_enemies.Count > 0)
+                    m_enemies.RemoveAt(m_enemies.Count - 1);
+            }
+            else
+                b_enemyDefeated = false;
+
             for (int j = 0; j < m_enemies.Count; j++)
                 Destroy(GameObject.Find(m_enemies[j].ToString()));
             
@@ -55,6 +66,21 @@ public class WorldComponents : MonoBehaviour
             for (int j = 0; j < m_items.Count; j++)
                 Destroy(GameObject.Find(m_items[j].ToString()));
         }
-       
+      
+    }
+    public static void reset()
+    {
+        m_enemies = new ArrayList();
+        m_itemsAndArtifacts = new ArrayList();
+        b_firstLoad = true;
+        b_ringquest = false;
+        s_playerobjectname = "Character";
+        mage = new Mage();
+        priest = new Priest();
+        warrior = new Warrior();
+        thief = new Thief();
+        items = new List<ItemClass>();
+        m_items = new ArrayList();
+        CharacterController.b_Stop = false;
     }
 }

@@ -20,7 +20,7 @@ public class CharacterController : MonoBehaviour //Name CharacterControlleris al
     private float f_LastAxis = 0.0f;
     private bool b_Jump = false;
     private float f_JumpTime = 0.0f;
-    private bool b_Stop = false;
+    public static bool b_Stop = false;
 
 
     // Start is called before the first frame update

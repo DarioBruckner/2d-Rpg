@@ -46,6 +46,7 @@ public class LevelLoader : MonoBehaviour
     public void LoadWorld()
     {
         StartCoroutine(Loader("level_0"));
+        CharacterController.b_Stop = false;
     }
     public void LoadMainMenu()
     {
@@ -58,11 +59,12 @@ public class LevelLoader : MonoBehaviour
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(scene);
     }
-    IEnumerator Loader_end(string scene)
+    IEnumerator LoaderEnd(string scene)
     {
         yield return new WaitForSeconds(2f);
         transition.SetTrigger("Start");
         yield return new WaitForSeconds(transitionTime);
+        WorldComponents.reset();
         SceneManager.LoadScene(scene);
     }
 
@@ -81,6 +83,6 @@ public class LevelLoader : MonoBehaviour
     public void LoadEndscreen()
     {
 
-        StartCoroutine(Loader_end("credits"));
+        StartCoroutine(LoaderEnd("credits"));
     }
 }

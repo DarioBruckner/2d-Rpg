@@ -38,6 +38,7 @@ public class NPCController : MonoBehaviour
                 //GameObject player = GameObject.Find("Character");
                 TextBubble.Create(textBubble, transform.parent.transform, new Vector3(0.5f, 2.1f, -76.3f), "You Found it! omg!\n Let's go for a beer ( ͡° ͜ʖ ͡°)");
                 Destroy(GameObject.Find("WorldComponents"));
+                CharacterController.b_Stop = true;
                 Loader.LoadEndscreen();
                 
             }
