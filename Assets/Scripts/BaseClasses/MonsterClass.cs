@@ -1,5 +1,6 @@
 public class MonsterClass : CharacterClass
 {
+    public int n_expDrop;
     public MonsterClass(int level) : base() //sets Default values and level of the monster 
     {
         for(int i = 1; i < level; i++)
