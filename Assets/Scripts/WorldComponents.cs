@@ -24,7 +24,7 @@ public class WorldComponents : MonoBehaviour
     public static ArrayList m_items = new ArrayList();
     void Start()
     {
-        items.Add(new HealingPotion());
+        
         
         if (b_firstLoad)
         {
