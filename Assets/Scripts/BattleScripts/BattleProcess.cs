@@ -121,13 +121,6 @@ public class BattleProcess : MonoBehaviour {
 
         EnemyName.SetText(Enemy.s_name);
 
-
-        charMage.initialize();
-        charWarrior.initialize();
-        charPriest.initialize();
-        charThief.initialize();
-
-
         textchanger.startupHealth(charMage.n_maxHP,charMage.n_HP,charWarrior.n_maxHP, charWarrior.n_HP,charPriest.n_maxHP, charPriest.n_HP, charThief.n_maxHP, charThief.n_HP, Enemy.n_HP, 
             charMage.n_maxMP,charMage.n_MP, charWarrior.n_maxMP, charWarrior.n_MP, charPriest.n_maxMP, charPriest.n_MP, charThief.n_maxMP, charThief.n_MP);
 
