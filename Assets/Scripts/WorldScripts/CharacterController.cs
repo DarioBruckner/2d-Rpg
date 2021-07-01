@@ -119,9 +119,9 @@ public class CharacterController : MonoBehaviour //Name CharacterControlleris al
             {
                 TextBubble.Create(textBubblePrefab, this.transform, new Vector3(0.5f, 2.1f, -76.3f),message);
                 WorldComponents.m_items.Add(collision.name);
-                if (collision.name == "healthpotion")
+                if (obj == "healthpotion")
                     WorldComponents.items.Add(new HealingPotion());
-                if (collision.name == "manapotion")
+                if (obj == "manapotion")
                     WorldComponents.items.Add(new MagicPotion());
             }
             else

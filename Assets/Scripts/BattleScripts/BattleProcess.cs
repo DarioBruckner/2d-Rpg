@@ -229,7 +229,13 @@ public class BattleProcess : MonoBehaviour {
 
     public void displayItems() {
         CharacterClass currentPlayer = playTurns.Peek();
-        List<ItemClass> items = WorldComponents.items;
+        List<ItemClass> items = new List<ItemClass>();
+
+        foreach(ItemClass item in WorldComponents.items) {
+            if (!items.Contains(item)) {
+                items.Add(item);
+            }
+        }
 
 
         removeAllOnClickListeners();
@@ -245,14 +251,16 @@ public class BattleProcess : MonoBehaviour {
             }
             
         } else if(items.Count == 2) {
+
+            buttonThree.gameObject.SetActive(false);
             buttonOne.GetComponentInChildren<TextMeshProUGUI>().SetText(items[0].s_itemName);
             if (items[0].s_itemName == "Healing Potion") {
-                buttonOne.onClick.AddListener(delegate { useHealthPotion(items[1]); });
+                buttonOne.onClick.AddListener(delegate { useHealthPotion(items[0]); });
             } else {
-                buttonOne.onClick.AddListener(delegate { useMagicPotion(items[1]); });
+                buttonOne.onClick.AddListener(delegate { useMagicPotion(items[0]); });
             }
 
-            buttonOne.GetComponentInChildren<TextMeshProUGUI>().SetText(items[1].s_itemName);
+            buttonTwo.GetComponentInChildren<TextMeshProUGUI>().SetText(items[1].s_itemName);
 
             if (items[1].s_itemName == "Healing Potion") {
                 buttonTwo.onClick.AddListener(delegate { useHealthPotion(items[1]); });
