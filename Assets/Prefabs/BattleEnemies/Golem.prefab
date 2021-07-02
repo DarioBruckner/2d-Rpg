@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 612619630646590486}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.025, y: 0.914, z: 0}
+  m_LocalPosition: {x: 0.025, y: -0.08, z: 0}
   m_LocalScale: {x: -0.2587129, y: 0.2587129, z: 0.2587129}
   m_Children: []
   m_Father: {fileID: 0}
@@ -116,6 +116,7 @@ MonoBehaviour:
   n_magicalResistance: 0
   s_name: Golem
   b_isAlive: 1
+  n_expDrop: 0
 --- !u!95 &9195472851211256178
 Animator:
   serializedVersion: 3

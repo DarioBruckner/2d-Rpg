@@ -509,7 +509,6 @@ public class BattleProcess : MonoBehaviour {
         textchanger.setLog(attackingUnit.s_name + " attacks " + Enemy.s_name);
         deactivateAllButtons();
 
-        Debug.Log(attackingUnit.s_name);
         switch (attackingUnit.s_name)
         {
             case "The Mage":
@@ -541,6 +540,22 @@ public class BattleProcess : MonoBehaviour {
     }
 
     IEnumerator EnemyAttack(CharacterClass target) {
+        Debug.Log(WorldComponents.m_currentEnemy);
+        switch (WorldComponents.m_currentEnemy)
+        {
+            case "Wolf":
+                GameObject.Find("Wolf(Clone)").GetComponent<Animator>().SetTrigger("attack");
+                break;
+            case "Bat":
+                GameObject.Find("Bat(Clone)").GetComponent<Animator>().SetTrigger("attack");
+                break;
+            case "Drake":
+                GameObject.Find("Drake(Clone)").GetComponent<Animator>().SetTrigger("attack");
+                break;
+            case "GolemBoss":
+                GameObject.Find("Golem(Clone)").GetComponent<Animator>().SetTrigger("attack");
+                break;
+        }
 
         textchanger.setLog(Enemy.s_name + " attacks " + target.s_name);
 
@@ -722,6 +737,26 @@ public class BattleProcess : MonoBehaviour {
         else
         {
             GameObject.Find("Priest(Clone)").GetComponent<Animator>().SetBool("dead", false);
+        }
+
+        if (Enemy.n_HP <= 0)
+        {
+            switch (WorldComponents.m_currentEnemy)
+            {
+                case "Wolf":
+                    GameObject.Find("Wolf(Clone)").GetComponent<Animator>().SetBool("dead", true);
+                    break;
+                case "Bat":
+                    GameObject.Find("Bat(Clone)").GetComponent<Animator>().SetBool("dead", true);
+                    break;
+                case "Drake":
+                    GameObject.Find("Drake(Clone)").GetComponent<Animator>().SetBool("dead", true);
+                    break;
+                case "GolemBoss":
+                    GameObject.Find("Golem(Clone)").GetComponent<Animator>().SetBool("dead", true);
+                    break;
+            }
+            
         }
     }
 }

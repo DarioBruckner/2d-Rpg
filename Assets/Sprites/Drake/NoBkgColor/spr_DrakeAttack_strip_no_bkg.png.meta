@@ -1,7 +1,73 @@
 fileFormatVersion: 2
 guid: cd6b100c2f196a6419047fad3bb27fd6
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 840482657543566855
+    second: spr_DrakeAttack_strip_no_bkg_0
+  - first:
+      213: -4816910954451660813
+    second: spr_DrakeAttack_strip_no_bkg_1
+  - first:
+      213: -9092788983681908195
+    second: spr_DrakeAttack_strip_no_bkg_2
+  - first:
+      213: 4590740831791282570
+    second: spr_DrakeAttack_strip_no_bkg_3
+  - first:
+      213: -4414262028277644255
+    second: spr_DrakeAttack_strip_no_bkg_4
+  - first:
+      213: -6235533825732365310
+    second: spr_DrakeAttack_strip_no_bkg_5
+  - first:
+      213: -6418424333526766608
+    second: spr_DrakeAttack_strip_no_bkg_6
+  - first:
+      213: 6849820571968021836
+    second: spr_DrakeAttack_strip_no_bkg_7
+  - first:
+      213: 8487627194070582183
+    second: spr_DrakeAttack_strip_no_bkg_8
+  - first:
+      213: -6427313227647032926
+    second: spr_DrakeAttack_strip_no_bkg_9
+  - first:
+      213: -75978908699404351
+    second: spr_DrakeAttack_strip_no_bkg_10
+  - first:
+      213: 1578982386934634027
+    second: spr_DrakeAttack_strip_no_bkg_11
+  - first:
+      213: -3852889614846572585
+    second: spr_DrakeAttack_strip_no_bkg_12
+  - first:
+      213: -4209398175970641556
+    second: spr_DrakeAttack_strip_no_bkg_13
+  - first:
+      213: 4179305535200420567
+    second: spr_DrakeAttack_strip_no_bkg_14
+  - first:
+      213: 1735537531536491137
+    second: spr_DrakeAttack_strip_no_bkg_15
+  - first:
+      213: 7544453491288215464
+    second: spr_DrakeAttack_strip_no_bkg_16
+  - first:
+      213: 4775131450194136461
+    second: spr_DrakeAttack_strip_no_bkg_17
+  - first:
+      213: -1865395983332782369
+    second: spr_DrakeAttack_strip_no_bkg_18
+  - first:
+      213: -7035250528127305147
+    second: spr_DrakeAttack_strip_no_bkg_19
+  - first:
+      213: 9145983338276247298
+    second: spr_DrakeAttack_strip_no_bkg_20
+  - first:
+      213: 4705880355723155282
+    second: spr_DrakeAttack_strip_no_bkg_21
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -32,7 +98,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -41,12 +107,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 18
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -65,10 +131,22 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -77,7 +155,469 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: spr_DrakeAttack_strip_no_bkg_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 160
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 706b2c2268ef9ab00800000000000000
+      internalID: 840482657543566855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DrakeAttack_strip_no_bkg_1
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 32
+        width: 160
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ff883d0205e62db0800000000000000
+      internalID: -4816910954451660813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DrakeAttack_strip_no_bkg_2
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 32
+        width: 160
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d120e02589cefc180800000000000000
+      internalID: -9092788983681908195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DrakeAttack_strip_no_bkg_3
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 32
+        width: 160
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a89fcc6b67695bf30800000000000000
+      internalID: 4590740831791282570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DrakeAttack_strip_no_bkg_4
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 32
+        width: 160
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1240403b2146db2c0800000000000000
+      internalID: -4414262028277644255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DrakeAttack_strip_no_bkg_5
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 32
+        width: 160
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2043a44d50fe679a0800000000000000
+      internalID: -6235533825732365310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DrakeAttack_strip_no_bkg_6
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 32
+        width: 160
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fbe96e231d2de6a0800000000000000
+      internalID: -6418424333526766608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DrakeAttack_strip_no_bkg_7
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 32
+        width: 160
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c45215fa4837f0f50800000000000000
+      internalID: 6849820571968021836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DrakeAttack_strip_no_bkg_8
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 32
+        width: 160
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a3c580b6fb1ac570800000000000000
+      internalID: 8487627194070582183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DrakeAttack_strip_no_bkg_9
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 32
+        width: 160
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a1eded3ca89dc6a0800000000000000
+      internalID: -6427313227647032926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DrakeAttack_strip_no_bkg_10
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 32
+        width: 160
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c7dc88c59112fef0800000000000000
+      internalID: -75978908699404351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DrakeAttack_strip_no_bkg_11
+      rect:
+        serializedVersion: 2
+        x: 1760
+        y: 32
+        width: 160
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2656d77d1ca9e510800000000000000
+      internalID: 1578982386934634027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DrakeAttack_strip_no_bkg_12
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 32
+        width: 160
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d7474c0f49c78ac0800000000000000
+      internalID: -3852889614846572585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DrakeAttack_strip_no_bkg_13
+      rect:
+        serializedVersion: 2
+        x: 2080
+        y: 32
+        width: 160
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c69b71b49a63595c0800000000000000
+      internalID: -4209398175970641556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DrakeAttack_strip_no_bkg_14
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 32
+        width: 160
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d2e179cd30eff930800000000000000
+      internalID: 4179305535200420567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DrakeAttack_strip_no_bkg_15
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 32
+        width: 160
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 182479d803ed51810800000000000000
+      internalID: 1735537531536491137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DrakeAttack_strip_no_bkg_16
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 32
+        width: 160
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8af80b46a7843b860800000000000000
+      internalID: 7544453491288215464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DrakeAttack_strip_no_bkg_17
+      rect:
+        serializedVersion: 2
+        x: 2720
+        y: 32
+        width: 160
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8d0e9411cca44240800000000000000
+      internalID: 4775131450194136461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DrakeAttack_strip_no_bkg_18
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 32
+        width: 160
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fde42088c38cc16e0800000000000000
+      internalID: -1865395983332782369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DrakeAttack_strip_no_bkg_19
+      rect:
+        serializedVersion: 2
+        x: 3040
+        y: 32
+        width: 160
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54ab7154be4cd5e90800000000000000
+      internalID: -7035250528127305147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DrakeAttack_strip_no_bkg_20
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 32
+        width: 160
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 207d89f736f0dee70800000000000000
+      internalID: 9145983338276247298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DrakeAttack_strip_no_bkg_21
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 32
+        width: 160
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2571e5e2045ae4140800000000000000
+      internalID: 4705880355723155282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
