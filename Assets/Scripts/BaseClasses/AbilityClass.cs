@@ -1,8 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System;
-using UnityEngine;
-
 public abstract class AbilityClass
 {
     public string s_name;
@@ -18,20 +13,8 @@ public abstract class AbilityClass
         if(this.n_lvl < 5)
             this.n_lvl++;
     }
-    // Start is called before the first frame update
 
     public string getName() {
         return this.s_name;
-    }
-
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
