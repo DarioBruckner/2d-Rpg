@@ -1,7 +1,64 @@
 fileFormatVersion: 2
 guid: dfe1822b52f5db245ad8119cebcf7896
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 469303518487057204
+    second: spr_DrakeDeath_strip_no_bkg_0
+  - first:
+      213: 3712431167544942008
+    second: spr_DrakeDeath_strip_no_bkg_1
+  - first:
+      213: -3284806465026114531
+    second: spr_DrakeDeath_strip_no_bkg_2
+  - first:
+      213: -5589564711479278576
+    second: spr_DrakeDeath_strip_no_bkg_3
+  - first:
+      213: -6854156039052395571
+    second: spr_DrakeDeath_strip_no_bkg_4
+  - first:
+      213: 8255672752990555741
+    second: spr_DrakeDeath_strip_no_bkg_5
+  - first:
+      213: 4724673171578570836
+    second: spr_DrakeDeath_strip_no_bkg_6
+  - first:
+      213: -3437688381609300290
+    second: spr_DrakeDeath_strip_no_bkg_7
+  - first:
+      213: 6899542884192501347
+    second: spr_DrakeDeath_strip_no_bkg_8
+  - first:
+      213: -6912198968675894211
+    second: spr_DrakeDeath_strip_no_bkg_9
+  - first:
+      213: -1168108198310745300
+    second: spr_DrakeDeath_strip_no_bkg_10
+  - first:
+      213: -9072361516810259715
+    second: spr_DrakeDeath_strip_no_bkg_11
+  - first:
+      213: 3169690396541206653
+    second: spr_DrakeDeath_strip_no_bkg_12
+  - first:
+      213: 824379055908091734
+    second: spr_DrakeDeath_strip_no_bkg_13
+  - first:
+      213: -1275532217533567597
+    second: spr_DrakeDeath_strip_no_bkg_14
+  - first:
+      213: 643234576504677164
+    second: spr_DrakeDeath_strip_no_bkg_15
+  - first:
+      213: 5971545755314786645
+    second: spr_DrakeDeath_strip_no_bkg_16
+  - first:
+      213: -7333118076615915260
+    second: spr_DrakeDeath_strip_no_bkg_17
+  - first:
+      213: -7187568706592392943
+    second: spr_DrakeDeath_strip_no_bkg_18
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -32,7 +89,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -41,12 +98,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 18
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -65,10 +122,22 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -77,7 +146,406 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: spr_DrakeDeath_strip_no_bkg_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 128
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4331347401d438600800000000000000
+      internalID: 469303518487057204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DrakeDeath_strip_no_bkg_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 128
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bdda924a74358330800000000000000
+      internalID: 3712431167544942008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DrakeDeath_strip_no_bkg_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 32
+        width: 128
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1c36387ce50a62d0800000000000000
+      internalID: -3284806465026114531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DrakeDeath_strip_no_bkg_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 32
+        width: 128
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 014083b7280ed62b0800000000000000
+      internalID: -5589564711479278576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DrakeDeath_strip_no_bkg_4
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 32
+        width: 128
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcbfe29b56521e0a0800000000000000
+      internalID: -6854156039052395571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DrakeDeath_strip_no_bkg_5
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 32
+        width: 128
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5e8fdfd0aa029270800000000000000
+      internalID: 8255672752990555741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DrakeDeath_strip_no_bkg_6
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 32
+        width: 128
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45842c79739619140800000000000000
+      internalID: 4724673171578570836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DrakeDeath_strip_no_bkg_7
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 32
+        width: 128
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebea0bd61a0ea40d0800000000000000
+      internalID: -3437688381609300290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DrakeDeath_strip_no_bkg_8
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 32
+        width: 128
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36e3ed4a2b910cf50800000000000000
+      internalID: 6899542884192501347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DrakeDeath_strip_no_bkg_9
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 32
+        width: 128
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3c704f09afe210a0800000000000000
+      internalID: -6912198968675894211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DrakeDeath_strip_no_bkg_10
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 32
+        width: 128
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2b677458cb0acfe0800000000000000
+      internalID: -1168108198310745300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DrakeDeath_strip_no_bkg_11
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 32
+        width: 128
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df2b994944f781280800000000000000
+      internalID: -9072361516810259715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DrakeDeath_strip_no_bkg_12
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 32
+        width: 128
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d704ec53f900dfb20800000000000000
+      internalID: 3169690396541206653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DrakeDeath_strip_no_bkg_13
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 32
+        width: 128
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6577ca33268c07b00800000000000000
+      internalID: 824379055908091734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DrakeDeath_strip_no_bkg_14
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 32
+        width: 128
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39d685ac4366c4ee0800000000000000
+      internalID: -1275532217533567597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DrakeDeath_strip_no_bkg_15
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 32
+        width: 128
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c236fc7707a3de800800000000000000
+      internalID: 643234576504677164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DrakeDeath_strip_no_bkg_16
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 32
+        width: 128
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5519781d9313fd250800000000000000
+      internalID: 5971545755314786645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DrakeDeath_strip_no_bkg_17
+      rect:
+        serializedVersion: 2
+        x: 2176
+        y: 32
+        width: 128
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 409005b36f78b3a90800000000000000
+      internalID: -7333118076615915260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DrakeDeath_strip_no_bkg_18
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 32
+        width: 128
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 119b8dcb750a04c90800000000000000
+      internalID: -7187568706592392943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
