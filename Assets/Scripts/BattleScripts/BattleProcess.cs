@@ -629,6 +629,7 @@ public class BattleProcess : MonoBehaviour {
         textchanger.setLog(playTurns.Peek().s_name + " used a Health Potion");
 
         WorldComponents.items.Remove(item);
+        WorldComponents.items.Remove(item);
 
         yield return new WaitForSeconds(2f);
         activateAllButtons();
@@ -643,7 +644,13 @@ public class BattleProcess : MonoBehaviour {
 
 
         deactivateAllButtons();
+        item.action(ref ItemUser);
+        textchanger.setManaByName(playTurns.Peek().s_name, ItemUser.n_MP);
         textchanger.setLog(playTurns.Peek().s_name + " used a Magic Potion");
+
+        WorldComponents.items.Remove(item);
+        WorldComponents.items.Remove(item);
+
         yield return new WaitForSeconds(2f);
         activateAllButtons();
         playTurns.Dequeue();
