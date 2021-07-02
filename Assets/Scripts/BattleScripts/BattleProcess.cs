@@ -64,7 +64,7 @@ public class BattleProcess : MonoBehaviour {
 
     public BattleState state;
 
-    // Start is called before the first frame update
+
     void Start() {
         state = BattleState.START;
         StartCoroutine(SetupBattle());
@@ -83,32 +83,33 @@ public class BattleProcess : MonoBehaviour {
         charPriest = WorldComponents.priest;
         charWarrior = WorldComponents.warrior;
         charThief =  WorldComponents.thief;
-        //charMage = charMageGO.GetComponent<Mage>();
-        //charPriest = charPriestGO.GetComponent<Priest>();
-        //charWarrior = charWarriorGO.GetComponent<Warrior>();
-        //charThief =  charThiefGO.GetComponent<Thief>();
+        
         GameObject enemyGO;
         if(WorldComponents.m_currentEnemy == "Wolf")
         {
             enemyGO = Instantiate(wolfPrefab, enemyBattleStation);
             Enemy = enemyGO.GetComponent<Wolf>();
+            Enemy.initialize(1);
         }
         else if (WorldComponents.m_currentEnemy == "Drake")
         {
             enemyGO = Instantiate(drakePrefab, enemyBattleStation);
             Enemy = enemyGO.GetComponent<Drake>();
+            Enemy.initialize(3);
         }
         else if (WorldComponents.m_currentEnemy == "Bat")
         {
             enemyGO = Instantiate(batPrefab, enemyBattleStation);
             Enemy = enemyGO.GetComponent<Bat>();
+            Enemy.initialize(2);
         }
         else
         {
             enemyGO = Instantiate(golemPrefab, enemyBattleStation);
             Enemy = enemyGO.GetComponent<Golem>();
+            Enemy.initialize(4);
         }
-        print(WorldComponents.m_currentEnemy);
+        
         createDefaultButtons();
 
         
@@ -121,15 +122,8 @@ public class BattleProcess : MonoBehaviour {
 
         EnemyName.SetText(Enemy.s_name);
 
-
-        charMage.initialize();
-        charWarrior.initialize();
-        charPriest.initialize();
-        charThief.initialize();
-
-
-        textchanger.startupHealth(charMage.n_HP, charWarrior.n_HP, charPriest.n_HP, charThief.n_HP, Enemy.n_HP, 
-            charMage.n_MP, charWarrior.n_MP, charPriest.n_MP, charThief.n_MP);
+        textchanger.startupHealth(charMage.n_maxHP,charMage.n_HP,charWarrior.n_maxHP, charWarrior.n_HP,charPriest.n_maxHP, charPriest.n_HP, charThief.n_maxHP, charThief.n_HP, Enemy.n_HP, 
+            charMage.n_maxMP,charMage.n_MP, charWarrior.n_maxMP, charWarrior.n_MP, charPriest.n_maxMP, charPriest.n_MP, charThief.n_maxMP, charThief.n_MP);
 
         textchanger.setLog(Enemy.s_name + " approches...");
         
@@ -157,9 +151,6 @@ public class BattleProcess : MonoBehaviour {
         
         playTurns = findFastesCharacters(characters);
 
-        foreach(CharacterClass p in playTurns) {
-            print(p.s_name);
-        }
 
         PlayerTurn();
     }
@@ -312,7 +303,7 @@ public class BattleProcess : MonoBehaviour {
             int speed = 0;
             CharacterClass tempobj = null;
             foreach (CharacterClass cha in charchters) {
-                //print(cha.s_name);
+              
                 if(cha.n_agility > speed) {
                     speed = cha.n_agility;
                     tempobj = cha;
@@ -320,7 +311,7 @@ public class BattleProcess : MonoBehaviour {
             }
             characterQueue.Enqueue(tempobj);
             charchters.Remove(tempobj);
-            //print(characterQueue.Peek().s_name);
+            
             speed = 0;
         }
 
@@ -402,7 +393,8 @@ public class BattleProcess : MonoBehaviour {
         }
 
         if(state == BattleState.ENEMYTURN) {
-            
+            CharacterClass tar = targets[rng];
+            Enemy.attack(ref tar);
             targets[rng].takePhysDamage(playTurns.Peek().n_strength);
             textchanger.setHealthCharByName(targets[rng].s_name, targets[rng].n_HP);
             StartCoroutine(EnemyAttack(targets[rng]));
@@ -442,7 +434,7 @@ public class BattleProcess : MonoBehaviour {
                 removeAllOnClickListeners();
                 activateAllButtons();
                 addChatstoTargets();
-                print(targets.Count);
+               
                 switch (targets.Count) {
                     case 1:
                        
@@ -514,10 +506,26 @@ public class BattleProcess : MonoBehaviour {
 
 
     IEnumerator PlayerAttack(CharacterClass attackingUnit) {
-
-        
         textchanger.setLog(attackingUnit.s_name + " attacks " + Enemy.s_name);
         deactivateAllButtons();
+
+        Debug.Log(attackingUnit.s_name);
+        switch (attackingUnit.s_name)
+        {
+            case "The Mage":
+                GameObject.Find("Mage(Clone)").GetComponent<Animator>().SetTrigger("attack");
+                break;
+            case "The Warrior":
+                GameObject.Find("Warrior(Clone)").GetComponent<Animator>().SetTrigger("attack");
+                break;
+            case "The Thief":
+                GameObject.Find("Thief(Clone)").GetComponent<Animator>().SetTrigger("attack");
+                break;
+            case "The Priest":
+                GameObject.Find("Priest(Clone)").GetComponent<Animator>().SetTrigger("attack");
+                break;
+        }
+       
 
         yield return new WaitForSeconds(2f);
 

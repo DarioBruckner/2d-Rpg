@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8525031743535552320}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: -1.36, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -97,25 +97,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7085066b42f5fa042b209fee210593bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lvl: 1
-  exp: 0
-  expReq: 100
-  maxHP: 16
-  maxMP: 15
-  stdStrength: 8
-  stdAgility: 10
-  stdVitality: 8
-  stdMagicalMight: 30
-  stdMagicalResistance: 12
-  HP: 16
-  MP: 15
-  strength: 8
-  agility: 10
-  vitality: 8
-  magicalMight: 30
-  magicalResistance: 12
-  Charname: The Priest
-  isAlive: 1
+  n_lvl: 1
+  n_exp: 0
+  n_expReq: 100
+  n_maxHP: 16
+  n_maxMP: 15
+  n_stdStrength: 8
+  n_stdAgility: 10
+  n_stdVitality: 8
+  n_stdMagicalMight: 30
+  n_stdMagicalResistance: 12
+  n_HP: 16
+  n_MP: 15
+  n_strength: 8
+  n_agility: 10
+  n_vitality: 8
+  n_magicalMight: 30
+  n_magicalResistance: 12
+  s_name: The Priest
+  b_isAlive: 1
 --- !u!95 &429822014508883828
 Animator:
   serializedVersion: 3
