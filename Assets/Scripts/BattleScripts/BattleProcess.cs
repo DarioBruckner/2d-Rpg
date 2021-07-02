@@ -688,4 +688,40 @@ public class BattleProcess : MonoBehaviour {
 
         loader.LoadWorld();
     }
+
+    private void Update()
+    {
+        if (WorldComponents.warrior.n_HP <= 0)
+        {
+            GameObject.Find("Warrior(Clone)").GetComponent<Animator>().SetBool("dead", true);
+        }
+        else
+        {
+            GameObject.Find("Warrior(Clone)").GetComponent<Animator>().SetBool("dead", false);
+        }
+        if (WorldComponents.thief.n_HP <= 0)
+        {
+            GameObject.Find("Thief(Clone)").GetComponent<Animator>().SetBool("dead", true);
+        }
+        else
+        {
+            GameObject.Find("Thief(Clone)").GetComponent<Animator>().SetBool("dead", false);
+        }
+        if (WorldComponents.mage.n_HP <= 0)
+        {
+            GameObject.Find("Mage(Clone)").GetComponent<Animator>().SetBool("dead", true);
+        }
+        else
+        {
+            GameObject.Find("Mage(Clone)").GetComponent<Animator>().SetBool("dead", false);
+        }
+        if (WorldComponents.priest.n_HP <= 0)
+        {
+            GameObject.Find("Priest(Clone)").GetComponent<Animator>().SetBool("dead", true);
+        }
+        else
+        {
+            GameObject.Find("Priest(Clone)").GetComponent<Animator>().SetBool("dead", false);
+        }
+    }
 }
