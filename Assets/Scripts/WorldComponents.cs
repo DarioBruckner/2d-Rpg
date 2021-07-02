@@ -46,18 +46,24 @@ public class WorldComponents : MonoBehaviour
                     if (Object.FindObjectsOfType<WorldComponents>()[j].name == gameObject.name)
                         Destroy(gameObject);
 
-            //Copy current position n stuff as long as there are Enemies 
-            if (GameObject.Find("Enemies"))
-                GameObject.Find(s_playerobjectname).transform.position = m_playerposition;
+            
 
             //Remove Enemies in the list from the world
             if (!b_enemyDefeated)
-            { 
+            {
                 if (m_enemies.Count > 0)
+                {
                     m_enemies.RemoveAt(m_enemies.Count - 1);
+                    m_playerposition.y += 6;
+                    m_playerposition.x -= 10;
+                }
             }
             else
                 b_enemyDefeated = false;
+
+            //Copy current position n stuff as long as there are Enemies 
+            if (GameObject.Find("Enemies"))
+                GameObject.Find(s_playerobjectname).transform.position = m_playerposition;
 
             for (int j = 0; j < m_enemies.Count; j++)
                 Destroy(GameObject.Find(m_enemies[j].ToString()));
