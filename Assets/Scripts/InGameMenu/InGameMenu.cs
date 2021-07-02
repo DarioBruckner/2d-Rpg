@@ -106,15 +106,18 @@ public class InGameMenu : MonoBehaviour
     public void useItem(string item)
     {
         s_itemInUse = item;
-        if (item == "healthPotion")
+        if (item == "healthPotion" && WorldComponents.items.Contains(new HealingPotion()))
         {
             m_itemReceiveText.text = "Who will receive the Health Potion?";
-        } else if (item == "magicPotion")
+        } else if (item == "magicPotion" && WorldComponents.items.Contains(new MagicPotion()))
         {
             m_itemReceiveText.text = "Who will receive the Magic Potion?";
         }
-        UnloadItemMenu();
-        LoadPartyMenu();
+        if (m_itemReceiveText.text != "")
+        {
+            UnloadItemMenu();
+            LoadPartyMenu();
+        }
     }
 
     public void giveItemTo(string character)

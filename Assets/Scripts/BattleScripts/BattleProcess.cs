@@ -64,7 +64,7 @@ public class BattleProcess : MonoBehaviour {
 
     public BattleState state;
 
-    
+
     void Start() {
         state = BattleState.START;
         StartCoroutine(SetupBattle());
@@ -506,10 +506,26 @@ public class BattleProcess : MonoBehaviour {
 
 
     IEnumerator PlayerAttack(CharacterClass attackingUnit) {
-
-        
         textchanger.setLog(attackingUnit.s_name + " attacks " + Enemy.s_name);
         deactivateAllButtons();
+
+        Debug.Log(attackingUnit.s_name);
+        switch (attackingUnit.s_name)
+        {
+            case "The Mage":
+                GameObject.Find("Mage(Clone)").GetComponent<Animator>().SetTrigger("attack");
+                break;
+            case "The Warrior":
+                GameObject.Find("Warrior(Clone)").GetComponent<Animator>().SetTrigger("attack");
+                break;
+            case "The Thief":
+                GameObject.Find("Thief(Clone)").GetComponent<Animator>().SetTrigger("attack");
+                break;
+            case "The Priest":
+                GameObject.Find("Priest(Clone)").GetComponent<Animator>().SetTrigger("attack");
+                break;
+        }
+       
 
         yield return new WaitForSeconds(2f);
 
