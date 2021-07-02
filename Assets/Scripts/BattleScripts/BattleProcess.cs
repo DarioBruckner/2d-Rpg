@@ -693,15 +693,23 @@ public class BattleProcess : MonoBehaviour {
             StartCoroutine(changeLevel());
         }else if (state == BattleState.LOST) {
             textchanger.setLog("Oh no you lost, try again!");
-            StartCoroutine(changeLevel());
+            StartCoroutine(changeLevelDeath());
         }
     }
 
-    IEnumerator changeLevel() {
+    IEnumerator changeLevel()
+    {
 
         yield return new WaitForSeconds(2f);
 
         loader.LoadWorld();
+    }
+    IEnumerator changeLevelDeath()
+    {
+
+        yield return new WaitForSeconds(2f);
+
+        loader.LoadDeathScreen();
     }
 
     private void Update()
