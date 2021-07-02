@@ -1,7 +1,6 @@
- using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+
 
 public class TextBubble : MonoBehaviour
 {
@@ -11,10 +10,6 @@ public class TextBubble : MonoBehaviour
     public static void Create(Transform prefab, Transform parent, Vector3 localPosition, string text)
     {
         Transform textBubble = Instantiate(prefab, parent);
-        /*if (parent.transform.localScale.x < 0)
-        {
-            textBubble.localScale = new Vector3(textBubble.localScale.x * -1, textBubble.localScale.y, textBubble.localScale.z);
-        }*/
         textBubble.localPosition = localPosition;
         textBubble.GetComponent<TextBubble>().Setup(text);
         Destroy(textBubble.gameObject, 5f);

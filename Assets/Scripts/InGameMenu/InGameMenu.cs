@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -10,7 +8,6 @@ public class InGameMenu : MonoBehaviour
     public GameObject m_inGameMenu;
     public GameObject m_partyMenu;
     public GameObject m_itemMenu;
-    public GameObject m_worldComponents;
     public TextMeshProUGUI warriorHP;
     public TextMeshProUGUI warriorMP;
     public TextMeshProUGUI thiefHP;

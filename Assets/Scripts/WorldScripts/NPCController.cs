@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class NPCController : MonoBehaviour
 {
@@ -34,8 +32,6 @@ public class NPCController : MonoBehaviour
             }
             else
             {
-                //How do you create a dialogue 
-                //GameObject player = GameObject.Find("Character");
                 TextBubble.Create(textBubble, transform.parent.transform, new Vector3(0.5f, 2.1f, -76.3f), "You Found it! omg!\n Let's go for a beer ( ͡° ͜ʖ ͡°)");
                 Destroy(GameObject.Find("WorldComponents"));
                 CharacterController.b_Stop = true;

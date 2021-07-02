@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterController : MonoBehaviour //Name CharacterControlleris already taken by UnityEngine -> MyCharacterController? + Reconnecting with other assets in editor
@@ -96,7 +94,7 @@ public class CharacterController : MonoBehaviour //Name CharacterControlleris al
 
     private bool IsGrounded()
     {
-        RaycastHit2D hit = Physics2D.BoxCast(transform.position /*+ new Vector3(0, -m_BodyCollider.size.y / 2 + 0.1f, 0)*/ + new Vector3(0,0.1f,0),
+        RaycastHit2D hit = Physics2D.BoxCast(transform.position + new Vector3(0,0.1f,0),
                                 new Vector2(m_BodyCollider.size.x - 0.1f, 0.1f), 0, Vector2.down, 0.2f, layerMask);
         return hit.collider != null;
     }

@@ -1,11 +1,10 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class HealthBar : MonoBehaviour {
+public class HealthBar : MonoBehaviour
+{
 
     public Slider slider;
     public Gradient gradient;
@@ -18,7 +17,8 @@ public class HealthBar : MonoBehaviour {
 
 
 
-    public void SetMaxHealth(int health) {
+    public void SetMaxHealth(int health)
+    {
         slider.maxValue = health;
         slider.value = health;
         currentHealth.SetText(Convert.ToString(health));
@@ -27,8 +27,10 @@ public class HealthBar : MonoBehaviour {
     }
 
 
-    public void SetHealth(int health) {
-        if(health < 0) {
+    public void SetHealth(int health)
+    {
+        if (health < 0)
+        {
             health = 0;
         }
 
@@ -38,14 +40,11 @@ public class HealthBar : MonoBehaviour {
     }
 
 
-    public void setMana(int mana) {
-        if(mana < 0) {
+    public void setMana(int mana)
+    {
+        if (mana < 0)
+        {
             mana = 0;
         }
-
-        
     }
-
-
-
 }

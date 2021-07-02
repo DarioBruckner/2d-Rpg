@@ -5,13 +5,14 @@ using UnityEngine.UI;
 using TMPro;
 
 
-public enum BattleState { START, PLAYERTURN,ENEMYTURN, BATTLEPHASE, WON, LOST , RUN}
+public enum BattleState { START, PLAYERTURN, ENEMYTURN, BATTLEPHASE, WON, LOST, RUN }
 public enum PlayerStates { };
 
-public class BattleProcess : MonoBehaviour {
+public class BattleProcess : MonoBehaviour
+{
 
     public LevelLoader loader;
-    
+
     public GameObject charMagePrefab;
     public GameObject charWarriorPrefab;
     public GameObject charPriestPrefab;
@@ -65,13 +66,15 @@ public class BattleProcess : MonoBehaviour {
     public BattleState state;
 
 
-    void Start() {
+    void Start()
+    {
         state = BattleState.START;
         StartCoroutine(SetupBattle());
     }
 
 
-    IEnumerator SetupBattle() {
+    IEnumerator SetupBattle()
+    {
 
         GameObject charMageGO = Instantiate(charMagePrefab, playerBattleStationChar1);
         GameObject charWarriorGO = Instantiate(charWarriorPrefab, playerBattleStationChar2);
@@ -82,10 +85,10 @@ public class BattleProcess : MonoBehaviour {
         charMage = WorldComponents.mage;
         charPriest = WorldComponents.priest;
         charWarrior = WorldComponents.warrior;
-        charThief =  WorldComponents.thief;
-        
+        charThief = WorldComponents.thief;
+
         GameObject enemyGO;
-        if(WorldComponents.m_currentEnemy == "Wolf")
+        if (WorldComponents.m_currentEnemy == "Wolf")
         {
             enemyGO = Instantiate(wolfPrefab, enemyBattleStation);
             Enemy = enemyGO.GetComponent<Wolf>();
@@ -109,12 +112,12 @@ public class BattleProcess : MonoBehaviour {
             Enemy = enemyGO.GetComponent<Golem>();
             Enemy.initialize(4);
         }
-        
+
         createDefaultButtons();
 
-        
-        
-        
+
+
+
         charMageName.SetText(charMage.s_name);
         charWarriorName.SetText(charWarrior.s_name);
         charPriestName.SetText(charPriest.s_name);
@@ -122,11 +125,11 @@ public class BattleProcess : MonoBehaviour {
 
         EnemyName.SetText(Enemy.s_name);
 
-        textchanger.startupHealth(charMage.n_maxHP,charMage.n_HP,charWarrior.n_maxHP, charWarrior.n_HP,charPriest.n_maxHP, charPriest.n_HP, charThief.n_maxHP, charThief.n_HP, Enemy.n_HP, 
-            charMage.n_maxMP,charMage.n_MP, charWarrior.n_maxMP, charWarrior.n_MP, charPriest.n_maxMP, charPriest.n_MP, charThief.n_maxMP, charThief.n_MP);
+        textchanger.startupHealth(charMage.n_maxHP, charMage.n_HP, charWarrior.n_maxHP, charWarrior.n_HP, charPriest.n_maxHP, charPriest.n_HP, charThief.n_maxHP, charThief.n_HP, Enemy.n_HP,
+            charMage.n_maxMP, charMage.n_MP, charWarrior.n_maxMP, charWarrior.n_MP, charPriest.n_maxMP, charPriest.n_MP, charThief.n_maxMP, charThief.n_MP);
 
         textchanger.setLog(Enemy.s_name + " approches...");
-        
+
 
         yield return new WaitForSeconds(2f);
 
@@ -137,8 +140,8 @@ public class BattleProcess : MonoBehaviour {
         characters.Add(charMage);
         characters.Add(charPriest);
         characters.Add(charWarrior);
-        
-        
+
+
         characters.Add(Enemy);
 
         targets = new List<PlayerClass>();
@@ -146,37 +149,41 @@ public class BattleProcess : MonoBehaviour {
         targets.Add(charPriest);
         targets.Add(charWarrior);
         targets.Add(charThief);
-        
 
-        
+
+
         playTurns = findFastesCharacters(characters);
 
 
         PlayerTurn();
     }
 
-    public void removeAllOnClickListeners() {
+    public void removeAllOnClickListeners()
+    {
         buttonOne.onClick.RemoveAllListeners();
         buttonTwo.onClick.RemoveAllListeners();
         buttonThree.onClick.RemoveAllListeners();
         buttonFour.onClick.RemoveAllListeners();
     }
 
-    public void activateAllButtons() {
+    public void activateAllButtons()
+    {
         buttonOne.gameObject.SetActive(true);
         buttonTwo.gameObject.SetActive(true);
         buttonThree.gameObject.SetActive(true);
         buttonFour.gameObject.SetActive(true);
     }
 
-    public void deactivateAllButtons() {
+    public void deactivateAllButtons()
+    {
         buttonOne.gameObject.SetActive(false);
         buttonTwo.gameObject.SetActive(false);
         buttonThree.gameObject.SetActive(false);
         buttonFour.gameObject.SetActive(false);
     }
 
-    public void createDefaultButtons() {
+    public void createDefaultButtons()
+    {
 
         removeAllOnClickListeners();
 
@@ -199,7 +206,8 @@ public class BattleProcess : MonoBehaviour {
 
 
 
-    public void displaySpecialMoves() {
+    public void displaySpecialMoves()
+    {
         CharacterClass currentPlayer = playTurns.Peek();
         MonsterClass currentEnemy = Enemy;
         List<AbilityClass> abilities = currentPlayer.abilities;
@@ -209,7 +217,8 @@ public class BattleProcess : MonoBehaviour {
 
 
 
-        if (currentPlayer.abilities.Count == 1) {
+        if (currentPlayer.abilities.Count == 1)
+        {
             buttonTwo.gameObject.SetActive(false);
 
             buttonOne.onClick.RemoveAllListeners();
@@ -221,13 +230,17 @@ public class BattleProcess : MonoBehaviour {
             buttonFour.onClick.AddListener(createDefaultButtons);
 
 
-        } else if (currentPlayer.abilities.Count == 0) {
+        }
+        else if (currentPlayer.abilities.Count == 0)
+        {
             buttonOne.gameObject.SetActive(false);
             buttonTwo.gameObject.SetActive(false);
             buttonFour.GetComponentInChildren<TextMeshProUGUI>().SetText("Back");
             buttonFour.onClick.RemoveAllListeners();
             buttonFour.onClick.AddListener(createDefaultButtons);
-        } else {
+        }
+        else
+        {
             buttonOne.GetComponentInChildren<TextMeshProUGUI>().SetText(abilities[0].s_name);
             buttonOne.GetComponentInChildren<TextMeshProUGUI>().SetText(abilities[1].s_name);
             buttonFour.GetComponentInChildren<TextMeshProUGUI>().SetText("Back");
@@ -238,12 +251,15 @@ public class BattleProcess : MonoBehaviour {
 
     }
 
-    public void displayItems() {
+    public void displayItems()
+    {
         CharacterClass currentPlayer = playTurns.Peek();
         List<ItemClass> items = new List<ItemClass>();
 
-        foreach(ItemClass item in WorldComponents.items) {
-            if (!items.Contains(item)) {
+        foreach (ItemClass item in WorldComponents.items)
+        {
+            if (!items.Contains(item))
+            {
                 items.Add(item);
             }
         }
@@ -251,35 +267,49 @@ public class BattleProcess : MonoBehaviour {
 
         removeAllOnClickListeners();
 
-        if(items.Count == 1) {
+        if (items.Count == 1)
+        {
             buttonThree.gameObject.SetActive(false);
             buttonTwo.gameObject.SetActive(false);
             buttonOne.GetComponentInChildren<TextMeshProUGUI>().SetText(items[0].s_itemName);
-            if(items[0].s_itemName == "Healing Potion") {
+            if (items[0].s_itemName == "Healing Potion")
+            {
                 buttonOne.onClick.AddListener(delegate { useHealthPotion(items[0]); });
-            } else {
+            }
+            else
+            {
                 buttonOne.onClick.AddListener(delegate { useMagicPotion(items[0]); });
             }
-            
-        } else if(items.Count == 2) {
+
+        }
+        else if (items.Count == 2)
+        {
 
             buttonThree.gameObject.SetActive(false);
             buttonOne.GetComponentInChildren<TextMeshProUGUI>().SetText(items[0].s_itemName);
-            if (items[0].s_itemName == "Healing Potion") {
+            if (items[0].s_itemName == "Healing Potion")
+            {
                 buttonOne.onClick.AddListener(delegate { useHealthPotion(items[0]); });
-            } else {
+            }
+            else
+            {
                 buttonOne.onClick.AddListener(delegate { useMagicPotion(items[0]); });
             }
 
             buttonTwo.GetComponentInChildren<TextMeshProUGUI>().SetText(items[1].s_itemName);
 
-            if (items[1].s_itemName == "Healing Potion") {
+            if (items[1].s_itemName == "Healing Potion")
+            {
                 buttonTwo.onClick.AddListener(delegate { useHealthPotion(items[1]); });
-            } else {
+            }
+            else
+            {
                 buttonTwo.onClick.AddListener(delegate { useMagicPotion(items[1]); });
             }
 
-        } else {
+        }
+        else
+        {
             buttonThree.gameObject.SetActive(false);
             buttonTwo.gameObject.SetActive(false);
             buttonOne.gameObject.SetActive(false);
@@ -287,8 +317,8 @@ public class BattleProcess : MonoBehaviour {
 
 
 
-       
-        
+
+
         buttonFour.GetComponentInChildren<TextMeshProUGUI>().SetText("Back");
         buttonFour.onClick.AddListener(createDefaultButtons);
         //buttonTwo.onClick.AddListener(delegate { useMagicPotion(items[0]); });
@@ -296,44 +326,59 @@ public class BattleProcess : MonoBehaviour {
 
     }
 
-    public Queue<CharacterClass> findFastesCharacters(List<CharacterClass>charchters) {
+    public Queue<CharacterClass> findFastesCharacters(List<CharacterClass> charchters)
+    {
         Queue<CharacterClass> characterQueue = new Queue<CharacterClass>();
         int size = charchters.Count;
-        for(int i = 0; i< size; i++) {
+        for (int i = 0; i < size; i++)
+        {
             int speed = 0;
             CharacterClass tempobj = null;
-            foreach (CharacterClass cha in charchters) {
-              
-                if(cha.n_agility > speed) {
+            foreach (CharacterClass cha in charchters)
+            {
+
+                if (cha.n_agility > speed)
+                {
                     speed = cha.n_agility;
                     tempobj = cha;
                 }
             }
             characterQueue.Enqueue(tempobj);
             charchters.Remove(tempobj);
-            
+
             speed = 0;
         }
 
         return characterQueue;
     }
 
-    void PlayerTurn() {
-        if (state == BattleState.WON || state == BattleState.LOST) {
+    void PlayerTurn()
+    {
+        if (state == BattleState.WON || state == BattleState.LOST)
+        {
             endBattle();
-        } else if (playTurns.Count > 0 && typeof(PlayerClass).IsInstanceOfType(playTurns.Peek())) {
+        }
+        else if (playTurns.Count > 0 && typeof(PlayerClass).IsInstanceOfType(playTurns.Peek()))
+        {
             state = BattleState.PLAYERTURN;
-            if (playTurns.Peek().b_isAlive) {
+            if (playTurns.Peek().b_isAlive)
+            {
                 textchanger.setLog(playTurns.Peek().s_name + " choose an action: ");
-            } else {
+            }
+            else
+            {
                 playTurns.Dequeue();
                 PlayerTurn();
             }
-        } else if (playTurns.Count > 0 && typeof(MonsterClass).IsInstanceOfType(playTurns.Peek())) {
+        }
+        else if (playTurns.Count > 0 && typeof(MonsterClass).IsInstanceOfType(playTurns.Peek()))
+        {
             state = BattleState.ENEMYTURN;
             EnemyTurn();
 
-        } else {
+        }
+        else
+        {
 
             addCharstoList();
             playTurns = findFastesCharacters(characters);
@@ -341,103 +386,129 @@ public class BattleProcess : MonoBehaviour {
         }
     }
 
-    void addCharstoList() {
+    void addCharstoList()
+    {
 
-        if (charThief.b_isAlive) {
+        if (charThief.b_isAlive)
+        {
             characters.Add(charThief);
         }
-        if (charMage.b_isAlive) {
+        if (charMage.b_isAlive)
+        {
             characters.Add(charMage);
         }
-        if (charPriest.b_isAlive) {
+        if (charPriest.b_isAlive)
+        {
             characters.Add(charPriest);
         }
-        if (charWarrior.b_isAlive) {
+        if (charWarrior.b_isAlive)
+        {
             characters.Add(charWarrior);
         }
-        
-        
-        characters.Add(Enemy);
-        
 
-        if(characters.Count <= 1){
+
+        characters.Add(Enemy);
+
+
+        if (characters.Count <= 1)
+        {
             state = BattleState.LOST;
             endBattle();
         }
     }
 
-    void addChatstoTargets() {
+    void addChatstoTargets()
+    {
         targets.Clear();
-        if (charMage.b_isAlive) {
+        if (charMage.b_isAlive)
+        {
             targets.Add(charMage);
         }
-        if (charWarrior.b_isAlive) {
+        if (charWarrior.b_isAlive)
+        {
             targets.Add(charWarrior);
         }
-        if (charPriest.b_isAlive) {
+        if (charPriest.b_isAlive)
+        {
             targets.Add(charPriest);
         }
-        if (charThief.b_isAlive) {
+        if (charThief.b_isAlive)
+        {
             targets.Add(charThief);
         }
     }
 
-    void EnemyTurn() {
+    void EnemyTurn()
+    {
         int rng = 0;
-        while (true) {
+        while (true)
+        {
             rng = Random.Range(0, targets.Count);
-            if (targets[rng].b_isAlive) {
+            if (targets[rng].b_isAlive)
+            {
                 break;
             }
 
         }
 
-        if(state == BattleState.ENEMYTURN) {
+        if (state == BattleState.ENEMYTURN)
+        {
             CharacterClass tar = targets[rng];
             Enemy.attack(ref tar);
             targets[rng].takePhysDamage(playTurns.Peek().n_strength);
             textchanger.setHealthCharByName(targets[rng].s_name, targets[rng].n_HP);
             StartCoroutine(EnemyAttack(targets[rng]));
-            
+
 
         }
 
-       
-        
+
+
     }
 
-    public void OnAttackButton() {
-        if(state == BattleState.PLAYERTURN) {
+    public void OnAttackButton()
+    {
+        if (state == BattleState.PLAYERTURN)
+        {
             Enemy.takePhysDamage(playTurns.Peek().n_strength);
 
-            
+
             textchanger.setEnemyHealth(Enemy.n_HP);
             StartCoroutine(PlayerAttack(playTurns.Peek()));
-            
+
         }
     }
 
-    public void useAbility(AbilityClass ability, CharacterClass User, MonsterClass target) {
+    public void useAbility(AbilityClass ability, CharacterClass User, MonsterClass target)
+    {
 
-        if (ability.b_targetEnemy == true) {
-            if (ability.enemyAction(ref User, ref target)) {
+        if (ability.b_targetEnemy == true)
+        {
+            if (ability.enemyAction(ref User, ref target))
+            {
                 textchanger.setEnemyHealth(Enemy.n_HP);
                 textchanger.setManaByName(User.s_name, User.n_MP);
                 StartCoroutine(SpecialAttack(ability.s_name, User.s_name, target.s_name, true));
 
-            } else {
+            }
+            else
+            {
                 StartCoroutine(SpecialAttack(ability.s_name, User.s_name, target.s_name, false));
             }
             createDefaultButtons();
-        } else {
-            if(ability.s_name == "Heal") {
+        }
+        else
+        {
+            if (ability.s_name == "Heal")
+            {
                 removeAllOnClickListeners();
                 activateAllButtons();
                 addChatstoTargets();
-               
-                switch (targets.Count) {
+
+                switch (targets.Count)
+                {
                     case 1:
-                       
+
                         buttonTwo.gameObject.SetActive(false);
                         buttonThree.gameObject.SetActive(false);
                         buttonFour.gameObject.SetActive(false);
@@ -479,33 +550,39 @@ public class BattleProcess : MonoBehaviour {
                         buttonFour.onClick.AddListener(delegate { startHeal(ability, targets[3]); });
                         break;
                 }
-            } else {
+            }
+            else
+            {
 
             }
         }
     }
 
-    public void useHealthPotion(ItemClass item) {
+    public void useHealthPotion(ItemClass item)
+    {
         StartCoroutine(HealthPotion(playTurns.Peek(), item));
     }
 
-    public void useMagicPotion(ItemClass item) {
+    public void useMagicPotion(ItemClass item)
+    {
         StartCoroutine(MagicPotion(playTurns.Peek(), item));
     }
 
-    public void startHeal(AbilityClass ability, PlayerClass target) {
-        
+    public void startHeal(AbilityClass ability, PlayerClass target)
+    {
 
-        StartCoroutine(PlayerHeal(ability,target));
 
-       
+        StartCoroutine(PlayerHeal(ability, target));
+
+
 
     }
 
- 
 
 
-    IEnumerator PlayerAttack(CharacterClass attackingUnit) {
+
+    IEnumerator PlayerAttack(CharacterClass attackingUnit)
+    {
         textchanger.setLog(attackingUnit.s_name + " attacks " + Enemy.s_name);
         deactivateAllButtons();
 
@@ -524,22 +601,26 @@ public class BattleProcess : MonoBehaviour {
                 GameObject.Find("Priest(Clone)").GetComponent<Animator>().SetTrigger("attack");
                 break;
         }
-       
+
 
         yield return new WaitForSeconds(2f);
 
-        
+
         playTurns.Dequeue();
-        if (!Enemy.b_isAlive) {
+        if (!Enemy.b_isAlive)
+        {
             state = BattleState.WON;
             endBattle();
-        } else {
+        }
+        else
+        {
             PlayerTurn();
         }
         activateAllButtons();
     }
 
-    IEnumerator EnemyAttack(CharacterClass target) {
+    IEnumerator EnemyAttack(CharacterClass target)
+    {
         Debug.Log(WorldComponents.m_currentEnemy);
         switch (WorldComponents.m_currentEnemy)
         {
@@ -572,11 +653,15 @@ public class BattleProcess : MonoBehaviour {
     }
 
 
-    IEnumerator SpecialAttack(string abilityname, string username, string targetname, bool mana) {
-        if (mana) {
+    IEnumerator SpecialAttack(string abilityname, string username, string targetname, bool mana)
+    {
+        if (mana)
+        {
             textchanger.setLog(username + " used " + abilityname + " on " + targetname);
             playTurns.Dequeue();
-        } else {
+        }
+        else
+        {
             textchanger.setLog("You dont have enough mana for " + abilityname);
         }
         deactivateAllButtons();
@@ -585,32 +670,39 @@ public class BattleProcess : MonoBehaviour {
 
         activateAllButtons();
 
-        if (!Enemy.b_isAlive) {
+        if (!Enemy.b_isAlive)
+        {
             state = BattleState.WON;
             endBattle();
-        } else {
+        }
+        else
+        {
             PlayerTurn();
         }
     }
 
 
-    IEnumerator PlayerHeal(AbilityClass ability,PlayerClass targetPlayer) {
+    IEnumerator PlayerHeal(AbilityClass ability, PlayerClass targetPlayer)
+    {
         CharacterClass user = playTurns.Peek();
         string abilityname = ability.s_name;
         string username = user.s_name;
         string targetname = targetPlayer.s_name;
 
-       
-        if(ability.allyAction(ref user, ref targetPlayer)) {
+
+        if (ability.allyAction(ref user, ref targetPlayer))
+        {
             textchanger.setManaByName(username, user.n_MP);
             textchanger.setHealthCharByName(targetname, targetPlayer.n_HP);
             textchanger.setLog(username + " healed " + targetname);
-        } else {
+        }
+        else
+        {
             textchanger.setLog("Not enough mana to cast " + abilityname);
         }
         deactivateAllButtons();
         yield return new WaitForSeconds(2f);
-        
+
         activateAllButtons();
 
         createDefaultButtons();
@@ -620,8 +712,9 @@ public class BattleProcess : MonoBehaviour {
     }
 
 
-    IEnumerator HealthPotion(CharacterClass ItemUser, ItemClass item) {
-        
+    IEnumerator HealthPotion(CharacterClass ItemUser, ItemClass item)
+    {
+
         deactivateAllButtons();
 
         item.action(ref ItemUser);
@@ -638,8 +731,9 @@ public class BattleProcess : MonoBehaviour {
 
     }
 
-    
-    IEnumerator MagicPotion(CharacterClass ItemUser, ItemClass item) {
+
+    IEnumerator MagicPotion(CharacterClass ItemUser, ItemClass item)
+    {
 
 
         deactivateAllButtons();
@@ -651,38 +745,48 @@ public class BattleProcess : MonoBehaviour {
         PlayerTurn();
     }
 
-    void runFromBattle() {
+    void runFromBattle()
+    {
         int rng = Random.Range(0, 100);
         StartCoroutine(runAttempt(rng));
-       
+
     }
 
-    IEnumerator runAttempt(int rng) {
+    IEnumerator runAttempt(int rng)
+    {
 
-        if (rng < 50) {
+        if (rng < 50)
+        {
             textchanger.setLog("The way was blocked by the enemy");
             playTurns.Dequeue();
-            
-        } else {
+
+        }
+        else
+        {
             textchanger.setLog("You Successfuly escaped");
-            state = BattleState.RUN; 
+            state = BattleState.RUN;
         }
 
 
         deactivateAllButtons();
         yield return new WaitForSeconds(1f);
-        
-        if (state == BattleState.RUN) {
+
+        if (state == BattleState.RUN)
+        {
             StartCoroutine(changeLevel());
-        } else {
+        }
+        else
+        {
             activateAllButtons();
             PlayerTurn();
         }
     }
-    
 
-    void endBattle() {
-        if(state == BattleState.WON) {
+
+    void endBattle()
+    {
+        if (state == BattleState.WON)
+        {
             WorldComponents.mage.gainExp(Enemy.n_expDrop);
             WorldComponents.priest.gainExp(Enemy.n_expDrop);
             WorldComponents.warrior.gainExp(Enemy.n_expDrop);
@@ -691,13 +795,16 @@ public class BattleProcess : MonoBehaviour {
             textchanger.setLog("You won, well done");
             WorldComponents.b_enemyDefeated = true;
             StartCoroutine(changeLevel());
-        }else if (state == BattleState.LOST) {
+        }
+        else if (state == BattleState.LOST)
+        {
             textchanger.setLog("Oh no you lost, try again!");
             StartCoroutine(changeLevel());
         }
     }
 
-    IEnumerator changeLevel() {
+    IEnumerator changeLevel()
+    {
 
         yield return new WaitForSeconds(2f);
 
@@ -756,7 +863,7 @@ public class BattleProcess : MonoBehaviour {
                     GameObject.Find("Golem(Clone)").GetComponent<Animator>().SetBool("dead", true);
                     break;
             }
-            
+
         }
     }
 }

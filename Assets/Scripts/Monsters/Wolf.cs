@@ -1,7 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 public class Wolf : MonsterClass
 {
@@ -39,18 +36,5 @@ public class Wolf : MonsterClass
         this.n_stdMagicalMight = (int)Math.Ceiling((double)(this.n_stdMagicalMight * 1));
         this.n_stdMagicalResistance = (int)Math.Ceiling((double)(this.n_stdMagicalResistance * 0.9));
         this.resetStats();
-    }
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-       
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

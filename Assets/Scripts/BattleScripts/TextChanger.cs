@@ -1,31 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine;
 
-public class TextChanger : MonoBehaviour {
-
+public class TextChanger : MonoBehaviour
+{
 
     public TextMeshProUGUI battleLog;
-
     public HealthBar healthBarChar1;
     public HealthBar healthBarChar2;
     public HealthBar healthBarChar3;
     public HealthBar healthBarChar4;
 
-
-
     public EnemyHealthBar enemyHealthbar;
 
-
-    public void setLog(string Text) {
+    public void setLog(string Text)
+    {
         battleLog.SetText(Text);
     }
 
-
-
-    public void startupHealth(int healthchar1, int currenthealthchar1,int healthchar2, int currenthealthchar2, int healthchar3, int currenthealthchar3,int healthchar4, int currenthealthchar4, int enemyHealth, int manachar1, int currentmanachar1,int manachar2, int currentmanachar2, int manachar3, int currentmanachar3, int manachar4, int currentmanachar4) {
+    public void startupHealth(int healthchar1, int currenthealthchar1, int healthchar2, int currenthealthchar2, int healthchar3, int currenthealthchar3, int healthchar4, int currenthealthchar4, int enemyHealth, int manachar1, int currentmanachar1, int manachar2, int currentmanachar2, int manachar3, int currentmanachar3, int manachar4, int currentmanachar4)
+    {
         healthBarChar1.SetMaxHealth(healthchar1);
         healthBarChar2.SetMaxHealth(healthchar2);
         healthBarChar3.SetMaxHealth(healthchar3);
@@ -50,8 +44,10 @@ public class TextChanger : MonoBehaviour {
 
     }
 
-    public void setHealthChar(int barnum, int health) {
-        switch (barnum) {
+    public void setHealthChar(int barnum, int health)
+    {
+        switch (barnum)
+        {
             case 1:
                 healthBarChar1.SetHealth(health);
                 break;
@@ -66,11 +62,13 @@ public class TextChanger : MonoBehaviour {
                 break;
         }
 
-        
+
     }
 
-    public void setHealthCharByName(string name, int health) {
-        switch (name) {
+    public void setHealthCharByName(string name, int health)
+    {
+        switch (name)
+        {
             case "The Mage":
                 healthBarChar1.SetHealth(health);
                 break;
@@ -86,8 +84,10 @@ public class TextChanger : MonoBehaviour {
         }
     }
 
-    public void setManaByName(string name, int mana) {
-        switch (name) {
+    public void setManaByName(string name, int mana)
+    {
+        switch (name)
+        {
             case "The Mage":
                 healthBarChar1.manaBar.SetMana(mana);
                 break;
@@ -103,7 +103,8 @@ public class TextChanger : MonoBehaviour {
         }
     }
 
-    public void setEnemyHealth(int health) {
+    public void setEnemyHealth(int health)
+    {
         enemyHealthbar.SetHealth(health);
     }
 
