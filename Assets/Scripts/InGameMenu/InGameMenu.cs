@@ -19,6 +19,14 @@ public class InGameMenu : MonoBehaviour
     public TextMeshProUGUI priestMP;
     public TextMeshProUGUI mageHP;
     public TextMeshProUGUI mageMP;
+    public TextMeshProUGUI warriorLVL;
+    public TextMeshProUGUI warriorEXP;
+    public TextMeshProUGUI thiefLVL;
+    public TextMeshProUGUI thiefEXP;
+    public TextMeshProUGUI priestLVL;
+    public TextMeshProUGUI priestEXP;
+    public TextMeshProUGUI mageLVL;
+    public TextMeshProUGUI mageEXP;
     public TextMeshProUGUI m_healthPotionButton;
     public TextMeshProUGUI m_magicPotionButton;
     public TextMeshProUGUI m_itemReceiveText;
@@ -61,15 +69,23 @@ public class InGameMenu : MonoBehaviour
         UnloadItemMenu();
         warriorHP.text = "HP: " + WorldComponents.warrior.n_HP + "/" + WorldComponents.warrior.n_maxHP;
         warriorMP.text = "MP: " + WorldComponents.warrior.n_MP + "/" + WorldComponents.warrior.n_maxMP;
+        warriorLVL.text = "LVL: " + WorldComponents.warrior.n_lvl;
+        warriorEXP.text = "EXP: " + WorldComponents.warrior.n_exp + "/" + WorldComponents.warrior.n_expReq;
 
         thiefHP.text = "HP: " + WorldComponents.thief.n_HP + "/" + WorldComponents.thief.n_maxHP;
         thiefMP.text = "MP: " + WorldComponents.thief.n_MP + "/" + WorldComponents.thief.n_maxMP;
+        thiefLVL.text = "LVL: " + WorldComponents.thief.n_lvl;
+        thiefEXP.text = "EXP: " + WorldComponents.thief.n_exp + "/" + WorldComponents.warrior.n_expReq;
 
         priestHP.text = "HP: " + WorldComponents.priest.n_HP + "/" + WorldComponents.priest.n_maxHP;
         priestMP.text = "MP: " + WorldComponents.priest.n_MP + "/" + WorldComponents.priest.n_maxMP;
+        priestLVL.text = "LVL: " + WorldComponents.priest.n_lvl;
+        priestEXP.text = "EXP: " + WorldComponents.priest.n_exp + "/" + WorldComponents.warrior.n_expReq;
 
         mageHP.text = "HP: " + WorldComponents.mage.n_HP + "/" + WorldComponents.mage.n_maxHP;
         mageMP.text = "MP: " + WorldComponents.mage.n_MP + "/" + WorldComponents.mage.n_maxMP;
+        mageLVL.text = "LVL: " + WorldComponents.mage.n_lvl;
+        mageEXP.text = "EXP: " + WorldComponents.mage.n_exp + "/" + WorldComponents.warrior.n_expReq;
     }
 
     public void UnloadPartyMenu()
