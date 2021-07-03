@@ -79,6 +79,7 @@ public class CharacterClass : MonoBehaviour
         this.n_stdMagicalResistance = (int)Math.Ceiling((double)(this.n_stdMagicalResistance * 1.2));
         this.resetStats();
         this.n_expReq += (int)Math.Ceiling((double)(this.n_expReq * 1.2));
+        this.b_isAlive = true;
         this.n_lvl++;
     }
 

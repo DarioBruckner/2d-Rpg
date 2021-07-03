@@ -52,6 +52,11 @@ public class LevelLoader : MonoBehaviour
         StartCoroutine(Loader("level_0"));
         CharacterController.b_Stop = false;
     }
+    public void LoadDeathScreen()
+    {
+        StartCoroutine(Loader("death"));
+        CharacterController.b_Stop = false;
+    }
     public void LoadMainMenu()
     {
         StartCoroutine(Loader("main menu"));
