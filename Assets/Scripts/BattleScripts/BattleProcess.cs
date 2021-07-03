@@ -90,25 +90,56 @@ public class BattleProcess : MonoBehaviour {
         {
             enemyGO = Instantiate(wolfPrefab, enemyBattleStation);
             Enemy = enemyGO.GetComponent<Wolf>();
-            Enemy.initialize(1);
+            if(WorldComponents.b_ringquest)
+            {
+                Enemy.initialize(7);
+            } else
+            {
+                Enemy.initialize(1);
+            }
+            
         }
         else if (WorldComponents.m_currentEnemy == "Drake")
         {
             enemyGO = Instantiate(drakePrefab, enemyBattleStation);
             Enemy = enemyGO.GetComponent<Drake>();
-            Enemy.initialize(3);
+            if (WorldComponents.b_ringquest)
+            {
+                Enemy.initialize(7);
+            }
+            else
+            {
+                Enemy.initialize(3);
+            }
+            
         }
         else if (WorldComponents.m_currentEnemy == "Bat")
         {
             enemyGO = Instantiate(batPrefab, enemyBattleStation);
             Enemy = enemyGO.GetComponent<Bat>();
-            Enemy.initialize(2);
+            if (WorldComponents.b_ringquest)
+            {
+                Enemy.initialize(7);
+            }
+            else
+            {
+                Enemy.initialize(2);
+            }
+            
         }
         else
         {
             enemyGO = Instantiate(golemPrefab, enemyBattleStation);
             Enemy = enemyGO.GetComponent<Golem>();
-            Enemy.initialize(4);
+            if (WorldComponents.b_ringquest)
+            {
+                Enemy.initialize(7);
+            }
+            else
+            {
+                Enemy.initialize(4);
+            }
+            
         }
         
         createDefaultButtons();
