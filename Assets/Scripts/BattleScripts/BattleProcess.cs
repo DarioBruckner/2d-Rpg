@@ -416,7 +416,6 @@ public class BattleProcess : MonoBehaviour {
         if(state == BattleState.ENEMYTURN) {
             CharacterClass tar = targets[rng];
             Enemy.attack(ref tar);
-            targets[rng].takePhysDamage(playTurns.Peek().n_strength);
             textchanger.setHealthCharByName(targets[rng].s_name, targets[rng].n_HP);
             StartCoroutine(EnemyAttack(targets[rng]));
             
