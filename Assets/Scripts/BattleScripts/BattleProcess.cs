@@ -276,6 +276,8 @@ public class BattleProcess : MonoBehaviour
         }
         else
         {
+            buttonOne.onClick.RemoveAllListeners();
+            buttonTwo.onClick.RemoveAllListeners();
             buttonOne.GetComponentInChildren<TextMeshProUGUI>().SetText(abilities[0].s_name);
             buttonTwo.GetComponentInChildren<TextMeshProUGUI>().SetText(abilities[1].s_name);
             buttonOne.onClick.AddListener(delegate { useAbility(abilities[0], currentPlayer, currentEnemy); });
