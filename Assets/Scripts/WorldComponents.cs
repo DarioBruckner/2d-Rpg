@@ -8,7 +8,7 @@ public class WorldComponents : MonoBehaviour
     //Speichere Gegner, die gestorben sind/Quests die erfüllt sind um sie nicht zu spawnen
     //Bei Spielerkollision mit Gegner, können mithilfe von Tags/ids die Daten der Gegner gefunden werden und so bei der Transitiontobattle übertragen werden
     //Oder bei der Transition werden jeweils die Daten gespeichert und dann beim constructen der Welt so gesetzt, wie man sie vorgefunden hat. 
-    public GameObject m_Enemies2;
+    
     public static ArrayList m_enemies = new ArrayList();
     public static ArrayList m_itemsAndArtifacts = new ArrayList();
     public static Vector3 m_playerposition;
@@ -24,11 +24,12 @@ public class WorldComponents : MonoBehaviour
     public static Thief thief = new Thief();
     public static List<ItemClass> items = new List<ItemClass>();
     public static ArrayList m_items = new ArrayList();
+    public static GameObject m_enemies2;
 
 
     void Start()
     {
-        
+        m_enemies2 = GameObject.Find("Enemies (2)");
         
         if (b_firstLoad)
         {
@@ -36,6 +37,8 @@ public class WorldComponents : MonoBehaviour
                 m_playerposition = GameObject.Find("Character").transform.position;
             b_firstLoad = false;
             DontDestroyOnLoad(gameObject);
+            if (!b_ringquest)
+                GameObject.Find("Enemies (2)").SetActive(false);
         }
         else
         {
@@ -62,8 +65,7 @@ public class WorldComponents : MonoBehaviour
                 b_enemyDefeated = false;
 
             //Copy current position n stuff as long as there are Enemies 
-            if (GameObject.Find("Enemies"))
-                GameObject.Find(s_playerobjectname).transform.position = m_playerposition;
+            GameObject.Find(s_playerobjectname).transform.position = m_playerposition;
 
             for (int j = 0; j < m_enemies.Count; j++)
                 Destroy(GameObject.Find(m_enemies[j].ToString()));
@@ -72,8 +74,9 @@ public class WorldComponents : MonoBehaviour
             for (int j = 0; j < m_items.Count; j++)
                 Destroy(GameObject.Find(m_items[j].ToString()));
 
-            if(b_ringquest)
-                m_Enemies2.SetActive(true);
+            if (!b_ringquest)
+                GameObject.Find("Enemies (2)").SetActive(false);
+            
         }
       
     }

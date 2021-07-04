@@ -128,7 +128,7 @@ public class CharacterController : MonoBehaviour //Name CharacterControlleris al
                 TextBubble.Create(textBubblePrefab, this.transform, new Vector3(0.5f, 2.1f, -76.3f), "Holy bananas I found it!\nNow I gotta give it back to him.. ");
                 WorldComponents.m_items.Add(collision.name);
                 WorldComponents.b_ringquest = true;
-                GameObject.Find("WorldComponents").GetComponent<WorldComponents>().m_Enemies2.SetActive(true);
+                WorldComponents.m_enemies2.SetActive(true);
             }
             Destroy(GameObject.Find(collision.name));
         }
