@@ -18,6 +18,7 @@ public class Golem : MonsterClass
     public override void initialize(int lvl)
     {
         base.initialize(lvl);
+        this.n_expDrop = 500;
         this.s_name = "Golem";
         this.n_maxHP = (int)Math.Ceiling((double)(this.n_maxHP * 4));
         this.n_maxMP = (int)Math.Ceiling((double)(this.n_maxMP * 1));
