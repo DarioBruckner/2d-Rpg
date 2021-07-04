@@ -31,7 +31,7 @@ public class Drake : MonsterClass
     }
     public override void attack(ref CharacterClass target)
     {
-        double rawDamage = (this.n_magicalMight / (target.n_magicalResistance) + 1;
+        double rawDamage = (this.n_magicalMight / (target.n_magicalResistance)) + 1;
         System.Random rng = new System.Random();
         double crit = rng.Next(100) * ((this.n_agility / 100) + 1);
         if (crit > 90)
