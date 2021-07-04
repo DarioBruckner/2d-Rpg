@@ -458,6 +458,12 @@ public class BattleProcess : MonoBehaviour
 
 
     void addDeadCharsToList() {
+        foreach(CharacterClass chare in deadCharacters){
+            deadCharacters.Remove(chare);
+        }
+        
+        
+        
         if (!charThief.b_isAlive) {
             deadCharacters.Add(charThief);
         }
