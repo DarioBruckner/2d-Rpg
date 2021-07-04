@@ -8,6 +8,7 @@ public class WorldComponents : MonoBehaviour
     //Speichere Gegner, die gestorben sind/Quests die erfüllt sind um sie nicht zu spawnen
     //Bei Spielerkollision mit Gegner, können mithilfe von Tags/ids die Daten der Gegner gefunden werden und so bei der Transitiontobattle übertragen werden
     //Oder bei der Transition werden jeweils die Daten gespeichert und dann beim constructen der Welt so gesetzt, wie man sie vorgefunden hat. 
+    public GameObject m_Enemies2;
     public static ArrayList m_enemies = new ArrayList();
     public static ArrayList m_itemsAndArtifacts = new ArrayList();
     public static Vector3 m_playerposition;
@@ -35,7 +36,6 @@ public class WorldComponents : MonoBehaviour
                 m_playerposition = GameObject.Find("Character").transform.position;
             b_firstLoad = false;
             DontDestroyOnLoad(gameObject);
-           
         }
         else
         {
@@ -71,6 +71,9 @@ public class WorldComponents : MonoBehaviour
             //Remove Items in the list from the world
             for (int j = 0; j < m_items.Count; j++)
                 Destroy(GameObject.Find(m_items[j].ToString()));
+
+            if(b_ringquest)
+                m_Enemies2.SetActive(true);
         }
       
     }
