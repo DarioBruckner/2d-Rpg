@@ -695,6 +695,7 @@ public class BattleProcess : MonoBehaviour
 
     IEnumerator PlayerAttack(CharacterClass attackingUnit)
     {
+        StartCoroutine(DoBlinks(Enemy.s_name, new Color(0, 0, 0, 0)));
         textchanger.setLog(attackingUnit.s_name + " attacks " + Enemy.s_name);
         deactivateAllButtons();
 
@@ -733,6 +734,7 @@ public class BattleProcess : MonoBehaviour
 
     IEnumerator EnemyAttack(CharacterClass target)
     {
+        StartCoroutine(DoBlinks(target.s_name, new Color(0, 0, 0, 0)));
         Debug.Log(WorldComponents.m_currentEnemy);
         switch (WorldComponents.m_currentEnemy)
         {
@@ -771,12 +773,30 @@ public class BattleProcess : MonoBehaviour
         {
             textchanger.setLog(username + " used " + abilityname + " on " + targetname);
             playTurns.Dequeue();
+            switch (username)
+            {
+                case "The Mage":
+                    GameObject.Find("Mage(Clone)").GetComponent<Animator>().SetTrigger("attack");
+                    break;
+                case "The Warrior":
+                    GameObject.Find("Warrior(Clone)").GetComponent<Animator>().SetTrigger("attack");
+                    break;
+                case "The Thief":
+                    GameObject.Find("Thief(Clone)").GetComponent<Animator>().SetTrigger("attack");
+                    break;
+                case "The Priest":
+                    GameObject.Find("Priest(Clone)").GetComponent<Animator>().SetTrigger("attack");
+                    break;
+            }
+            StartCoroutine(DoBlinks(targetname, new Color(0, 0, 0, 0)));
+
         }
         else
         {
             textchanger.setLog("You dont have enough mana for " + abilityname);
         }
         deactivateAllButtons();
+
 
         yield return new WaitForSeconds(2f);
 
@@ -796,6 +816,8 @@ public class BattleProcess : MonoBehaviour
 
     IEnumerator PlayerHeal(AbilityClass ability, PlayerClass targetPlayer)
     {
+        StartCoroutine(DoBlinks(targetPlayer.s_name, new Color(255,174,0)));
+
         CharacterClass user = playTurns.Peek();
         string abilityname = ability.s_name;
         string username = user.s_name;
@@ -851,7 +873,8 @@ public class BattleProcess : MonoBehaviour
 
 
     IEnumerator HealthPotion(CharacterClass ItemUser, ItemClass item) {
-        
+
+        StartCoroutine(DoBlinks(ItemUser.s_name, new Color(255, 174, 0)));
         deactivateAllButtons();
 
         item.action(ref ItemUser);
@@ -872,7 +895,7 @@ public class BattleProcess : MonoBehaviour
 
     IEnumerator MagicPotion(CharacterClass ItemUser, ItemClass item)
     {
-
+        StartCoroutine(DoBlinks(ItemUser.s_name, new Color(0, 132, 255)));
 
         deactivateAllButtons();
         item.action(ref ItemUser);
@@ -887,6 +910,74 @@ public class BattleProcess : MonoBehaviour
         playTurns.Dequeue();
         createDefaultButtons();
         PlayerTurn();
+    }
+
+    IEnumerator DoBlinks(string target, Color color)
+    {
+        float duration = 1f;
+        float blinkTime = 0.05f;
+        bool blinkSwitch = true;
+        while (duration >= 0)
+        {
+            duration -= blinkTime;
+            switch (target)
+            {
+                case "The Mage":
+                    GameObject.Find("Mage(Clone)").GetComponent<SpriteRenderer>().color = blinkSwitch ? color : new Color(255, 255, 255);
+                    break;
+                case "The Warrior":
+                    GameObject.Find("Warrior(Clone)").GetComponent<SpriteRenderer>().color = blinkSwitch ? color : new Color(255, 255, 255);
+                    break;
+                case "The Thief":
+                    GameObject.Find("Thief(Clone)").GetComponent<SpriteRenderer>().color = blinkSwitch ? color : new Color(255, 255, 255);
+                    break;
+                case "The Priest":
+                    GameObject.Find("Priest(Clone)").GetComponent<SpriteRenderer>().color = blinkSwitch ? color : new Color(255, 255, 255);
+                    break;
+                case "Wolf":
+                    GameObject.Find("Wolf(Clone)").GetComponent<SpriteRenderer>().color = blinkSwitch ? color : new Color(255, 255, 255);
+                    break;
+                case "Bat":
+                    GameObject.Find("Bat(Clone)").GetComponent<SpriteRenderer>().color = blinkSwitch ? color : new Color(255, 255, 255);
+                    break;
+                case "Drake":
+                    GameObject.Find("Drake(Clone)").GetComponent<SpriteRenderer>().color = blinkSwitch ? color : new Color(255, 255, 255);
+                    break;
+                case "GolemBoss":
+                    GameObject.Find("Golem(Clone)").GetComponent<SpriteRenderer>().color = blinkSwitch ? color : new Color(255, 255, 255);
+                    break;
+            }
+            blinkSwitch = !blinkSwitch;
+            yield return new WaitForSeconds(blinkTime);
+        }
+
+        switch (target)
+        {
+            case "The Mage":
+                GameObject.Find("Mage(Clone)").GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+                break;
+            case "The Warrior":
+                GameObject.Find("Warrior(Clone)").GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+                break;
+            case "The Thief":
+                GameObject.Find("Thief(Clone)").GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+                break;
+            case "The Priest":
+                GameObject.Find("Priest(Clone)").GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+                break;
+            case "Wolf":
+                GameObject.Find("Wolf(Clone)").GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+                break;
+            case "Bat":
+                GameObject.Find("Bat(Clone)").GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+                break;
+            case "Drake":
+                GameObject.Find("Drake(Clone)").GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+                break;
+            case "GolemBoss":
+                GameObject.Find("Golem(Clone)").GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+                break;
+        }
     }
 
     void runFromBattle()
