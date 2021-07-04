@@ -941,7 +941,7 @@ public class BattleProcess : MonoBehaviour
             case "Drake":
                 originalColor = GameObject.Find("Drake(Clone)").GetComponent<SpriteRenderer>().color;
                 break;
-            case "GolemBoss":
+            case "Golem":
                 originalColor = GameObject.Find("Golem(Clone)").GetComponent<SpriteRenderer>().color;
                 break;
         }
@@ -971,7 +971,7 @@ public class BattleProcess : MonoBehaviour
                 case "Drake":
                     GameObject.Find("Drake(Clone)").GetComponent<SpriteRenderer>().color = blinkSwitch ? color : originalColor;
                     break;
-                case "GolemBoss":
+                case "Golem":
                     GameObject.Find("Golem(Clone)").GetComponent<SpriteRenderer>().color = blinkSwitch ? color : originalColor;
                     break;
             }
@@ -1002,7 +1002,7 @@ public class BattleProcess : MonoBehaviour
             case "Drake":
                 GameObject.Find("Drake(Clone)").GetComponent<SpriteRenderer>().color = originalColor;
                 break;
-            case "GolemBoss":
+            case "Golem":
                 GameObject.Find("Golem(Clone)").GetComponent<SpriteRenderer>().color = originalColor;
                 break;
         }
