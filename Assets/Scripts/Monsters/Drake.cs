@@ -6,7 +6,7 @@ public class Drake : MonsterClass
     {
         this.s_name = "Drake";
         this.n_expDrop = 300;
-        this.n_maxHP = (int)Math.Ceiling((double)(this.n_maxHP * 6));
+        this.n_maxHP = (int)Math.Ceiling((double)(this.n_maxHP * 4));
         this.n_maxMP = (int)Math.Ceiling((double)(this.n_maxMP * 1));
         this.n_stdStrength = (int)Math.Ceiling((double)(this.n_stdStrength * 1));
         this.n_stdAgility = (int)Math.Ceiling((double)(this.n_stdAgility * 1));
@@ -20,7 +20,7 @@ public class Drake : MonsterClass
         base.initialize(lvl);
         this.s_name = "Drake";
         this.n_expDrop = 300;
-        this.n_maxHP = (int)Math.Ceiling((double)(this.n_maxHP * 6));
+        this.n_maxHP = (int)Math.Ceiling((double)(this.n_maxHP * 4));
         this.n_maxMP = (int)Math.Ceiling((double)(this.n_maxMP * 1));
         this.n_stdStrength = (int)Math.Ceiling((double)(this.n_stdStrength * 1));
         this.n_stdAgility = (int)Math.Ceiling((double)(this.n_stdAgility * 1));
@@ -31,7 +31,7 @@ public class Drake : MonsterClass
     }
     public override void attack(ref CharacterClass target)
     {
-        double rawDamage = (this.n_magicalMight / (target.n_magicalResistance/5)) + 1;
+        double rawDamage = (this.n_magicalMight / (target.n_magicalResistance) + 1;
         System.Random rng = new System.Random();
         double crit = rng.Next(100) * ((this.n_agility / 100) + 1);
         if (crit > 90)
