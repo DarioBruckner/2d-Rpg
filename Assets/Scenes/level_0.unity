@@ -38211,7 +38211,7 @@ GameObject:
   - component: {fileID: 1107375324}
   - component: {fileID: 1107375325}
   - component: {fileID: 1107375326}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: rockPile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
