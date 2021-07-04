@@ -462,12 +462,14 @@ public class BattleProcess : MonoBehaviour
 
 
     void addDeadCharsToList() {
-        foreach(CharacterClass chare in deadCharacters){
-            deadCharacters.Remove(chare);
-        }
-        
-        
-        
+        print(deadCharacters.Count);
+        //foreach(CharacterClass chare in deadCharacters){
+        //    deadCharacters.Remove(chare);
+        //}
+        deadCharacters = new List<CharacterClass>();
+        print(deadCharacters.Count);
+
+
         if (!charThief.b_isAlive) {
             deadCharacters.Add(charThief);
         }

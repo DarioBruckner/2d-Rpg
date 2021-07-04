@@ -31381,7 +31381,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a71b0f6820f61cb4eab923dc4f93fd94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Enemies2: {fileID: 1925652135}
 --- !u!4 &277788939
 Transform:
   m_ObjectHideFlags: 0
@@ -68800,7 +68799,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1925652136
 Transform:
   m_ObjectHideFlags: 0
