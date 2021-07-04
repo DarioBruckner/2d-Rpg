@@ -855,6 +855,7 @@ public class BattleProcess : MonoBehaviour
 
 
     IEnumerator PlayerRevive(AbilityClass ability, PlayerClass targetPlayer) {
+        DoBlinks(targetPlayer.s_name, new Color(0, 255, 0));
         CharacterClass user = playTurns.Peek();
         string abilityname = ability.s_name;
         string username = user.s_name;

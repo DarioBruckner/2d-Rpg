@@ -89,4 +89,12 @@ public class WorldComponents : MonoBehaviour
         m_items = new ArrayList();
         CharacterController.b_Stop = false;
     }
+
+    public static void cheat(int exp)
+    {
+        mage.gainExp(exp);
+        thief.gainExp(exp);
+        warrior.gainExp(exp);
+        priest.gainExp(exp);
+    }
 }

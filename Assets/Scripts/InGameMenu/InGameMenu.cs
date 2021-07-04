@@ -169,4 +169,9 @@ public class InGameMenu : MonoBehaviour
         UnloadPartyMenu();
         LoadItemMenu();
     }
+
+    public void cheat(int exp)
+    {
+        WorldComponents.cheat(exp);
+    }
 }
