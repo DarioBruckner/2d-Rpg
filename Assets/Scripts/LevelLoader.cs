@@ -56,6 +56,8 @@ public class LevelLoader : MonoBehaviour
     {
         StartCoroutine(Loader("death"));
         CharacterController.b_Stop = false;
+
+        WorldComponents.reset();
     }
     public void LoadMainMenu()
     {
