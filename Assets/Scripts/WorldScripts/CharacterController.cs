@@ -31,6 +31,11 @@ public class CharacterController : MonoBehaviour //Name CharacterControlleris al
         foreach (CapsuleCollider2D col in m_BodyColliders)
             if (col.sharedMaterial.name == "CharacterBody")
                 m_BodyCollider = col;
+        if (WorldComponents.levelAfterBattle > WorldComponents.levelBeforeBattle)
+        {
+            TextBubble.Create(textBubblePrefab, this.transform, new Vector3(0.5f, 2.1f, -76.3f), "We reached Level " + WorldComponents.levelAfterBattle + "!");
+            WorldComponents.levelBeforeBattle = WorldComponents.levelAfterBattle;
+        }
     }
 
     // Update is called once per frame

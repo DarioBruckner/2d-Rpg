@@ -1067,6 +1067,8 @@ public class BattleProcess : MonoBehaviour
             WorldComponents.warrior.gainExp(Enemy.n_expDrop);
             WorldComponents.thief.gainExp(Enemy.n_expDrop);
 
+            WorldComponents.levelAfterBattle = WorldComponents.mage.n_lvl;
+
             textchanger.setLog("You won, well done");
             WorldComponents.b_enemyDefeated = true;
             StartCoroutine(changeLevel());

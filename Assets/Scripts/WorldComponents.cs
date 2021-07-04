@@ -26,6 +26,9 @@ public class WorldComponents : MonoBehaviour
     public static ArrayList m_items = new ArrayList();
     public static GameObject m_enemies2;
 
+    public static int levelBeforeBattle = 0;
+    public static int levelAfterBattle = 0;
+
 
     void Start()
     {
@@ -102,10 +105,5 @@ public class WorldComponents : MonoBehaviour
         thief.gainExp(exp);
         warrior.gainExp(exp);
         priest.gainExp(exp);
-    }
-
-    public static void levelUp(int lvl)
-    {
-        Transform character = GameObject.Find("Character").GetComponent<Transform>();
     }
 }
