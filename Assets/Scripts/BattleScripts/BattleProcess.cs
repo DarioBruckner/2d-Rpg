@@ -529,8 +529,9 @@ public class BattleProcess : MonoBehaviour
     {
         if (state == BattleState.PLAYERTURN)
         {
-            Enemy.takePhysDamage(playTurns.Peek().n_strength);
-
+            //Enemy.takePhysDamage(playTurns.Peek().n_strength);
+            CharacterClass monst = Enemy;
+            playTurns.Peek().attack(ref monst);
 
             textchanger.setEnemyHealth(Enemy.n_HP);
             StartCoroutine(PlayerAttack(playTurns.Peek()));
