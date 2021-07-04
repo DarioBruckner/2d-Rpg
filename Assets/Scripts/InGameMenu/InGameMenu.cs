@@ -174,4 +174,9 @@ public class InGameMenu : MonoBehaviour
     {
         WorldComponents.cheat(exp); 
     }
+
+    public void damage(int dmg)
+    {
+        WorldComponents.warrior.takePhysDamage(dmg);
+    }
 }

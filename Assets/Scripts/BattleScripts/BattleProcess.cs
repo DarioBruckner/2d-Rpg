@@ -41,7 +41,7 @@ public class BattleProcess : MonoBehaviour
 
 
     List<CharacterClass> characters;
-    List<CharacterClass> deadCharacters;
+    List<PlayerClass> deadCharacters;
     List<PlayerClass> targets;
 
     PlayerClass charMage;
@@ -187,7 +187,7 @@ public class BattleProcess : MonoBehaviour
         targets.Add(charThief);
 
 
-        deadCharacters = new List<CharacterClass>();
+        deadCharacters = new List<PlayerClass>();
 
 
 
@@ -466,7 +466,7 @@ public class BattleProcess : MonoBehaviour
         //foreach(CharacterClass chare in deadCharacters){
         //    deadCharacters.Remove(chare);
         //}
-        deadCharacters = new List<CharacterClass>();
+        deadCharacters = new List<PlayerClass>();
         print(deadCharacters.Count);
 
 
@@ -482,6 +482,7 @@ public class BattleProcess : MonoBehaviour
         if (!charWarrior.b_isAlive) {
             deadCharacters.Add(charWarrior);
         }
+        Debug.Log(charThief.b_isAlive + " " + charMage.b_isAlive + " " + charPriest.b_isAlive + " " + charWarrior.b_isAlive);
     }
 
     void addChatstoTargets() {
@@ -645,7 +646,7 @@ public class BattleProcess : MonoBehaviour
                 buttonThree.gameObject.SetActive(false);
                 
 
-                buttonOne.GetComponentInChildren<TextMeshProUGUI>().SetText(targets[0].s_name);
+                buttonOne.GetComponentInChildren<TextMeshProUGUI>().SetText(deadCharacters[0].s_name);
 
                 buttonOne.onClick.AddListener(delegate { startRevive(ability, targets[0]); });
 
@@ -656,11 +657,11 @@ public class BattleProcess : MonoBehaviour
                 buttonThree.gameObject.SetActive(false);
                 
 
-                buttonOne.GetComponentInChildren<TextMeshProUGUI>().SetText(targets[0].s_name);
-                buttonTwo.GetComponentInChildren<TextMeshProUGUI>().SetText(targets[1].s_name);
+                buttonOne.GetComponentInChildren<TextMeshProUGUI>().SetText(deadCharacters[0].s_name);
+                buttonTwo.GetComponentInChildren<TextMeshProUGUI>().SetText(deadCharacters[1].s_name);
 
-                buttonOne.onClick.AddListener(delegate { startRevive(ability, targets[0]); });
-                buttonTwo.onClick.AddListener(delegate { startRevive(ability, targets[1]); });
+                buttonOne.onClick.AddListener(delegate { startRevive(ability, deadCharacters[0]); });
+                buttonTwo.onClick.AddListener(delegate { startRevive(ability, deadCharacters[1]); });
 
                 buttonFour.GetComponentInChildren<TextMeshProUGUI>().SetText("Back");
                 buttonFour.onClick.AddListener(createDefaultButtons);
@@ -668,13 +669,13 @@ public class BattleProcess : MonoBehaviour
             case 3:
                 
 
-                buttonOne.GetComponentInChildren<TextMeshProUGUI>().SetText(targets[0].s_name);
-                buttonTwo.GetComponentInChildren<TextMeshProUGUI>().SetText(targets[1].s_name);
-                buttonThree.GetComponentInChildren<TextMeshProUGUI>().SetText(targets[2].s_name);
+                buttonOne.GetComponentInChildren<TextMeshProUGUI>().SetText(deadCharacters[0].s_name);
+                buttonTwo.GetComponentInChildren<TextMeshProUGUI>().SetText(deadCharacters[1].s_name);
+                buttonThree.GetComponentInChildren<TextMeshProUGUI>().SetText(deadCharacters[2].s_name);
 
-                buttonOne.onClick.AddListener(delegate { startRevive(ability, targets[0]); });
-                buttonTwo.onClick.AddListener(delegate { startRevive(ability, targets[1]); });
-                buttonThree.onClick.AddListener(delegate { startRevive(ability, targets[2]); });
+                buttonOne.onClick.AddListener(delegate { startRevive(ability, deadCharacters[0]); });
+                buttonTwo.onClick.AddListener(delegate { startRevive(ability, deadCharacters[1]); });
+                buttonThree.onClick.AddListener(delegate { startRevive(ability, deadCharacters[2]); });
 
                 buttonFour.GetComponentInChildren<TextMeshProUGUI>().SetText("Back");
                 buttonFour.onClick.AddListener(createDefaultButtons);
@@ -1070,6 +1071,8 @@ public class BattleProcess : MonoBehaviour
             WorldComponents.priest.gainExp(Enemy.n_expDrop);
             WorldComponents.warrior.gainExp(Enemy.n_expDrop);
             WorldComponents.thief.gainExp(Enemy.n_expDrop);
+
+            WorldComponents.levelAfterBattle = WorldComponents.mage.n_lvl;
 
             textchanger.setLog("You won, well done");
             WorldComponents.b_enemyDefeated = true;
