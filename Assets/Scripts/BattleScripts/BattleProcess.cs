@@ -917,6 +917,34 @@ public class BattleProcess : MonoBehaviour
         float duration = 1f;
         float blinkTime = 0.05f;
         bool blinkSwitch = true;
+        Color originalColor = new Color();
+        switch (target)
+        {
+            case "The Mage":
+                originalColor = GameObject.Find("Mage(Clone)").GetComponent<SpriteRenderer>().color;
+                break;
+            case "The Warrior":
+                originalColor = GameObject.Find("Warrior(Clone)").GetComponent<SpriteRenderer>().color;
+                break;
+            case "The Thief":
+                originalColor = GameObject.Find("Thief(Clone)").GetComponent<SpriteRenderer>().color;
+                break;
+            case "The Priest":
+                originalColor = GameObject.Find("Priest(Clone)").GetComponent<SpriteRenderer>().color;
+                break;
+            case "Wolf":
+                originalColor = GameObject.Find("Wolf(Clone)").GetComponent<SpriteRenderer>().color;
+                break;
+            case "Bat":
+                originalColor = GameObject.Find("Bat(Clone)").GetComponent<SpriteRenderer>().color;
+                break;
+            case "Drake":
+                originalColor = GameObject.Find("Drake(Clone)").GetComponent<SpriteRenderer>().color;
+                break;
+            case "GolemBoss":
+                originalColor = GameObject.Find("Golem(Clone)").GetComponent<SpriteRenderer>().color;
+                break;
+        }
         while (duration >= 0)
         {
             duration -= blinkTime;
