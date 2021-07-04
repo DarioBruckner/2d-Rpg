@@ -97,4 +97,9 @@ public class WorldComponents : MonoBehaviour
         warrior.gainExp(exp);
         priest.gainExp(exp);
     }
+
+    public static void levelUp(int lvl)
+    {
+        Transform character = GameObject.Find("Character").GetComponent<Transform>();
+    }
 }
