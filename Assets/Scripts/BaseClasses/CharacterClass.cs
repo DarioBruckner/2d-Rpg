@@ -43,7 +43,7 @@ public class CharacterClass : MonoBehaviour
         this.n_expReq = 100;
         this.n_maxHP = 20;
         this.n_maxMP = 10;
-        this.n_stdStrength = 10;
+        this.n_stdStrength = 20;
         this.n_stdAgility = 10;
         this.n_stdVitality = 5;
         this.n_stdMagicalMight = 10;
@@ -59,7 +59,7 @@ public class CharacterClass : MonoBehaviour
         this.n_expReq = 100;
         this.n_maxHP = 20;
         this.n_maxMP = 10;
-        this.n_stdStrength = 10;
+        this.n_stdStrength = 20;
         this.n_stdAgility = 10;
         this.n_stdVitality = 5;
         this.n_stdMagicalMight = 10;
