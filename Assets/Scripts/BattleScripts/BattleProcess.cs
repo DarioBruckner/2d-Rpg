@@ -95,7 +95,8 @@ public class BattleProcess : MonoBehaviour
             Enemy = enemyGO.GetComponent<Wolf>();
             if(WorldComponents.b_ringquest)
             {
-                Enemy.initialize(7);
+                Enemy.initialize(5);
+                Enemy.n_expDrop = 500;
             } else
             {
                 Enemy.initialize(1);
@@ -108,7 +109,8 @@ public class BattleProcess : MonoBehaviour
             Enemy = enemyGO.GetComponent<Drake>();
             if (WorldComponents.b_ringquest)
             {
-                Enemy.initialize(7);
+                Enemy.initialize(5);
+                Enemy.n_expDrop = 500;
             }
             else
             {
@@ -122,7 +124,8 @@ public class BattleProcess : MonoBehaviour
             Enemy = enemyGO.GetComponent<Bat>();
             if (WorldComponents.b_ringquest)
             {
-                Enemy.initialize(7);
+                Enemy.initialize(5);
+                Enemy.n_expDrop = 500;
             }
             else
             {
@@ -137,6 +140,7 @@ public class BattleProcess : MonoBehaviour
             if (WorldComponents.b_ringquest)
             {
                 Enemy.initialize(7);
+                Enemy.n_expDrop = 1000;
             }
             else
             {
