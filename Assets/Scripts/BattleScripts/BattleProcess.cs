@@ -919,34 +919,62 @@ public class BattleProcess : MonoBehaviour
         float duration = 1f;
         float blinkTime = 0.05f;
         bool blinkSwitch = true;
+        Color originalColor = new Color(255,255,255);
+        switch (target)
+        {
+            case "The Mage":
+                originalColor = GameObject.Find("Mage(Clone)").GetComponent<SpriteRenderer>().color;
+                break;
+            case "The Warrior":
+                originalColor = GameObject.Find("Warrior(Clone)").GetComponent<SpriteRenderer>().color;
+                break;
+            case "The Thief":
+                originalColor = GameObject.Find("Thief(Clone)").GetComponent<SpriteRenderer>().color;
+                break;
+            case "The Priest":
+                originalColor = GameObject.Find("Priest(Clone)").GetComponent<SpriteRenderer>().color;
+                break;
+            case "Wolf":
+                originalColor = GameObject.Find("Wolf(Clone)").GetComponent<SpriteRenderer>().color;
+                break;
+            case "Bat":
+                originalColor = GameObject.Find("Bat(Clone)").GetComponent<SpriteRenderer>().color;
+                break;
+            case "Drake":
+                originalColor = GameObject.Find("Drake(Clone)").GetComponent<SpriteRenderer>().color;
+                break;
+            case "Golem":
+                originalColor = GameObject.Find("Golem(Clone)").GetComponent<SpriteRenderer>().color;
+                break;
+        }
         while (duration >= 0)
         {
             duration -= blinkTime;
             switch (target)
             {
                 case "The Mage":
-                    GameObject.Find("Mage(Clone)").GetComponent<SpriteRenderer>().color = blinkSwitch ? color : new Color(255, 255, 255);
+                    GameObject.Find("Mage(Clone)").GetComponent<SpriteRenderer>().color = blinkSwitch ? color : originalColor;
                     break;
                 case "The Warrior":
-                    GameObject.Find("Warrior(Clone)").GetComponent<SpriteRenderer>().color = blinkSwitch ? color : new Color(255, 255, 255);
+                    GameObject.Find("Warrior(Clone)").GetComponent<SpriteRenderer>().color = blinkSwitch ? color : originalColor;
                     break;
                 case "The Thief":
-                    GameObject.Find("Thief(Clone)").GetComponent<SpriteRenderer>().color = blinkSwitch ? color : new Color(255, 255, 255);
+                    GameObject.Find("Thief(Clone)").GetComponent<SpriteRenderer>().color = blinkSwitch ? color : originalColor;
                     break;
                 case "The Priest":
-                    GameObject.Find("Priest(Clone)").GetComponent<SpriteRenderer>().color = blinkSwitch ? color : new Color(255, 255, 255);
+                    GameObject.Find("Priest(Clone)").GetComponent<SpriteRenderer>().color = blinkSwitch ? color : originalColor;
                     break;
                 case "Wolf":
-                    GameObject.Find("Wolf(Clone)").GetComponent<SpriteRenderer>().color = blinkSwitch ? color : new Color(255, 255, 255);
+                    GameObject.Find("Wolf(Clone)").GetComponent<SpriteRenderer>().color = blinkSwitch ? color : originalColor;
                     break;
                 case "Bat":
-                    GameObject.Find("Bat(Clone)").GetComponent<SpriteRenderer>().color = blinkSwitch ? color : new Color(255, 255, 255);
+                    GameObject.Find("Bat(Clone)").GetComponent<SpriteRenderer>().color = blinkSwitch ? color : originalColor;
                     break;
                 case "Drake":
-                    GameObject.Find("Drake(Clone)").GetComponent<SpriteRenderer>().color = blinkSwitch ? color : new Color(255, 255, 255);
+                    GameObject.Find("Drake(Clone)").GetComponent<SpriteRenderer>().color = blinkSwitch ? color : originalColor;
                     break;
-                case "GolemBoss":
-                    GameObject.Find("Golem(Clone)").GetComponent<SpriteRenderer>().color = blinkSwitch ? color : new Color(255, 255, 255);
+                case "Golem":
+                    GameObject.Find("Golem(Clone)").GetComponent<SpriteRenderer>().color = blinkSwitch ? color : originalColor;
                     break;
             }
             blinkSwitch = !blinkSwitch;
@@ -956,28 +984,28 @@ public class BattleProcess : MonoBehaviour
         switch (target)
         {
             case "The Mage":
-                GameObject.Find("Mage(Clone)").GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+                GameObject.Find("Mage(Clone)").GetComponent<SpriteRenderer>().color = originalColor;
                 break;
             case "The Warrior":
-                GameObject.Find("Warrior(Clone)").GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+                GameObject.Find("Warrior(Clone)").GetComponent<SpriteRenderer>().color = originalColor;
                 break;
             case "The Thief":
-                GameObject.Find("Thief(Clone)").GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+                GameObject.Find("Thief(Clone)").GetComponent<SpriteRenderer>().color = originalColor;
                 break;
             case "The Priest":
-                GameObject.Find("Priest(Clone)").GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+                GameObject.Find("Priest(Clone)").GetComponent<SpriteRenderer>().color = originalColor;
                 break;
             case "Wolf":
-                GameObject.Find("Wolf(Clone)").GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+                GameObject.Find("Wolf(Clone)").GetComponent<SpriteRenderer>().color = originalColor;
                 break;
             case "Bat":
-                GameObject.Find("Bat(Clone)").GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+                GameObject.Find("Bat(Clone)").GetComponent<SpriteRenderer>().color = originalColor;
                 break;
             case "Drake":
-                GameObject.Find("Drake(Clone)").GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+                GameObject.Find("Drake(Clone)").GetComponent<SpriteRenderer>().color = originalColor;
                 break;
-            case "GolemBoss":
-                GameObject.Find("Golem(Clone)").GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+            case "Golem":
+                GameObject.Find("Golem(Clone)").GetComponent<SpriteRenderer>().color = originalColor;
                 break;
         }
     }
