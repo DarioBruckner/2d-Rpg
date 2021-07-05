@@ -136,12 +136,12 @@ GameObject:
   - component: {fileID: 5159141}
   - component: {fileID: 5159140}
   m_Layer: 5
-  m_Name: QuitButton (1)
+  m_Name: Cheat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5159139
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1131,6 +1131,14 @@ PrefabInstance:
     - target: {fileID: 6145801227727460214, guid: 8c0f654d889b4e248834287cb24d49be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6145801227727460216, guid: 8c0f654d889b4e248834287cb24d49be, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 6145801227727460216, guid: 8c0f654d889b4e248834287cb24d49be, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.64
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c0f654d889b4e248834287cb24d49be, type: 3}
@@ -31649,12 +31657,12 @@ GameObject:
   - component: {fileID: 340423746}
   - component: {fileID: 340423745}
   m_Layer: 5
-  m_Name: QuitButton (2)
+  m_Name: Damage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &340423744
 RectTransform:
   m_ObjectHideFlags: 0
