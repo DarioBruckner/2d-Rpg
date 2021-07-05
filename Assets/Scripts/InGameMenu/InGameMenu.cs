@@ -28,6 +28,7 @@ public class InGameMenu : MonoBehaviour
     public TextMeshProUGUI m_magicPotionButton;
     public TextMeshProUGUI m_itemReceiveText;
     private string s_itemInUse = "";
+    public GameObject ring;
 
     // Update is called once per frame
     void Update()
@@ -109,6 +110,14 @@ public class InGameMenu : MonoBehaviour
         }
         m_healthPotionButton.text = "Health Potion x" + healthCount / 2;
         m_magicPotionButton.text = "Magic Potion x" + magicCount / 2;
+
+        if (WorldComponents.b_ringquest)
+        {
+            ring.SetActive(true);
+        } else
+        {
+            ring.SetActive(false);
+        }
     }
 
     public void UnloadItemMenu()

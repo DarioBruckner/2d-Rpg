@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class Revive : AbilityClass
 {
     public Revive()

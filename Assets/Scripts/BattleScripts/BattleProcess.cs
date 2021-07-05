@@ -482,7 +482,6 @@ public class BattleProcess : MonoBehaviour
         if (!charWarrior.b_isAlive) {
             deadCharacters.Add(charWarrior);
         }
-        Debug.Log(charThief.b_isAlive + " " + charMage.b_isAlive + " " + charPriest.b_isAlive + " " + charWarrior.b_isAlive);
     }
 
     void addChatstoTargets() {
@@ -648,7 +647,7 @@ public class BattleProcess : MonoBehaviour
 
                 buttonOne.GetComponentInChildren<TextMeshProUGUI>().SetText(deadCharacters[0].s_name);
 
-                buttonOne.onClick.AddListener(delegate { startRevive(ability, targets[0]); });
+                buttonOne.onClick.AddListener(delegate { startRevive(ability, deadCharacters[0]); });
 
                 buttonFour.GetComponentInChildren<TextMeshProUGUI>().SetText("Back");
                 buttonFour.onClick.AddListener(createDefaultButtons);
@@ -751,7 +750,6 @@ public class BattleProcess : MonoBehaviour
     IEnumerator EnemyAttack(CharacterClass target)
     {
         StartCoroutine(DoBlinks(target.s_name, new Color(0, 0, 0, 0)));
-        Debug.Log(WorldComponents.m_currentEnemy);
         switch (WorldComponents.m_currentEnemy)
         {
             case "Wolf":
@@ -863,7 +861,7 @@ public class BattleProcess : MonoBehaviour
 
 
     IEnumerator PlayerRevive(AbilityClass ability, PlayerClass targetPlayer) {
-        DoBlinks(targetPlayer.s_name, new Color(0, 255, 0));
+        StartCoroutine(DoBlinks(targetPlayer.s_name, new Color(0, 255, 0)));
         CharacterClass user = playTurns.Peek();
         string abilityname = ability.s_name;
         string username = user.s_name;
